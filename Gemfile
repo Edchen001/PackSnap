@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'rack-handlers'
+gem 'unicorn'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use postgresql as the database for Active Record
@@ -36,6 +37,7 @@ group :test do
   gem "launchy", "~> 2.4.2"
   gem 'shoulda-matchers'
 end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
