@@ -1,3 +1,5 @@
+require 'date'
+
 FactoryGirl.define do
   factory :destination do
     location "Canton"
