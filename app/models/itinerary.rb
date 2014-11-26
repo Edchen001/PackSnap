@@ -3,5 +3,6 @@ class Itinerary < ActiveRecord::Base
 
   has_many :travel_dates
   has_many :weathers, through: :travel_dates
+  has_many :locations
   belongs_to :trip
 end
