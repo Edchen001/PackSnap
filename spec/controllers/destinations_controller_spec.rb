@@ -65,10 +65,10 @@ describe DestinationsController do
     end
     context 'with invalid attributes' do
       it "should not save into the database" do
-        expect { post :create, destination: attributes_for(:destination, location: nil) }.to_not change(Destination, :count)
+        expect { post :create, destination: attributes_for(:invalid_destination) }.to_not change(Destination, :count)
       end
       it "should re-render :new template" do
-        post :create, destination: attributes_for(:destination, location: nil)
+        post :create, destination: attributes_for(:invalid_destination)
         expect(response).to render_template(:new)
       end
     end
@@ -90,18 +90,18 @@ describe DestinationsController do
       end
       it "should redirect to destination :show" do
         put :update, id: @destination, destination: attributes_for(:destination)
-        expect(reposne).to redirect_to(destination_path(assigns[:destination]))
+        expect(response).to redirect_to(destination_path(assigns[:destination]))
       end
     end
     context 'with invalid attributes' do
       it "should not save into the database" do
-        put :update, id: @destination, destination: attributes_for(:destination, location: nil)
+        put :update, id: @destination, destination: attributes_for(:invalid_destination)
         @destination.reload
         expect(@destination.location).to eq("Canton")
       end
       it "should re-render :edit" do
-        put :update, id: @destination, destination: attributes_for(:destination)
-        expect(resposne).to render_template(:edit)
+        put :update, id: @destination, destination: attributes_for(:invalid_destination)
+        expect(response).to render_template(:edit)
       end
     end
   end
@@ -119,7 +119,7 @@ describe DestinationsController do
     end
     it "should redirect to :index" do
       delete :destroy, id: @destination
-      expect(resposne).to redirect_to(desinations_path)
+      expect(response).to redirect_to(destinations_path)
     end
   end
 
