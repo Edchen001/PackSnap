@@ -13,11 +13,11 @@ class DestinationsController < ApplicationController
 
   def create
     @destination = Destination.new
+    p destination_params
     @destination.assign_attributes(destination_params)
     if @destination.save
       redirect_to destination_path(@destination)
     else
-      flash[:error] = @destination.errors.full_message
       redirect_to new_destination_path(@destination)
     end
   end
@@ -32,7 +32,6 @@ class DestinationsController < ApplicationController
     if @destination.save
       redirect_to destination_path(@destination)
     else
-      flash[:error] = @destination.errors.full_message
       redirect_to edit_destination_path(@destination)
     end
   end
