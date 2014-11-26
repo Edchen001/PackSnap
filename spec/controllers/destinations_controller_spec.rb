@@ -65,10 +65,10 @@ describe DestinationsController do
     end
     context 'with invalid attributes' do
       it "should not save into the database" do
-        expect { post :create, destination: attributes_for(:invalid_destination) }.to_not change(Destination, :count)
+        expect { post :create, destination: attributes_for(:destination, location: nil) }.to_not change(Destination, :count)
       end
       it "should re-render :new template" do
-        post :create, destination: attributes_for(:invalid_destination)
+        post :create, destination: attributes_for(:destination, location: nil)
         expect(response).to render_template(:new)
       end
     end
