@@ -45,7 +45,7 @@ describe DestinationsController do
       end
       it "should render :edit template for destinations" do
         get :edit, id: @destination
-        expect(render).to render_template(:edit)
+        expect(response).to render_template(:edit)
       end
     end
   end
@@ -67,9 +67,9 @@ describe DestinationsController do
       it "should not save into the database" do
         expect { post :create, destination: attributes_for(:invalid_destination) }.to_not change(Destination, :count)
       end
-      it "should re-render :new template" do
+      it "should redirect back to :new route" do
         post :create, destination: attributes_for(:invalid_destination)
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to(new_destination_path(assigns[:destination]))
       end
     end
   end
@@ -99,9 +99,9 @@ describe DestinationsController do
         @destination.reload
         expect(@destination.location).to eq("Canton")
       end
-      it "should re-render :edit" do
+      it "should redirect to :edit route" do
         put :update, id: @destination, destination: attributes_for(:invalid_destination)
-        expect(response).to render_template(:edit)
+        expect(response).to redirect_to(edit_destination_path(assigns[:destination]))
       end
     end
   end
