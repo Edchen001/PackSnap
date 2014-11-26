@@ -15,7 +15,6 @@ class DestinationsController < ApplicationController
 
   def create
     @destination = Destination.new
-    p destination_params
     @destination.assign_attributes(destination_params)
     if @destination.save
       redirect_to destination_path(@destination)
