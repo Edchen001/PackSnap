@@ -5,6 +5,7 @@ FactoryGirl.define do
     location "Canton"
     start_date Date.new(2014,11,25)
     end_date Date.new(2014,11,30)
+    association :trip, factory: :trip
 
     factory :invalid_destination do
       location nil
