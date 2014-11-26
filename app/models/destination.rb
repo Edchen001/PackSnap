@@ -1,4 +1,4 @@
-class Date < ActiveRecord::Base
+class Destination < ActiveRecord::Base
   validates :location, :start_date, :end_date, presence:true
 
   has_many :dates
