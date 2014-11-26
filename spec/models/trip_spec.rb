@@ -2,8 +2,7 @@ require 'rails_helper'
 
 describe Trip do
   describe "validations" do
-    it { should validate_presenece_of :title }
-    it { should validate_presenece_of :description }
+    it { should validate_presence_of :title }
   end
 
   describe "associations" do
