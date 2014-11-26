@@ -51,7 +51,7 @@ describe ItinerariesController do
     end
   end
 
-  describe "Post#create" do
+  xdescribe "Post#create" do
     before do
       @trip = create(:trip)
     end
