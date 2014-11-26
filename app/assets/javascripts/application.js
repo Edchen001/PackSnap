@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
 $(function(){
 	$("#geocomplete").geocomplete({
 		map: ".map_canvas",
