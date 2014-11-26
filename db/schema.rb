@@ -11,12 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20141126212710) do
+ActiveRecord::Schema.define(version: 20141126223754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
 
   create_table "climate_types", force: true do |t|
     t.string "code",        null: false
@@ -32,6 +30,14 @@ ActiveRecord::Schema.define(version: 20141126212710) do
 
   create_table "destinations", force: true do |t|
     t.string   "location",   null: false
+    t.date     "start_date", null: false
+    t.date     "end_date",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "trip_id"
+  end
+
+  create_table "itineraries", force: true do |t|
     t.date     "start_date", null: false
     t.date     "end_date",   null: false
     t.datetime "created_at"
