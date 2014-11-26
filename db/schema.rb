@@ -16,14 +16,6 @@ ActiveRecord::Schema.define(version: 20141126003041) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "dates", force: true do |t|
-    t.date     "current_date",   null: false
-    t.integer  "destination_id", null: false
-    t.integer  "weather_id",     null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "destinations", force: true do |t|
     t.string   "location",   null: false
     t.date     "start_date", null: false
@@ -32,9 +24,18 @@ ActiveRecord::Schema.define(version: 20141126003041) do
     t.datetime "updated_at"
   end
 
+  create_table "travel_dates", force: true do |t|
+    t.date     "current_date",   null: false
+    t.integer  "destination_id", null: false
+    t.integer  "weather_id",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "weathers", force: true do |t|
-    t.decimal "fahrenheit"
-    t.decimal "celsius"
+    t.float   "fahrenheit"
+    t.float   "celsius"
+    t.integer "travel_date_id"
   end
 
 end
