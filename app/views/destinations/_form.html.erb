@@ -1,0 +1,10 @@
+<div class="destination-form">
+  <%= form_for(destination) do |f| %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%= f.label :start_date %>
+  <%= f.date_select :start_date %>
+  <%= f.label :end_date %>
+  <%= f.date_select :end_date %>
+  <% end %>
+</div>
