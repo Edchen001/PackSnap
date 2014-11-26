@@ -1,0 +1,8 @@
+<div class="trip-form">
+  <%= form_for(trip) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :description %>
+  <%= f.date_select :description %>
+  <% end %>
+</div>
