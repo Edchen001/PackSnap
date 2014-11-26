@@ -1,25 +1,29 @@
 class DestinationsController < ApplicationController
   def index
-    @destinations = Destination.all
+    @trip = Trip.find(params[:trip_id])
+    @destinations = @trip.destinations
     render :index, locals:{destinations: @destinations}
   end
 
   def show
-    @destination = Destination.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @destination = @trip.destinations.find(params[:id])
   end
 
   def new
-    @destination = Destination.new
+    @trip = Trip.find(params[:trip_id])
+    @destination = Destination.new(trip: @trip)
     render :new, locals:{destination: @destination}
   end
 
   def create
-    @destination = Destination.new
+    @trip = Trip.find(params[:trip_id])
+    @destination = @trip.destinations.new(trip: @trip)
     @destination.assign_attributes(destination_params)
-    if @destination.save
-      redirect_to destination_path(@destination)
+    if @destination.save!
+      redirect_to trip_destination_path([@trip,@destination])
     else
-      redirect_to new_destination_path(@destination)
+      redirect_to new_trip_destination_path
     end
   end
 
@@ -29,17 +33,19 @@ class DestinationsController < ApplicationController
   end
 
   def update
-    @destination = Destination.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @destination = @trip.destinations.find(params[:id])
     @destination.assign_attributes(destination_params)
     if @destination.save
-      redirect_to destination_path(@destination)
+      redirect_to trip_destination_path([@trip,@destination])
     else
-      redirect_to edit_destination_path(@destination)
+      redirect_to edit_trip_destination_path(@destination)
     end
   end
 
   def destroy
-    @destination = Destination.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @destination = @trip.destinations.find(params[:id])
     @destination.delete
     redirect_to destinations_path
   end
@@ -47,6 +53,6 @@ class DestinationsController < ApplicationController
   private
 
   def destination_params
-    params.require(:destination).permit(:location,:start_date, :end_date)
+    params.require(:destination).permit(:location,:start_date, :end_date, :trip_id)
   end
 end
