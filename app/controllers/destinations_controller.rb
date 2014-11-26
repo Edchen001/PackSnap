@@ -1,4 +1,5 @@
 class DestinationsController < ApplicationController
+
   def index
     @destinations = Destination.all
     render :index, locals:{destinations: @destinations}
