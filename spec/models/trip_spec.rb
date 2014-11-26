@@ -6,6 +6,6 @@ describe Trip do
   end
 
   describe "associations" do
-    it { should have_many :destinations }
+    it { should have_many :itineraries }
   end
 end
