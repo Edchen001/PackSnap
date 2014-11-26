@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20141126223754) do
   end
 
   create_table "locations", force: true do |t|
-    t.string  "name"
+    t.string  "name",         null: false
     t.integer "itinerary_id"
   end
 
