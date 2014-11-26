@@ -8,6 +8,7 @@ class TripsController < ApplicationController
 
 	def show
 		@trip = Trip.find(params[:id])
+		render :show, locals:{trip: @trip}
 	end
 
 	def new
