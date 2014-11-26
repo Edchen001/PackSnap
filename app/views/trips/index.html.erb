@@ -3,10 +3,7 @@ TRIP INDEX
     <li> <%= link_to "Create trip", new_trip_path  %></li>
  	
   <% trips.each do |trip| %>
-    <%= render :show, locals:{trip: trip} %>
-	<li> <%= link_to "Edit trip", edit_trip_path(trip.id)  %></li>
-	<li> <%= link_to "delete trip", trip_path(trip.id), method: :delete  %></li>
-
+    <%= render template:"trips/show", locals:{trip: trip}, layout: false %>
   <% end %>
 <link
 </div>
