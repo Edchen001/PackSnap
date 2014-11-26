@@ -1,6 +1,7 @@
 class DestinationsController < ApplicationController
   def index
     @destinations = Destination.all
+    render :index, locals:{destinations: @destinations}
   end
 
   def show
@@ -9,6 +10,7 @@ class DestinationsController < ApplicationController
 
   def new
     @destination = Destination.new
+    render :new, locals:{destination: @destination}
   end
 
   def create
@@ -24,6 +26,7 @@ class DestinationsController < ApplicationController
 
   def edit
     @destination = Destination.find(params[:id])
+    render :edit, locals:{destination: @destination}
   end
 
   def update
