@@ -51,13 +51,13 @@ describe ItinerariesController do
     end
   end
 
-  xdescribe "Post#create" do
+  describe "Post#create" do
     before do
       @trip = create(:trip)
     end
     context 'with valid attributes' do
       it "should save valid itinerary to database" do
-        expect { post :create, trip_id: @trip, itinerary: attributes_for(:itinerary) }.to change(itinerary, :count).by(1)
+        expect { post :create, trip_id: @trip, itinerary: attributes_for(:itinerary) }.to change(Itinerary, :count).by(1)
       end
       it "should redirect to itinerary :show" do
         post :create, trip_id: @trip, itinerary: attributes_for(:itinerary)
