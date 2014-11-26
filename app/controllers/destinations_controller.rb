@@ -8,6 +8,7 @@ class DestinationsController < ApplicationController
   def show
     @trip = Trip.find(params[:trip_id])
     @destination = @trip.destinations.find(params[:id])
+    render :show, locals:{destination: @destination}
   end
 
   def new
@@ -28,7 +29,8 @@ class DestinationsController < ApplicationController
   end
 
   def edit
-    @destination = Destination.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @destination = @trip.destinations.find(params[:id])
     render :edit, locals:{destination: @destination}
   end
 
