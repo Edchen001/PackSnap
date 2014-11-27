@@ -69,9 +69,9 @@ describe ItinerariesController do
       it "should not save into the database" do
         expect { post :create, trip_id: @trip, itinerary: attributes_for(:invalid_itinerary) }.to_not change(Itinerary, :count)
       end
-      it "should redirect back to :new route" do
+      it "should re-render :new template" do
         post :create, trip_id: @trip, itinerary: attributes_for(:invalid_itinerary)
-        expect(response).to redirect_to(new_trip_itinerary_path(@trip))
+        expect(response).to render_template(:new)
       end
     end
   end
@@ -103,9 +103,9 @@ describe ItinerariesController do
         @itinerary.reload
         expect(@itinerary.start_date).to_not be_nil
       end
-      it "should redirect to :edit route" do
+      it "should re-render :edit template" do
         put :update, trip_id: @trip, id: @itinerary, itinerary: attributes_for(:invalid_itinerary)
-        expect(response).to redirect_to(edit_trip_itinerary_path(@trip, @itinerary))
+        expect(response).to render_template(:edit)
       end
     end
   end
