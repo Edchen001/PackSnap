@@ -28,15 +28,6 @@ ActiveRecord::Schema.define(version: 20141126223754) do
     t.float   "latitude",        null: false
   end
 
-  create_table "destinations", force: true do |t|
-    t.string   "location",   null: false
-    t.date     "start_date", null: false
-    t.date     "end_date",   null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "trip_id"
-  end
-
   create_table "itineraries", force: true do |t|
     t.date     "start_date", null: false
     t.date     "end_date",   null: false

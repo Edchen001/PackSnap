@@ -1,11 +1,14 @@
 <div class="splash-container">
 	<div class="splash">
 		<h1 class="splash-head">PackSnap!</h1>
+
+  	<%= render "/banner"%>
+
 		<p class="splash-subhead">
 			Discover what items you may need on your next trip.
 		</p>
 		<p>
-			<a href="/" class="pure-button pure-button-primary">Get Started</a>
+			<%= link_to "Get Started", new_trip_path, class: "pure-button pure-button-primary" %>
 		</p>
 	</div>
 </div>
@@ -13,7 +16,7 @@
 <div class="content-wrapper">
 
 	<div class="ribbon l-box-lrg pure-g">
-		
+
 		<form>
 			<input id="geocomplete" class="pure-input-2-3" type="text" placeholder="Where are you going?">
 			<input class="pure-input-1-4" type="date">
@@ -26,7 +29,7 @@
 		<div class="map_canvas"></div>
 
 		<h4>Map Information</h4>
-		<div id="map_info"> 
+		<div id="map_info">
 			<ul>
 				<li>Location: <span data-geo="location"></span></li>
 				<li>Route: <span data-geo="route"></span></li>
