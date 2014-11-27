@@ -28,7 +28,8 @@ ActiveRecord::Schema.define(version: 20141126223754) do
     t.float   "latitude",        null: false
   end
 
-  create_table "itineraries", force: true do |t|
+  create_table "destinations", force: true do |t|
+    t.string   "location",   null: false
     t.date     "start_date", null: false
     t.date     "end_date",   null: false
     t.datetime "created_at"
@@ -42,9 +43,9 @@ ActiveRecord::Schema.define(version: 20141126223754) do
   end
 
   create_table "travel_dates", force: true do |t|
-    t.date     "current_date", null: false
-    t.integer  "itinerary_id", null: false
-    t.integer  "weather_id",   null: false
+    t.date     "current_date",   null: false
+    t.integer  "destination_id", null: false
+    t.integer  "weather_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
