@@ -72,4 +72,36 @@ describe TripsController do
       end
     end
   end
+
+  describe "Put#update" do
+    before do
+      @trip = create(:trip)
+    end
+    context 'valid attributes' do
+      it "should locate requested trip" do
+        put :update, id: @trip, trip: attributes_for(:trip)
+        expect(assigns[:trip]).to eq(@trip)
+      end
+      it "should update attributes into database" do
+        put :update, id: @trip, trip: attributes_for(:trip, title: "Rspec")
+        @trip.reload
+        expect(@trip.title).to eq("Rspec")
+      end
+      it "should redirect to trip :show" do
+        put :update, id: @trip, trip: attributes_for(:trip)
+        expect(response).to redirect_to(trip_path(@trip))
+      end
+    end
+    context 'invalid attributes' do
+      it "should not save into database" do
+        put :update, id: @trip, trip: attributes_for(:invalid_trip)
+        @trip.reload
+        expect(@trip.title).to_not be_nil
+      end
+      it "should re-render :edit" do
+        put :update, id: @trip, trip: attributes_for(:invalid_trip)
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
 end
