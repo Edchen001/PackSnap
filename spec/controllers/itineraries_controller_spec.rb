@@ -51,7 +51,7 @@ describe ItinerariesController do
     end
   end
 
-  xdescribe "Post#create" do
+  describe "Post#create" do
     before do
       @trip = create(:trip)
     end
@@ -61,16 +61,16 @@ describe ItinerariesController do
       end
       it "should redirect to itinerary :show" do
         post :create, trip_id: @trip, itinerary: attributes_for(:itinerary)
-        expect(response).to redirect_to(trip_intinerary_path(assigns[:itinerary]))
+        expect(response).to redirect_to(trip_itineraries_path(@trip))
       end
     end
     context 'with invalid attributes' do
       it "should not save into the database" do
-        expect { post :create, trip_id: @trip, itinerary: attributes_for(:invalid_destination) }.to_not change(itinerary, :count)
+        expect { post :create, trip_id: @trip, itinerary: attributes_for(:invalid_itinerary) }.to_not change(Itinerary, :count)
       end
       it "should redirect back to :new route" do
-        post :create, trip_id: @trip, itinerary: attributes_for(:invalid_destination)
-        expect(response).to redirect_to(new_destination_path(assigns[:itinerary]))
+        post :create, trip_id: @trip, itinerary: attributes_for(:invalid_itinerary)
+        expect(response).to redirect_to(new_trip_itinerary_path(@trip))
       end
     end
   end
