@@ -1,0 +1,39 @@
+code, type, description
+'Af', 'Tropical rainforest climate', 'hot and we'
+'Am', 'Tropical monsoon climate',
+'Aw', 'Tropical savanna climate',
+
+'BWh', 'Hot desert climate',
+'BWk', 'Cold desert climate',
+'BSh', 'Hot semi-arid desert climate',
+'BSk', 'Cold semi-arid desert climate',
+
+'Csa', 'Hot-summer Mediterranean climate',
+'Csb', 'Warm-summer Mediterranean climate',
+
+'Cfa', 'Hot-summer humid subtropical climate',
+'Cfb', 'Humid subtropical highland oceanic climate'
+'Cfc', 'Subpolar oceanic climate',
+
+'Cwa', 'Dry-winter humid subtropical climate',
+'Cwb', 'Warm-summer subtropical highland oceanic climate',
+'Cwc', 'Cool-summer subtropical highland oceanic climate',
+
+
+'Dsa', 'Dry, hot summer humid continental climate',
+'Dsb', 'Dry, warm summer humid continental climate',
+'Dsc', 'Dry, cool-summer subarctic climate',
+'Dsd', 'Dry-summer continental subarctic climate',
+
+'Dwa', 'Dry-winter, hot-summer humid continental climate',
+'Dwb', 'Dry-winter, warm-summer humid continental climate',
+'Dwc', 'Dry-winter, cool-summer subarctic climate',
+'Dwd', 'Dry-winter continental subarctic climate',
+
+'Dfa', 'Hot-summer humid continental climate',
+'Dfb', 'Warm-summer humid continental climate',
+'Dfc', 'Cool-summer humid subarctic climate',
+'Dfd', 'humid continental subarctic climate',
+
+'ET', 'Polar frost',
+'EF', 'Polar tundra',
