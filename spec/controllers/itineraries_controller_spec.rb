@@ -69,6 +69,10 @@ describe ItinerariesController do
       it "should not save into the database" do
         expect { post :create, trip_id: @trip, itinerary: attributes_for(:invalid_itinerary) }.to_not change(Itinerary, :count)
       end
+      it "should set flash[:alert]" do
+        post :create, trip_id: @trip, itinerary: attributes_for(:invalid_itinerary)
+        expect(response.request.flash[:alert]).to_not be_nil
+      end
       it "should re-render :new template" do
         post :create, trip_id: @trip, itinerary: attributes_for(:invalid_itinerary)
         expect(response).to render_template(:new)
@@ -102,6 +106,10 @@ describe ItinerariesController do
         put :update, trip_id: @trip, id: @itinerary, itinerary: attributes_for(:invalid_itinerary)
         @itinerary.reload
         expect(@itinerary.start_date).to_not be_nil
+      end
+      it "should set flash[:alert]" do
+        put :update, trip_id: @trip, id: @itinerary, itinerary: attributes_for(:invalid_itinerary)
+        expect(response.request.flash[:alert]).to_not be_nil
       end
       it "should re-render :edit template" do
         put :update, trip_id: @trip, id: @itinerary, itinerary: attributes_for(:invalid_itinerary)
