@@ -3,7 +3,7 @@
   <h1><%= trip.title %></h1>
   <% itineraries.each do |itinerary| %>
   <br>
-    <%= render template: "itineraries/show", locals:{itinerary: itinerary}, layout: false %>
+    <%= render partial: "itineraries/single_itinerary", locals:{itinerary: itinerary} %>
   <br>
   <% end %>
 </div>
