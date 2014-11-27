@@ -104,4 +104,22 @@ describe TripsController do
       end
     end
   end
+
+  describe "Delete#destroy" do
+    before :each do
+      @trip = create(:trip)
+    end
+    it "should locate the requested trip" do
+      delete :destroy, id: @trip
+      expect(assigns[:trip]).to eq(@trip)
+    end
+    it "should delete from database" do
+      expect { delete :destroy, id: @trip }.to change(Trip, :count).by(-1)
+    end
+    it "should redirect to :index trips" do
+      delete :destroy, id: @trip
+      expect(response).to redirect_to(trips_path)
+    end
+  end
+
 end
