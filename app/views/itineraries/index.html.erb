@@ -1,5 +1,9 @@
 <div class="itineraries">
+  <h1>Trip Title: </h1>
+  <h1><%= trip.title %></h1>
   <% itineraries.each do |itinerary| %>
+  <br>
     <%= render template: "itineraries/show", locals:{itinerary: itinerary}, layout: false %>
+  <br>
   <% end %>
 </div>
