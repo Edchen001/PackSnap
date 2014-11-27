@@ -2,7 +2,7 @@ class ItinerariesController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @itineraries = @trip.itineraries
-    render :index, locals:{itineraries: @itineraries}
+    render :index, locals:{trip: @trip, itineraries: @itineraries}
   end
 
   def show
@@ -20,11 +20,11 @@ class ItinerariesController < ApplicationController
   def create
     @trip = Trip.find(params[:trip_id])
     @itinerary = @trip.itineraries.new(trip: @trip)
-    @itinerary.assign_attributes(destination_params)
-    if @itinerary.save!
-      redirect_to trip_itinerary_path([@trip,@itinerary])
+    @itinerary.assign_attributes(itinerary_params)
+    if @itinerary.save
+      redirect_to trip_itineraries_path(@trip)
     else
-      redirect_to new_trip_itinerary_path
+      redirect_to new_trip_itinerary_path(@trip)
     end
   end
 
@@ -37,11 +37,11 @@ class ItinerariesController < ApplicationController
   def update
     @trip = Trip.find(params[:trip_id])
     @itinerary = @trip.itineraries.find(params[:id])
-    @itinerary.assign_attributes(destination_params)
+    @itinerary.assign_attributes(itinerary_params)
     if @itinerary.save
-      redirect_to trip_itinerary_path([@trip,@itinerary])
+      redirect_to trip_itineraries_path(@trip)
     else
-      redirect_to edit_trip_itinerary_path(@itinerary)
+      redirect_to edit_trip_itinerary_path([@trip,@itinerary])
     end
   end
 
@@ -54,7 +54,7 @@ class ItinerariesController < ApplicationController
 
   private
 
-  def destination_params
+  def itinerary_params
     params.require(:itinerary).permit(:location,:start_date, :end_date, :trip_id)
   end
 end
