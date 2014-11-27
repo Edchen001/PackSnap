@@ -1,5 +1,5 @@
-<div class="destinations">
-  <% destinations.each do |destination| %>
-    <%= render :show, locals:{destination: destination} %>
+<div class="itineraries">
+  <% itineraries.each do |itinerary| %>
+    <%= render template: "itineraries/show", locals:{itinerary: itinerary}, layout: false %>
   <% end %>
 </div>
