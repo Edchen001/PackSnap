@@ -87,7 +87,7 @@ describe ItinerariesController do
         expect(assigns[:itinerary]).to eq(@itinerary)
       end
       it "should update attributes" do
-        date = Date.new
+        date = Date.new(2014,11,27)
         put :update, trip_id: @trip, id: @itinerary, itinerary: attributes_for(:itinerary, end_date: date)
         @itinerary.reload
         expect(@itinerary.end_date).to eq(date)
@@ -105,7 +105,7 @@ describe ItinerariesController do
       end
       it "should redirect to :edit route" do
         put :update, trip_id: @trip, id: @itinerary, itinerary: attributes_for(:invalid_itinerary)
-        expect(response).to redirect_to(edit_trip_itinerary_path([@trip, @itinerary]))
+        expect(response).to redirect_to(edit_trip_itinerary_path(@trip, @itinerary))
       end
     end
   end
