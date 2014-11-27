@@ -6,8 +6,8 @@ FactoryGirl.define do
     start_date Date.new(2014,11,25)
     end_date Date.new(2014,11,30)
 
-    factory :invalid_destination do
-      trip nil
+    factory :invalid_itinerary do
+      start_date nil
     end
   end
 end
