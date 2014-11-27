@@ -3,7 +3,6 @@ class TripsController < ApplicationController
 	def index
 		@trips = Trip.all
 		render :index, locals:{trips: @trips}
-
 	end
 
 	def show
