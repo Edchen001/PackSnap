@@ -49,7 +49,7 @@ class ItinerariesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @itinerary = @trip.itineraries.find(params[:id])
     @itinerary.delete
-    redirect_to trip_itineraries_path
+    redirect_to trip_itineraries_path(@trip)
   end
 
   private
