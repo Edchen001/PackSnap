@@ -66,6 +66,10 @@ describe TripsController do
       it "should not save into the database" do
         expect { post :create, trip: attributes_for(:invalid_trip) }.to_not change(Trip, :count)
       end
+      it "should set flash[:alert]" do
+        post :create, trip: attributes_for(:invalid_trip)
+        expect(response.request.flash[:alert]).to_not be_nil
+      end
       it "should re-render :new template" do
         post :create, trip: attributes_for(:invalid_trip)
         expect(response).to render_template(:new)
@@ -97,6 +101,10 @@ describe TripsController do
         put :update, id: @trip, trip: attributes_for(:invalid_trip)
         @trip.reload
         expect(@trip.title).to_not be_nil
+      end
+      it "should set flash[:alert]" do
+        put :update, id: @trip, trip: attributes_for(:invalid_trip)
+        expect(response.request.flash[:alert]).to_not be_nil
       end
       it "should re-render :edit" do
         put :update, id: @trip, trip: attributes_for(:invalid_trip)

@@ -21,6 +21,7 @@ class TripsController < ApplicationController
 		if @trip.save
 			redirect_to trip_path(@trip)
 		else
+			set_alert(@trip)
 			render :new, locals:{trip: @trip}
 		end
 	end
@@ -38,6 +39,7 @@ class TripsController < ApplicationController
 		if @trip.save
 			redirect_to trip_path(@trip)
 		else
+			set_alert(@trip)
 			render :edit, locals:{trip: @trip}
 		end
 	end

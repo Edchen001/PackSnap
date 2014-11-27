@@ -24,6 +24,7 @@ class ItinerariesController < ApplicationController
     if @itinerary.save
       redirect_to trip_itineraries_path(@trip)
     else
+      set_alert(@itinerary)
       render :new, locals:{itinerary: @itinerary}
     end
   end
@@ -41,6 +42,7 @@ class ItinerariesController < ApplicationController
     if @itinerary.save
       redirect_to trip_itineraries_path(@trip)
     else
+      set_alert(@itinerary)
       render :edit, locals:{itinerary: @itinerary}
     end
   end
@@ -57,4 +59,5 @@ class ItinerariesController < ApplicationController
   def itinerary_params
     params.require(:itinerary).permit(:start_date, :end_date, :trip_id)
   end
+
 end
