@@ -4,8 +4,8 @@ require 'date'
 describe ItinerariesController do
   describe "itineraries Get routes" do
     before do
-      @trip = create(:trip)
-      @itinerary = create(:itinerary, trip: @trip)
+      @itinerary = create(:itinerary)
+      @trip = @itinerary.trip
     end
     describe "Get#show" do
       it "should locate the requested itinerary" do
@@ -78,8 +78,8 @@ describe ItinerariesController do
 
   describe "Put#update" do
     before do
-      @trip = create(:trip)
-      @itinerary = create(:itinerary, trip: @trip)
+      @itinerary = create(:itinerary)
+      @trip = @itinerary.trip
     end
     context 'with valid attributes' do
       it "should locate the requested itinerary" do
@@ -110,20 +110,21 @@ describe ItinerariesController do
     end
   end
 
-  xdescribe "Delete#destroy" do
+  describe "Delete#destroy" do
     before :each do
       @itinerary = create(:itinerary)
+      @trip = @itinerary.trip
     end
     it "should locate the requested itinerary" do
       delete :destroy, trip_id: @trip, id: @itinerary
       expect(assigns[:itinerary]).to eq(@itinerary)
     end
     it "should delete record from database" do
-      expect { delete :destroy, trip_id: @trip, id: @itinerary }.to change(itinerary, :count).by(-1)
+      expect { delete :destroy, trip_id: @trip, id: @itinerary }.to change(Itinerary, :count).by(-1)
     end
     it "should redirect to :index" do
-      delete :destroy, trip_id: @trip, id: @itinerary
-      expect(response).to redirect_to(destinations_path)
+      delete :destroy, trip_id: @itinerary.trip, id: @itinerary
+      expect(response).to redirect_to(trip_itineraries_path(@trip))
     end
   end
 
