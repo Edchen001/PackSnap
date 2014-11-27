@@ -4,4 +4,5 @@
   <p>Description: <%= trip.description %></p>
   <li> <%= link_to "Edit trip", edit_trip_path(trip.id)  %></li>
 	<li> <%= link_to "delete trip", trip_path(trip.id), method: :delete  %></li>
+  <li><%= link_to "New Itinerary", new_trip_itinerary_path(trip) %></li>
 </div>
