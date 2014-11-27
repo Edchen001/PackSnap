@@ -3,7 +3,6 @@ class TripsController < ApplicationController
 	def index
 		@trips = Trip.all
 		render :index, locals:{trips: @trips}
-
 	end
 
 	def show
@@ -22,7 +21,7 @@ class TripsController < ApplicationController
 		if @trip.save
 			redirect_to trip_path(@trip)
 		else
-			redirect_to new_trip_path(@trip)
+			render :new, locals:{trip: @trip}
 		end
 	end
 
@@ -39,7 +38,7 @@ class TripsController < ApplicationController
 		if @trip.save
 			redirect_to trip_path(@trip)
 		else
-			redirect_to edit_trip_path(@trip)
+			render :edit, locals:{trip: @trip}
 		end
 	end
 

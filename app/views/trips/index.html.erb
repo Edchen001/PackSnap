@@ -1,9 +1,9 @@
 <div class="new-trip">
 TRIP INDEX
     <li> <%= link_to "Create trip", new_trip_path  %></li>
- 	
+
   <% trips.each do |trip| %>
-    <%= render template:"trips/show", locals:{trip: trip}, layout: false %>
+    <%= render partial: "trips/single_trip", locals:{trip: trip} %>
   <% end %>
 <link
 </div>

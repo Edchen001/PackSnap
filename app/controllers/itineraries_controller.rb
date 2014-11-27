@@ -24,7 +24,7 @@ class ItinerariesController < ApplicationController
     if @itinerary.save
       redirect_to trip_itineraries_path(@trip)
     else
-      redirect_to new_trip_itinerary_path(@trip)
+      render :new, locals:{itinerary: @itinerary}
     end
   end
 
@@ -41,7 +41,7 @@ class ItinerariesController < ApplicationController
     if @itinerary.save
       redirect_to trip_itineraries_path(@trip)
     else
-      redirect_to edit_trip_itinerary_path(@trip,@itinerary)
+      render :edit, locals:{itinerary: @itinerary}
     end
   end
 
