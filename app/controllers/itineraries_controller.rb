@@ -19,7 +19,7 @@ class ItinerariesController < ApplicationController
 
   def create
     @trip = Trip.find(params[:trip_id])
-    @itinerary = @trip.itineraries.new(trip: @trip)
+    @itinerary = @trip.itineraries.build(trip: @trip)
     @itinerary.assign_attributes(itinerary_params)
     if @itinerary.save
       redirect_to trip_itineraries_path(@trip)
@@ -41,7 +41,7 @@ class ItinerariesController < ApplicationController
     if @itinerary.save
       redirect_to trip_itineraries_path(@trip)
     else
-      redirect_to edit_trip_itinerary_path([@trip,@itinerary])
+      redirect_to edit_trip_itinerary_path(@trip,@itinerary)
     end
   end
 
@@ -49,12 +49,12 @@ class ItinerariesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @itinerary = @trip.itineraries.find(params[:id])
     @itinerary.delete
-    redirect_to trip_itineraries_path
+    redirect_to trip_itineraries_path(@trip)
   end
 
   private
 
   def itinerary_params
-    params.require(:itinerary).permit(:location,:start_date, :end_date, :trip_id)
+    params.require(:itinerary).permit(:start_date, :end_date, :trip_id)
   end
 end

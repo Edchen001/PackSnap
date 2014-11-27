@@ -1,10 +1,11 @@
 require 'rails_helper'
+require 'date'
 
 describe ItinerariesController do
   describe "itineraries Get routes" do
     before do
-      @trip = create(:trip)
-      @itinerary = create(:itinerary, trip: @trip)
+      @itinerary = create(:itinerary)
+      @trip = @itinerary.trip
     end
     describe "Get#show" do
       it "should locate the requested itinerary" do
@@ -75,9 +76,10 @@ describe ItinerariesController do
     end
   end
 
-  xdescribe "Put#update" do
+  describe "Put#update" do
     before do
       @itinerary = create(:itinerary)
+      @trip = @itinerary.trip
     end
     context 'with valid attributes' do
       it "should locate the requested itinerary" do
@@ -85,42 +87,44 @@ describe ItinerariesController do
         expect(assigns[:itinerary]).to eq(@itinerary)
       end
       it "should update attributes" do
-        put :update, trip_id: @trip, id: @itinerary, itinerary: attributes_for(:itinerary, trip_id: 1)
+        date = Date.new(2014,11,27)
+        put :update, trip_id: @trip, id: @itinerary, itinerary: attributes_for(:itinerary, end_date: date)
         @itinerary.reload
-        expect(@itinerary.trip.id).to eq(1)
+        expect(@itinerary.end_date).to eq(date)
       end
       it "should redirect to itinerary :show" do
         put :update, trip_id: @trip, id: @itinerary, itinerary: attributes_for(:itinerary)
-        expect(response).to redirect_to(trip_intinerary_path(assigns[:itinerary]))
+        expect(response).to redirect_to(trip_itineraries_path(@trip))
       end
     end
     context 'with invalid attributes' do
       it "should not save into the database" do
-        put :update, trip_id: @trip, id: @itinerary, itinerary: attributes_for(:invalid_destination)
+        put :update, trip_id: @trip, id: @itinerary, itinerary: attributes_for(:invalid_itinerary)
         @itinerary.reload
-        expect(@itinerary.location).to eq("Canton")
+        expect(@itinerary.start_date).to_not be_nil
       end
       it "should redirect to :edit route" do
-        put :update, trip_id: @trip, id: @itinerary, itinerary: attributes_for(:invalid_destination)
-        expect(response).to redirect_to(edit_destination_path(assigns[:itinerary]))
+        put :update, trip_id: @trip, id: @itinerary, itinerary: attributes_for(:invalid_itinerary)
+        expect(response).to redirect_to(edit_trip_itinerary_path(@trip, @itinerary))
       end
     end
   end
 
-  xdescribe "Delete#destroy" do
+  describe "Delete#destroy" do
     before :each do
       @itinerary = create(:itinerary)
+      @trip = @itinerary.trip
     end
     it "should locate the requested itinerary" do
       delete :destroy, trip_id: @trip, id: @itinerary
       expect(assigns[:itinerary]).to eq(@itinerary)
     end
     it "should delete record from database" do
-      expect { delete :destroy, trip_id: @trip, id: @itinerary }.to change(itinerary, :count).by(-1)
+      expect { delete :destroy, trip_id: @trip, id: @itinerary }.to change(Itinerary, :count).by(-1)
     end
     it "should redirect to :index" do
-      delete :destroy, trip_id: @trip, id: @itinerary
-      expect(response).to redirect_to(destinations_path)
+      delete :destroy, trip_id: @itinerary.trip, id: @itinerary
+      expect(response).to redirect_to(trip_itineraries_path(@trip))
     end
   end
 
