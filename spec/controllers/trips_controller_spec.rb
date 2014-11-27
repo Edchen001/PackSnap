@@ -50,4 +50,26 @@ describe TripsController do
       end
     end
   end
+
+  describe "Post#create" do
+    context 'valid attributes' do
+      it "should save into database" do
+        expect { post :create, trip: attributes_for(:trip) }.to change(Trip, :count).by(1)
+      end
+      it "should redirect to trip :show" do
+        post :create, trip: attributes_for(:trip)
+        expect(response).to redirect_to(trip_path(assigns[:trip]))
+      end
+    end
+
+    context 'invalid attributes' do
+      it "should not save into the database" do
+        expect { post :create, trip: attributes_for(:invalid_trip) }.to_not change(Trip, :count)
+      end
+      it "should re-render :new template" do
+        post :create, trip: attributes_for(:invalid_trip)
+        expect(response).to render_template(:new)
+      end
+    end
+  end
 end
