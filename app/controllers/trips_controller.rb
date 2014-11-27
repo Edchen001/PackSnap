@@ -21,7 +21,7 @@ class TripsController < ApplicationController
 		if @trip.save
 			redirect_to trip_path(@trip)
 		else
-			redirect_to new_trip_path(@trip)
+			render :new, locals:{trip: @trip}
 		end
 	end
 
