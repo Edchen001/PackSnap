@@ -6,9 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 first = Trip.create(title: "TRIP 1")
-iti_first = first.Itinerary.create(start_date:"1000-01-02", end_date:"1111-11-03")
+
+iti_first = first.itineraries.create(start_date:"1000-01-02", end_date:"1111-11-03")
+
 Weather.create(fahrenheit: 45)
-iti_first.TravelDate.create(current_date:"3453-02-02", weather_id: Weather.first.id)
+
+iti_first.travel_dates.create(current_date:"3453-02-02", weather_id: Weather.first.id)
 
 # Destination.create(location:"ny", start_date:"1000-01-02", end_date:"1111-11-03")
 # Weather.create(fahrenheit: 45)
