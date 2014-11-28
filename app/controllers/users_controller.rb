@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-    render :signup
+    render :signup, locals:{user: @user}
   end
   def show
     @user = User.find(session[:user_id])
   end
   def edit
     @user = User.find(session[:user_id])
+    render :edit, locals:{user: @user}
   end
   def update
     @user = User.find(session[:user_id])
