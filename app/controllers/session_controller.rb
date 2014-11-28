@@ -4,7 +4,7 @@ class SessionController < ApplicationController
   end
 
   def login
-    @user = User.find_by(email: params[:user][:email]).try(:authenticate, params[:user][:password])
+    @user = User.find_by(email: user_params[:email]).try(:authenticate, user_params[:password])
     session[:user_id] = @user.id
     redirect_to root_path
   end
@@ -12,5 +12,11 @@ class SessionController < ApplicationController
   def logout
     session[:user_id] = nil
     redirect_to root_path
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :password_confirm)
   end
 end
