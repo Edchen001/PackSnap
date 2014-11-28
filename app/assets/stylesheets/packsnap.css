@@ -43,6 +43,8 @@ body {
   -moz-background-size: 100% 100%;
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
+  -webkit-filter: grayscale(.4);
+  filter: grayscale(.4);
 }
 
 .banner img {
@@ -54,3 +56,18 @@ body {
   height: 2.25em;
 }
 
+.splash-button {
+    background-color: #1f8dd6;
+    color: white;
+    padding: 0.5em 2em;
+    border-radius: 5px;
+    opacity: .9;
+    
+}
+a.splash-button-primary{
+    background: #c4c4c4;
+     text-decoration: none !important;
+    color: white;
+    border-radius: 5px;
+    font-size: 120%;
+}
