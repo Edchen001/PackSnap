@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :trips do
     resources :itineraries
   end
+  get "session/new" => "session#new"
+  post "session/login" => "session#login"
+  delete "session/logout" => "session#logout"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
