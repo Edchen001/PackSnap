@@ -1,4 +1,4 @@
-code,type,description
+code,name,description
 "Af","Tropical Wet","No natrual seasons. The driest month has at least 60 mm (2.4 inches) of rain. Rainfall is generally evenly distributed throughout the year. All average monthly temperatures are greater than 18°C  (64°F)."
 "Am","Tropical Monsoonal","Pronounced wet season. Short dry season. There are one or more months with less than 60 mm (2.4 inches). All average monthly temperatures are greater than 64°F (18°C). Highest annual temperature occurs just prior to the rainy season."
 "Aw","Tropical Wet & Dry","Winter dry season. There are more than two months with less than 60 mm (2.4 inches) . All average monthly temperatures are greater than 18°C  (64°F)."
@@ -21,7 +21,7 @@ code,type,description
 "Dwa","Humid Continental Hot Summer, Wet All Year","Humid with severe, dry winter, hot summer."
 "Dwb","Humid Continental Mild Summer, Dry Winter","Humid with severe, dry winter, warm summer."
 "Dwc","Subarctic With Cool Summer, Dry Winter","Severe, dry winter, cool summer."
-"Dwd","Subarctic With Cold Winter, Dry WInter","Severe, very cold and dry winter, cool summer."
+"Dwd","Subarctic With Cold Winter, Dry Winter","Severe, very cold and dry winter, cool summer."
 "Dfa","Humid Continental Hot Summer, Wet All Year","Humid with hot summer."
 "Dfb","Humid Continental Mild Summer, Wet All Year","Humid with severe winter, no dry season, warm summer."
 "Dfc","Subarctic With Cool Summer, Wet All Year","Severe winter, no dry season, cool summer."
