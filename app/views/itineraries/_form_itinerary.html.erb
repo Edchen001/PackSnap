@@ -1,9 +1,11 @@
 <div class="itinerary-form">
   <%= form_for([itinerary.trip, itinerary]) do |f| %>
-  <%= f.label :start_date %>
-  <%= f.date_select :start_date %>
-  <%= f.label :end_date %>
-  <%= f.date_select :end_date %>
-  <%= f.submit %>
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
+    <%= render partial: "/spacing" %>
+    <input class="pure-input-2-3 geo-input" type="text" placeholder="Where are you going?" name="location[name]">
+    <%= f.submit id: "find", class: "pure-button pure-button-primary" %>
   <% end %>
 </div>

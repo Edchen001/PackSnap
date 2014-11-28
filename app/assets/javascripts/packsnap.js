@@ -1,12 +1,19 @@
 $(function(){
+
   $("#geocomplete").geocomplete({
     map: ".map_canvas",
     details: "#map_info",
     detailsAttribute: "data-geo"
   });
 
-  $("#find").click(function(){
-    $("#geocomplete").trigger("geocode");
+  $('body').on('click', '#find', function(e) {
+    e.preventDefault();
+    $("#geocomplete").trigger("geocode")
+    .bind('geocode:result', function(e, result) {
+      console.log(e.target);
+      console.log(result.geometry.location.lat());
+      console.log(result.geometry.location.lng());
+    });
   });
 
   $('.banner').unslider({
