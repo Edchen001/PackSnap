@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20141128160109) do
 
   create_table "climate_types", force: true do |t|
     t.string "code",        null: false
-    t.string "type",        null: false
+    t.string "name",        null: false
     t.text   "description", null: false
   end
 
