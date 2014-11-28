@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.geocomplete
-//= require geo_query
-//= require public/unslider
+//= require unslider
+//= require packsnap
