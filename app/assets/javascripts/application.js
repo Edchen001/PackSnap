@@ -12,30 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-
-
-$(function(){
-	$("#geocomplete").geocomplete({
-		map: ".map_canvas",
-		details: "#map_info",
-		detailsAttribute: "data-geo"
-	});
-
-	$("#find").click(function(){
-		$("#geocomplete").trigger("geocode");
-	});
-});
-
-$(document).ready(function() {
-
-   $('.banner').unslider({
-    speed: 400,
-    complete: function() {},
-    keys: true,
-    fluid: true
-  });
-   var unslider = $('.banner').unslider(),
-         data = unslider.data('unslider');
-    window.onload = function () {  data.move(0); }
-})
+//= require jquery.geocomplete
+//= require geo_query
+//= require public/unslider
