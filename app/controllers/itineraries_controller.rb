@@ -1,28 +1,24 @@
 class ItinerariesController < ApplicationController
   def index
-    @trip = Trip.find(params[:trip_id])
-    @itineraries = @trip.itineraries
+    @itineraries = Itinerary.where(trip_id: params[:trip_id])
     render :index, locals:{trip: @trip, itineraries: @itineraries}
   end
 
   def show
-    @trip = Trip.find(params[:trip_id])
-    @itinerary = @trip.itineraries.find(params[:id])
+    @itinerary = find_itinerary
     render :show, locals:{itinerary: @itinerary}
   end
 
   def new
-    @trip = Trip.find(params[:trip_id])
-    @itinerary = Itinerary.new(trip: @trip)
+    @itinerary = Itinerary.new(trip_id: params[:trip_id])
     render :new, locals:{itinerary: @itinerary}
   end
 
   def create
-    @trip = Trip.find(params[:trip_id])
-    @itinerary = @trip.itineraries.build(trip: @trip)
+    @itinerary = Itinerary.new(trip_id: params[:trip_id])
     @itinerary.assign_attributes(itinerary_params)
     if @itinerary.save
-      redirect_to trip_itineraries_path(@trip)
+      redirect_to trip_itineraries_path(@itinerary.trip)
     else
       set_alert(@itinerary)
       render :new, locals:{itinerary: @itinerary}
@@ -30,17 +26,15 @@ class ItinerariesController < ApplicationController
   end
 
   def edit
-    @trip = Trip.find(params[:trip_id])
-    @itinerary = @trip.itineraries.find(params[:id])
+    @itinerary = find_itinerary
     render :edit, locals:{itinerary: @itinerary}
   end
 
   def update
-    @trip = Trip.find(params[:trip_id])
-    @itinerary = @trip.itineraries.find(params[:id])
+    @itinerary = find_itinerary
     @itinerary.assign_attributes(itinerary_params)
     if @itinerary.save
-      redirect_to trip_itineraries_path(@trip)
+      redirect_to trip_itineraries_path(@itinerary.trip)
     else
       set_alert(@itinerary)
       render :edit, locals:{itinerary: @itinerary}
@@ -48,16 +42,19 @@ class ItinerariesController < ApplicationController
   end
 
   def destroy
-    @trip = Trip.find(params[:trip_id])
-    @itinerary = @trip.itineraries.find(params[:id])
+    @itinerary = find_itinerary
     @itinerary.delete
-    redirect_to trip_itineraries_path(@trip)
+    redirect_to trip_itineraries_path(@itinerary.trip)
   end
 
   private
 
   def itinerary_params
     params.require(:itinerary).permit(:start_date, :end_date, :trip_id)
+  end
+
+  def find_itinerary
+    Itinerary.find_by(trip_id: params[:trip_id])
   end
 
 end
