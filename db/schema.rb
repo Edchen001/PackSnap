@@ -52,13 +52,13 @@ ActiveRecord::Schema.define(version: 20141128160109) do
   create_table "trips", force: true do |t|
     t.string  "title",       null: false
     t.string  "description"
-    t.integer "user_id"
+    t.integer "user_id",     null: false
   end
 
   create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "password_digest"
+    t.string   "username",        null: false
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
