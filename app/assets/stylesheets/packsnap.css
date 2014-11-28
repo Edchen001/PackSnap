@@ -1,0 +1,56 @@
+#geocomplete { width: 200px}
+
+.map_canvas {
+  width: 600px;
+  height: 400px;
+  margin: 10px 20px 10px 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  overflow: auto;
+  top: 50px;
+  /*z-index: -1;*/
+
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #FFFFFF;
+
+  background: #FFFFFF;
+}
+
+.banner ul {
+    padding: 0;
+    margin: 0;
+  list-style: none;
+  width: 300%;
+}
+
+.banner ul li {
+  display: block;
+  float: left;
+  min-height: 500px;
+  -o-background-size: 100% 100%;
+  -ms-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+
+.banner img {
+  height: 100%;
+  width: 100%;
+}
+
+#find {
+  height: 2.25em;
+}
+
