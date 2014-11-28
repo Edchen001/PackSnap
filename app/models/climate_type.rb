@@ -1,3 +1,4 @@
 class ClimateType < ActiveRecord::Base
-  validates :code, :type, :description, presence:true
+  has_many :coordinates
+  validates :code, :name, :description, presence:true
 end
