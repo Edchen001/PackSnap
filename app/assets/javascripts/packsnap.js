@@ -15,6 +15,7 @@ $(function(){
       var coordinate = {};
       coordinate.latitude = result.geometry.location.lat().toFixed(2);
       coordinate.longitude = result.geometry.location.lng().toFixed(2);
+      coordinate.formatted_address = result.formatted_address
       coordinate.address = $("#geocomplete").val();
 
       $.ajax({
@@ -24,12 +25,14 @@ $(function(){
          data: {coordinate: coordinate}
        })
         .done(function(response){
-          console.log(response);
-          $('body').append(response);
+          $("#append").empty();
+          $('#append').append(response);
+          $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + coordinate.latitude + "&lon=" + coordinate.longitude + "&name=" + coordinate.formatted_address));
+
+
         });
     });
   });
-
 
 
 
