@@ -4,15 +4,17 @@ class WelcomeController < ApplicationController
   end
 
   def dash
-    @users = get_users(coordinate)
-    render :dash, locals:{users: @users}
+    @users = get_users(params[:coordinate])
+    respond_to do |format|
+      format.html { render partial: "welcome/dash", locals:{users: @users}  }
+    end
   end
 
   private
 
   def inputted_destinations(coordinate)
-    coordinate = Coordinate.find_by(longitude: coordinate[:longitude], latitude: coordinate[:latitude])
-    coordinate.destinations
+    coordinate = Coordinate.find_or_create_by(longitude: coordinate[:longitude], latitude: coordinate[:latitude])
+    coordinate.locations
   end
 
   def get_users(coordinate)
