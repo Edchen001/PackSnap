@@ -49,6 +49,10 @@ describe UsersController do
         post :create, user: attributes_for(:user)
         expect(response).to redirect_to(user_path(assigns[:user]))
       end
+      it "should set session for that user" do
+        post :create, user: attributes_for(:user)
+        expect(session[:user_id]).to_not be_nil
+      end
     end
     context 'invalid attributes' do
       it "should not save into the database" do
