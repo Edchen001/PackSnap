@@ -16,7 +16,7 @@ class TripsController < ApplicationController
 	end
 
 	def create
-		@trip = Trip.new
+		@trip = Trip.new(user_id: session[:user_id])
 		@trip.assign_attributes(trip_params)
 		if @trip.save
 			redirect_to trip_path(@trip)
