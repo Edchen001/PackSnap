@@ -7,31 +7,28 @@ $(function(){
   });
 
   $('.new-location').submit(function(e){
+
     var $form = $(e.target);
     e.preventDefault();
 
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
+        var geoInfo = {};
+        console.log(result.address_components);
+        geoInfo.latitude = result.geometry.location.lat();
+        geoInfo.longitude = result.geometry.location.lng();
+        geoInfo.address = $("#geocomplete").val();
 
-      var coordinate = {};
-      coordinate.latitude = result.geometry.location.lat().toFixed(2);
-      coordinate.longitude = result.geometry.location.lng().toFixed(2);
-      coordinate.address = $("#geocomplete").val();
-
-      $.ajax({
-         url: $form.attr('action'),
-         type: $form.attr('method'),
-         dateType: 'html',
-         data: {coordinate: coordinate}
-       })
-        .done(function(response){
-          console.log(response);
-          $('body').append(response);
-        });
+        $.ajax({
+           url: $form.attr('action'),
+           type: $form.attr('method'),
+           dateType: 'html',
+           data: {geoInfo: geoInfo}
+        })
+      .done(function(response){
+        console.log(response);
+        $('body').append(response);
+      });
     });
-  });
-
-
-
 
   $('.banner').unslider({
     speed: 400,
@@ -42,6 +39,7 @@ $(function(){
 
   var unslider = $('.banner').unslider(),
   data = unslider.data('unslider');
-  window.onload = function () { data.move(0); };
+  window.onload = function () {  data.move(0); };
 
 });
+

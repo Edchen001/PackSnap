@@ -2,7 +2,6 @@ class WelcomeController < ApplicationController
   def index
 
   end
-
   def dash
     @users = get_users(params[:coordinate])
     respond_to do |format|
