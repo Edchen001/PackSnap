@@ -22,6 +22,6 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:geoInfo).permit(:address, :latitude, :longitude)
+    params.require(:coordinate).permit(:address, :latitude, :longitude)
   end
 end
