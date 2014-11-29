@@ -4,12 +4,14 @@ class LocationsController < ApplicationController
     render :new, locals:{location: @location}
   end
   def create
-    p location_params
-    # raise (params);
-    p @coordinate = Coordinate.find_or_create_by(location_params)
-    p @location = Location.new(itinerary_id: session[:itinerary_id], coordinate_id: @coordinate.id)
-    p @location.assign_attributes(location_params)
+   
+    attributes = location_params
+    p session[:itinerary_id]
+    @coordinate = Coordinate.find_or_create_by(latitude:attributes[:latitude], longitude: attributes[:longitude])
+    @location = Location.new(itinerary_id: session[:itinerary_id], address: attributes[:address], coordinate_id: @coordinate.id)
     if @location.save
+      p "*"*100
+      p @location.itinerary.trip
       session[:itinerary_id] = nil
       redirect_to trip_itinerary_path(@location.itinerary.trip, @location.itinerary)
     else
