@@ -9,13 +9,6 @@ class LocationsController < ApplicationController
     attributes = location_params
     @coordinate = Coordinate.find_or_create_by(latitude: attributes[:latitude], longitude: attributes[:longitude])
     @location = Location.new(itinerary_id: itinerary_id, address: attributes[:address], coordinate_id: @coordinate.id)
-    if @location.save
-      flash[:itinerary_id] = nil
-    if @location.save!
-      redirect_to trip_itinerary_path(@location.itinerary.trip, @location.itinerary)
-    else
-      set_alert(@location)
-      render :new, locals:{location: @location}
     respond_to do |format|
       if @location.save
         format.html { render partial: "trips/single_trip", locals:{trip: @location.itinerary.trip} }
