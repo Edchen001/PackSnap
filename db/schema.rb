@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141129052633) do
+=======
+ActiveRecord::Schema.define(version: 20141129022524) do
+>>>>>>> update coordinates table
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,9 +27,8 @@ ActiveRecord::Schema.define(version: 20141129052633) do
   end
 
   create_table "coordinates", force: true do |t|
-    t.integer "climate_type_id", null: false
-    t.float   "longitude",       null: false
-    t.float   "latitude",        null: false
+    t.float "longitude", null: false
+    t.float "latitude",  null: false
   end
 
   create_table "itineraries", force: true do |t|
@@ -38,12 +41,8 @@ ActiveRecord::Schema.define(version: 20141129052633) do
 
   create_table "locations", force: true do |t|
     t.integer "itinerary_id"
-<<<<<<< HEAD
     t.string  "address",      null: false
-=======
-    t.string  "address",        null: false
     t.integer "coordinates_id", null: false
->>>>>>> Update location migration complete
   end
 
   create_table "travel_dates", force: true do |t|
