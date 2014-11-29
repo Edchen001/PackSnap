@@ -5,12 +5,16 @@ $(function(){
     detailsAttribute: "data-geo"
   });
 
-  $("#find").click(function(){
-    $("#geocomplete").trigger("geocode");
-  });
+ 
 
-  $(".itinerary-form").submit(function(){
-    console.log("YEAH MAN");
+
+  $('.new-location').submit(function(e){
+    e.preventDefault();
+    $("#geocomplete").trigger("geocode");
+    
+
+    console.log('Hello');
+  });
 
   });
 
