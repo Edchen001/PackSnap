@@ -18,7 +18,8 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(trip_id: params[:trip_id])
     @itinerary.assign_attributes(itinerary_params)
     if @itinerary.save
-      redirect_to trip_itineraries_path(@itinerary.trip)
+      session[:itinerary_id] = @iteinerary
+      redirect_to new_location_path
     else
       set_alert(@itinerary)
       render :new, locals:{itinerary: @itinerary}
