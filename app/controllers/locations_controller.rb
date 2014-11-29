@@ -16,6 +16,13 @@ class LocationsController < ApplicationController
     else
       set_alert(@location)
       render :new, locals:{location: @location}
+    respond_to do |format|
+      if @location.save
+        format.html { render partial: "trips/single_trip", locals:{trip: @location.itinerary.trip} }
+      else
+        set_alert(@location)
+        format.html { render :new, locals:{location: @location} }
+      end
     end
   end
 
