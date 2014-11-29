@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   def new
-    @location = Location.new(itinerary_id: session[:itinerary_id])
+    @location = Location.new()
     render :new, locals:{location: @location}
   end
   def create
@@ -9,7 +9,7 @@ class LocationsController < ApplicationController
     @coordinate = Coordinate.find_or_create_by(latitude:attributes[:latitude], longitude: attributes[:longitude])
     @location = Location.new(itinerary_id: itinerary_id, address: attributes[:address], coordinate_id: @coordinate.id)
     if @location.save
-      session[:itinerary_id] = nil
+      flash[:itinerary_id] = nil
       redirect_to trip_itinerary_path(@location.itinerary.trip, @location.itinerary)
     else
       set_alert(@location)
