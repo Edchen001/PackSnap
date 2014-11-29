@@ -5,7 +5,7 @@ $(function(){
     detailsAttribute: "data-geo"
   });
 
- 
+
 
 
   $('.new-location').submit(function(e){
@@ -14,18 +14,19 @@ $(function(){
     e.preventDefault();
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
 
-    var geoInfo = {}
-    console.log(result.address_components)
-    geoInfo.latitude = result.geometry.location.lat();
-    geoInfo.longitude = result.geometry.location.lng();
-    geoInfo.address = $("#geocomplete").val();
-    console.log(geoInfo);
-     $.ajax({
-         url: $form.attr('action'),
-         type: $form.attr('method'),
-         data: {geoInfo: geoInfo}
+        var geoInfo = {};
+        console.log(result.address_components);
+        geoInfo.latitude = result.geometry.location.lat();
+        geoInfo.longitude = result.geometry.location.lng();
+        geoInfo.address = $("#geocomplete").val();
+       $.ajax({
+           url: $form.attr('action'),
+           type: $form.attr('method'),
+           data: {geoInfo: geoInfo}
+         })
+       .done(function(response){
+         window.location.href = response.redirect;
        });
-    
    });
   });
 
@@ -56,8 +57,8 @@ $(function(){
     //   // console.log ($form.serialize());
 
     //   // console.log($.param(result));
-    
-      
+
+
 
     //   // // console.log(e.target);
     //   console.log(result.geometry.location.lat());
