@@ -60,9 +60,9 @@ describe ItinerariesController do
       it "should save valid itinerary to database" do
         expect { post :create, trip_id: @trip, itinerary: attributes_for(:itinerary) }.to change(Itinerary, :count).by(1)
       end
-      it "should redirect to itinerary :show" do
+      it "should redirect to location :new" do
         post :create, trip_id: @trip, itinerary: attributes_for(:itinerary)
-        expect(response).to redirect_to(trip_itineraries_path(@trip))
+        expect(response).to redirect_to(new_location_path)
       end
     end
     context 'with invalid attributes' do
