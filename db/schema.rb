@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20141128160109) do
   create_table "trips", force: true do |t|
     t.string  "title",       null: false
     t.string  "description"
-    t.integer "user_id",     null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|
