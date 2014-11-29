@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
 
   has_many :trips
   has_many :itineraries, through: :trips
-  has_many :destinations, through: :itineraries, source: :locations
+  has_many :destinations, through: :itineraries, source: :location
 end

@@ -15,6 +15,6 @@ describe User do
     it { should have_many(:itineraries).through(:trips) }
     it { should have_many(:destinations) }
     it { should have_many(:destinations).through(:itineraries) }
-    it { should have_many(:destinations).through(:itineraries).source(:locations) }
+    it { should have_many(:destinations).through(:itineraries).source(:location) }
   end
 end

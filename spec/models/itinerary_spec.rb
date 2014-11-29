@@ -5,7 +5,7 @@ describe Itinerary do
    it {should have_many(:travel_dates)}
    it {should have_many(:weathers)}
    it { should belong_to(:trip) }
-   it { should have_many(:locations) }
+   it { should have_one(:location) }
   end
 
   describe "Have validations" do
