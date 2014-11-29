@@ -10,8 +10,8 @@ $(function(){
 
   $('.new-location').submit(function(e){
     var $form = $(e.target);
-
     e.preventDefault();
+
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
         var geoInfo = {};
         console.log(result.address_components);
@@ -26,19 +26,8 @@ $(function(){
        .done(function(response){
          window.location.href = response.redirect;
        });
-    var geoInfo = {}
-    console.log(result.address_components)
-    geoInfo.latitude = result.geometry.location.lat();
-    geoInfo.longitude = result.geometry.location.lng();
-    geoInfo.address = result.address_components;
-    console.log(geoInfo);
-     $.ajax({
-         url: $form.attr('action'),
-         type: $form.attr('method'),
-         data: {geoInfo: geoInfo}
-       });
-   });
-  });
+    });
+  }
 
   $('.banner').unslider({
     speed: 400,
