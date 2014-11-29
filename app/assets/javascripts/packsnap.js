@@ -11,7 +11,6 @@ $(function(){
   $('.new-location').submit(function(e){
     var $form = $(e.target);
     e.preventDefault();
-
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
         var geoInfo = {};
         console.log(result.address_components);
@@ -28,7 +27,6 @@ $(function(){
        });
     });
   }
-
   $('.banner').unslider({
     speed: 400,
     complete: function() {},
