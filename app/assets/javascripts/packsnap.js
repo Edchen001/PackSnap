@@ -9,6 +9,11 @@ $(function(){
     $("#geocomplete").trigger("geocode");
   });
 
+  $(".itinerary-form").submit(function(){
+    console.log("YEAH MAN");
+
+  });
+
   $('.banner').unslider({
     speed: 400,
     complete: function() {},
