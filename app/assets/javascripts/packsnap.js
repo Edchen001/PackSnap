@@ -6,7 +6,6 @@ $(function(){
     detailsAttribute: "data-geo"
   });
 
-
   $('.new-location').submit(function(e){
 
     var $form = $(e.target);
@@ -32,5 +31,9 @@ $(function(){
       });
     });
   });
+
+  var unslider = $('.banner').unslider(),
+  data = unslider.data('unslider');
+  window.onload = function () {  data.move(0); };
 
 });
