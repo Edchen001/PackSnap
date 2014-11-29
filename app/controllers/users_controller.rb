@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(session[:user_id])
-    redner :show, locals
+    render :show, locals:{user: @user}
   end
   def edit
     @user = User.find(session[:user_id])
