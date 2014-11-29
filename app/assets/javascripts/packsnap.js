@@ -1,13 +1,36 @@
 $(function(){
+
   $("#geocomplete").geocomplete({
     map: ".map_canvas",
     details: "#map_info",
     detailsAttribute: "data-geo"
   });
 
-  $("#find").click(function(){
-    $("#geocomplete").trigger("geocode");
+  $('.new-location').submit(function(e){
+    var $form = $(e.target);
+    e.preventDefault();
+
+    $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
+
+      var geoInfo = {};
+      geoInfo.latitude = result.geometry.location.lat();
+      geoInfo.longitude = result.geometry.location.lng();
+      geoInfo.address = $("#geocomplete").val();
+
+      $.ajax({
+         url: $form.attr('action'),
+         type: $form.attr('method'),
+         dateType: 'html',
+         data: {geoInfo: geoInfo}
+       })
+        .done(function(response){
+          $('body').append(response);
+        });
+    });
   });
+
+
+
 
   $('.banner').unslider({
     speed: 400,
@@ -18,5 +41,6 @@ $(function(){
 
   var unslider = $('.banner').unslider(),
   data = unslider.data('unslider');
-  window.onload = function () {  data.move(0); };
+  window.onload = function () { data.move(0); };
+
 });
