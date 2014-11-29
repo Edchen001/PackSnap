@@ -9,6 +9,7 @@ class LocationsController < ApplicationController
     @coordinate = Coordinate.find_or_create_by(latitude:attributes[:latitude], longitude: attributes[:longitude])
     @location = Location.new(itinerary_id: itinerary_id, address: attributes[:address], coordinate_id: @coordinate.id)
     if @location.save
+    raise (params);
     @location = Location.new(itinerary_id: session[:itinerary_id])
     @location.assign_attributes(params[:location])
     if @location.save
