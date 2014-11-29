@@ -5,6 +5,7 @@ $(function(){
     detailsAttribute: "data-geo"
   });
 
+<<<<<<< HEAD
 
 
 
@@ -30,11 +31,6 @@ $(function(){
    });
   });
 
-  $(".itinerary-form").submit(function(){
-    console.log("YEAH MAN");
-
-  });
-
   $('.banner').unslider({
     speed: 400,
     complete: function() {},
@@ -46,30 +42,3 @@ $(function(){
   data = unslider.data('unslider');
   window.onload = function () {  data.move(0); };
 });
-
-
-    // {
-    //   e.preventDefault();
-    //   geoLocation = result
-    //   console.log($(e.target));
-    //   var geoInfo ={};
-    //   geoInfo.lat = result.geometry.location.lat();
-    //   geoInfo.lng = result.geometry.location.lng();
-    //   geoInfo.city = result.address_components[2];
-    //   geoInfo.country = result.address_components[5];
-    //   var startDate = $form.find(".itinerary_start_date_1i").val();
-    //   console.log(startDate);
-    //   // console.log ($form.serialize());
-
-    //   // console.log($.param(result));
-
-
-
-    //   // // console.log(e.target);
-    //   console.log(result.geometry.location.lat());
-    //   console.log(result.geometry.location.lng());
-    //   // console.log(result.address_components[0]);
-    //   // console.log(result.address_components[1]);
-    //   // console.log(result.address_components[2]);
-    //   // console.log(result.address_components[3]);
-    //   // console.log(result.address_components[4]);

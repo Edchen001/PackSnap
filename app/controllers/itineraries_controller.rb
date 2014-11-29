@@ -18,7 +18,11 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(trip_id: params[:trip_id])
     @itinerary.assign_attributes(itinerary_params)
     if @itinerary.save
+<<<<<<< HEAD
       flash[:itinerary_id] = @itinerary.id
+=======
+      session[:itinerary_id] = @iteinerary
+>>>>>>> Working on new location routes
       redirect_to new_location_path
     else
       set_alert(@itinerary)
