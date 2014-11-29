@@ -12,7 +12,6 @@ $(function(){
     e.preventDefault();
 
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
-
         var geoInfo = {};
         console.log(result.address_components);
         geoInfo.latitude = result.geometry.location.lat();
@@ -30,7 +29,6 @@ $(function(){
         $('body').append(response);
       });
     });
-  });
 
   $('.banner').unslider({
     speed: 400,
