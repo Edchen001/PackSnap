@@ -6,8 +6,9 @@ class LocationsController < ApplicationController
   def create
     p location_params
     # raise (params);
-    @location = Location.new(itinerary_id: session[:itinerary_id])
-    @location.assign_attributes(location_params)
+    p @coordinate = Coordinate.find_or_create_by(location_params)
+    p @location = Location.new(itinerary_id: session[:itinerary_id], coordinate_id: @coordinate.id)
+    p @location.assign_attributes(location_params)
     if @location.save
       session[:itinerary_id] = nil
       redirect_to trip_itinerary_path(@location.itinerary.trip, @location.itinerary)
@@ -18,6 +19,6 @@ class LocationsController < ApplicationController
   end
 
   def location_params
-    params.require(:geoInfo).permit(:address)
+    params.require(:geoInfo).permit(:address, :latitude, :longitude)
   end
 end
