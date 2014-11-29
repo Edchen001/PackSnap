@@ -1,10 +1,10 @@
 <div class="login">
-  <%= form_tag(session_new_path) do %>
+  <%= form_tag(session_login_path) do %>
     <%= label_tag(:email) %>
-    <%= text_field_tag :email %>
+    <%= text_field_tag "user[email]" %>
     <br>
     <%= label_tag :password %>
-    <%= password_field_tag :password %>
+    <%= password_field_tag "user[password]" %>
     <br>
     <%= submit_tag "Log In!" %>
   <% end %>
