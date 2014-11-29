@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post "session/login" => "session#login"
   delete "session/logout" => "session#logout"
   resources :users, except: :index
+  resources :locations, except: [:index, :show, :edit, :patch, :destroy, :put]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
