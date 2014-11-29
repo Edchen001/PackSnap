@@ -12,18 +12,19 @@ $(function(){
 
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
 
-      var geoInfo = {};
-      geoInfo.latitude = result.geometry.location.lat();
-      geoInfo.longitude = result.geometry.location.lng();
-      geoInfo.address = $("#geocomplete").val();
+      var coordinate = {};
+      coordinate.latitude = result.geometry.location.lat().toFixed(2);
+      coordinate.longitude = result.geometry.location.lng().toFixed(2);
+      coordinate.address = $("#geocomplete").val();
 
       $.ajax({
          url: $form.attr('action'),
          type: $form.attr('method'),
          dateType: 'html',
-         data: {geoInfo: geoInfo}
+         data: {coordinate: coordinate}
        })
         .done(function(response){
+          console.log(response);
           $('body').append(response);
         });
     });
