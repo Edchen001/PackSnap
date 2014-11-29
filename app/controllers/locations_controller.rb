@@ -4,6 +4,8 @@ class LocationsController < ApplicationController
     render :new, locals:{location: @location}
   end
   def create
+    p params
+    raise (params);
     @location = Location.new(itinerary_id: session[:itinerary_id])
     @location.assign_attributes(params[:location])
     if @location.save
