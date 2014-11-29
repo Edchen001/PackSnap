@@ -1,8 +1,7 @@
 <div class="new-location">
   <%= form_for(location) do |f| %>
-    <input id="geocomplete" class="pure-u-1 pure-u-md-1-3" type="text" name="search_result" placeholder="Where are you going?">
-    <!-- <input id="find" class="pure-button pure-button-primary" type="submit" value="Discover"> -->
-    <%= f.submit "DSICOVER!", id:"find", remote: true %>
+  <input id="geocomplete" class="pure-u-1 pure-u-md-1-3" type="text" name="search_result" placeholder="Where are you going?">
+  <input id="find" class="pure-button pure-button-primary" type="submit" value="Discover">
   <% end %>
 </div>
 

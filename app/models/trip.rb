@@ -3,4 +3,7 @@ class Trip < ActiveRecord::Base
 
   has_many :itineraries
   belongs_to :user
+
+  has_attached_file :bag, :styles => { medium: "300x300"}
+  validates_attachment_content_type :bag, :content_type => /\Aimage\/.*\Z/
 end
