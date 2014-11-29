@@ -60,6 +60,11 @@ describe TripsController do
         post :create, trip: attributes_for(:trip)
         expect(response).to redirect_to(trip_path(assigns[:trip]))
       end
+      it "should save with user_id if user is logged in" do
+        session[:user_id] = 1
+        post :create, trip: attributes_for(:trip)
+        expect(assigns[:trip].user_id).to eq(1)
+      end
     end
 
     context 'invalid attributes' do
