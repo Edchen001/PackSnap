@@ -13,11 +13,12 @@ $(function(){
 
     e.preventDefault();
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
+
     var geoInfo = {}
     console.log(result.address_components)
     geoInfo.latitude = result.geometry.location.lat();
     geoInfo.longitude = result.geometry.location.lng();
-    geoInfo.address = result.address_components;
+    geoInfo.address = $("#geocomplete").val();
     console.log(geoInfo);
      $.ajax({
          url: $form.attr('action'),

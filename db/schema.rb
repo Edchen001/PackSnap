@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20141129022524) do
 
   create_table "locations", force: true do |t|
     t.integer "itinerary_id"
-    t.string  "address",        null: false
-    t.integer "coordinates_id", null: false
+    t.string  "address",       null: false
+    t.integer "coordinate_id", null: false
   end
 
   create_table "travel_dates", force: true do |t|
