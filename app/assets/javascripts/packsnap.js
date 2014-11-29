@@ -15,8 +15,8 @@ $(function(){
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
     var geoInfo = {}
     console.log(result.address_components)
-    geoInfo.lat = result.geometry.location.lat();
-    geoInfo.lng = result.geometry.location.lng();
+    geoInfo.latitude = result.geometry.location.lat();
+    geoInfo.longitude = result.geometry.location.lng();
     geoInfo.address = result.address_components;
     console.log(geoInfo);
      $.ajax({
