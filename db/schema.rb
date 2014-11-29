@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129052633) do
+ActiveRecord::Schema.define(version: 20141129014802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,12 @@ ActiveRecord::Schema.define(version: 20141129052633) do
 
   create_table "locations", force: true do |t|
     t.integer "itinerary_id"
+<<<<<<< HEAD
     t.string  "address",      null: false
+=======
+    t.string  "address",        null: false
+    t.integer "coordinates_id", null: false
+>>>>>>> Update location migration complete
   end
 
   create_table "travel_dates", force: true do |t|
