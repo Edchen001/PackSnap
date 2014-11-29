@@ -14,10 +14,10 @@ $(function(){
     e.preventDefault();
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
     var geoInfo = {}
+    console.log(result.address_components)
     geoInfo.lat = result.geometry.location.lat();
     geoInfo.lng = result.geometry.location.lng();
-    geoInfo.city = result.address_components[2].long_name;
-    geoInfo.country = result.address_components[5].short_name;
+    geoInfo.address = result.address_components;
     console.log(geoInfo);
      $.ajax({
          url: $form.attr('action'),
