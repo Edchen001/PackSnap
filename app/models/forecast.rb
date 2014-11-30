@@ -15,7 +15,7 @@ class Forecast
 	end
 
 	def weather
-		self.forecast.currently
+		self.forecast.currently.temperature
 	end
 
 	def apparentTemperature
