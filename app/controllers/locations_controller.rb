@@ -8,23 +8,16 @@ class LocationsController < ApplicationController
     itinerary_id = flash[:itinerary_id]
     attributes = location_params
 
-
     weather = get_weather(attributes)
-
     scope = get_weather_scope(weather)
-
     suggest_items = get_suggest_item(scope)
-
-    puts "*" * 50
-    p itinerary_id
-    puts "*" * 50
 
     @coordinate = Coordinate.find_or_create_by(latitude: attributes[:latitude], longitude: attributes[:longitude])
     @location = Location.new(itinerary_id: itinerary_id, address: attributes[:address], coordinate_id: @coordinate.id)
 
     respond_to do |format|
       if @location.save
-        format.html { render partial: "trips/single_trip", locals:{trip: @location.itinerary.trip, suggest_items: suggest_items} }
+        format.html { render partial: "locations/test", locals:{suggest_items: suggest_items, location: @location} }
       else
         set_alert(@location)
         format.html { render :new, locals:{location: @location} }
