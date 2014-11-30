@@ -13,6 +13,7 @@ body {
 }
 
 .banner {
+  margin-top: -64px;
   position: relative;
   width: 100%;
   overflow: auto;
@@ -67,7 +68,7 @@ a.splash-button-primary{
 
 .search_area{
   background: rgba(0,0,0,0.6);
-  margin-top: -116px;
+  margin-top: -75px;
   /*margin-bottom: 30px;*/
   position: relative;
   text-align: center;
@@ -81,4 +82,6 @@ a.splash-button-primary{
 
 #append {
   margin-top: 4em;
+  text-align: center;
 }
+
