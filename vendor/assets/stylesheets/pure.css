@@ -85,6 +85,10 @@ label {
 
 }
 
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
 a.pure-button-primary {
     background: white;
     color: #1f8dd6;
@@ -102,7 +106,8 @@ a.pure-button-primary {
     text-align: center;
 }
 .home-menu.pure-menu-open {
-    background: transparent;
+    /*background: transparent;*/
+    background-color: rgba(0,0,0,0.6);
 }
 .pure-menu.pure-menu-open.pure-menu-fixed {
     /* Fixed menus normally have a border at the bottom. */
