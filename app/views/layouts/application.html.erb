@@ -8,15 +8,15 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-
 	<%= render "layouts/navbar" %>
-	<%= render "layouts/spacing" %>
 	<%= render "layouts/modal_getstarted" %>
-	<div id="append"class="l-box-lrg pure-u-1 pure-u-md-3-5">
-		<%= yield %>
+	<%= render "layouts/banner"%>
+	<div class="content-wrapper">
+		<%= render "layouts/geocomplete_content" %>
+		<div id="append">
+			<%= yield %>
+		</div>
+		<div class="map_canvas"></div>
 	</div>
-
-
-
 </body>
 </html>
