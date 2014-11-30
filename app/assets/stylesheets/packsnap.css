@@ -52,12 +52,11 @@ body {
 }
 
 .splash-button {
-  background-color: #1f8dd6;
-  color: white;
-  padding: 0.5em 2em;
-  border-radius: 5px;
-  opacity: .9;
-
+    background-color: #1f8dd6;
+    color: white;
+    padding: 0.5em 2em;
+    border-radius: 5px;
+    opacity: .9;
 }
 a.splash-button-primary{
   background: #c4c4c4;
