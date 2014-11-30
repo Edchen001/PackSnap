@@ -10,8 +10,10 @@
 <body>
 	<%= render "layouts/navbar" %>
 	<%= render "layouts/modal_getstarted" %>
-	<%= render "layouts/modal_login" %>
-	<%= render "layouts/modal_signup" %>
+	<% if !current_user %>
+		<%= render "layouts/modal_login" %>
+		<%= render "layouts/modal_signup" %>
+	<% end %>
 	<%= render "layouts/banner"%>
 	<div class="content-wrapper">
 		<div id="append">

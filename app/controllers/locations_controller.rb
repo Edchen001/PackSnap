@@ -15,10 +15,6 @@ class LocationsController < ApplicationController
 
     suggest_items = get_suggest_item(scope)
 
-    puts "*" * 50
-    p itinerary_id
-    puts "*" * 50
-
     @coordinate = Coordinate.find_or_create_by(latitude: attributes[:latitude], longitude: attributes[:longitude])
     @location = Location.new(itinerary_id: itinerary_id, address: attributes[:address], coordinate_id: @coordinate.id)
 
