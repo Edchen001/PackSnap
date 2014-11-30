@@ -9,17 +9,22 @@ class LocationsController < ApplicationController
     attributes = location_params
 
 
-    forecast_client = Forecast.new(attributes)
-    weather = forecast_client.weather
+    weather = get_weather(attributes)
 
-    scope = Scope.where("minimum <= #{weather} and maximum >= #{weather}")
+    scope = get_weather_scope(weather)
+
+    suggest_items = get_suggest_item(scope)
+
+    puts "*" * 50
+    p itinerary_id
+    puts "*" * 50
 
     @coordinate = Coordinate.find_or_create_by(latitude: attributes[:latitude], longitude: attributes[:longitude])
     @location = Location.new(itinerary_id: itinerary_id, address: attributes[:address], coordinate_id: @coordinate.id)
 
     respond_to do |format|
       if @location.save
-        format.html { render partial: "trips/single_trip", locals:{trip: @location.itinerary.trip} }
+        format.html { render partial: "trips/single_trip", locals:{trip: @location.itinerary.trip, suggest_items: suggest_items} }
       else
         set_alert(@location)
         format.html { render :new, locals:{location: @location} }
@@ -31,5 +36,17 @@ class LocationsController < ApplicationController
 
   def location_params
     params.require(:coordinate).permit(:address, :latitude, :longitude)
+  end
+
+  def get_weather(coordinate)
+    Forecast.new(coordinate).weather
+  end
+
+  def get_weather_scope(weather)
+    Scope.find_by("minimum <= #{weather} and maximum >= #{weather}")
+  end
+
+  def get_suggest_item(scope)
+    scope.category.items
   end
 end
