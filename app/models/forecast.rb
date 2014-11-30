@@ -1,7 +1,4 @@
 class Forecast
-	def self.print()
-		puts "I do exist"
-	end
 	attr_reader :latitude, :longitude, :forecast, :seven_day_forecast
 
 	def initialize(coordinate)
@@ -13,7 +10,7 @@ class Forecast
 	end
 
 	def find_forecast
-		ForecastIO.forecast(self.latitude, self.longitude)		
+		ForecastIO.forecast(self.latitude, self.longitude)
 		# 331300800
 	end
 
@@ -23,11 +20,11 @@ class Forecast
 
 	def apparentTemperature
 		self.forecast.currently.apparentTemperature
-	end 
+	end
 
 	def summary
 		self.forecast.currently.summary
-	end 
+	end
 
 	def get_seven_day_forecast
 		self.forecast.daily.data
