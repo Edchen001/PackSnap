@@ -1,4 +1,5 @@
-#geocomplete { width: 200px}
+#geocomplete { width: 20%;
+}
 
 .map_canvas {
   width: 100%;
@@ -66,9 +67,10 @@ a.splash-button-primary{
 
 .search_area{
   background: rgba(0,0,0,0.6);
+  margin-bottom: 30px;
   position: absolute;
+  text-align: center;
   bottom: 0;
-  
   width: 100%;
   padding: 30px;
 }
