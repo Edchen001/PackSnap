@@ -2,7 +2,6 @@
   <%= form_for(trip) do |f| %>
   <%= f.text_field :title, placeholder: "Title" %>
   <%= f.text_field :description, placeholder: "Description" %>
-
-  <input type='submit' class='pure-button pure-button-trip'>
+  <%= f.submit "Submit", class: 'pure-button pure-button-trip' %>
   <% end %>
 </div>
