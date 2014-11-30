@@ -7,8 +7,16 @@ class LocationsController < ApplicationController
   def create
     itinerary_id = flash[:itinerary_id]
     attributes = location_params
+
+
+    forecast_client = Forecast.new(attributes)
+    weather = forecast_client.weather
+
+    scope = Scope.where("minimum <= #{weather} and maximum >= #{weather}")
+
     @coordinate = Coordinate.find_or_create_by(latitude: attributes[:latitude], longitude: attributes[:longitude])
     @location = Location.new(itinerary_id: itinerary_id, address: attributes[:address], coordinate_id: @coordinate.id)
+
     respond_to do |format|
       if @location.save
         format.html { render partial: "trips/single_trip", locals:{trip: @location.itinerary.trip} }
