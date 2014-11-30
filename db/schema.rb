@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129022524) do
+ActiveRecord::Schema.define(version: 20141129222948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: true do |t|
+    t.string "name", null: false
+  end
 
   create_table "climate_types", force: true do |t|
     t.string "code",        null: false
@@ -25,6 +29,11 @@ ActiveRecord::Schema.define(version: 20141129022524) do
   create_table "coordinates", force: true do |t|
     t.float "longitude", null: false
     t.float "latitude",  null: false
+  end
+
+  create_table "items", force: true do |t|
+    t.string "name"
+    t.string "url"
   end
 
   create_table "itineraries", force: true do |t|
@@ -39,6 +48,17 @@ ActiveRecord::Schema.define(version: 20141129022524) do
     t.integer "itinerary_id"
     t.string  "address",       null: false
     t.integer "coordinate_id", null: false
+  end
+
+  create_table "scopes", force: true do |t|
+    t.float   "minimum"
+    t.float   "maximum"
+    t.integer "category_id"
+  end
+
+  create_table "suggestions", force: true do |t|
+    t.integer "item_id"
+    t.integer "category_id"
   end
 
   create_table "travel_dates", force: true do |t|

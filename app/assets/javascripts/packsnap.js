@@ -8,11 +8,11 @@ $(function(){
   });
 
   $('.new-location').submit(function(e){
+
     var $form = $(e.target);
     e.preventDefault();
 
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
-
       var coordinate = {};
       coordinate.latitude = result.geometry.location.lat().toFixed(2);
       coordinate.longitude = result.geometry.location.lng().toFixed(2);
@@ -43,10 +43,6 @@ $(function(){
 
   var unslider = $('.banner').unslider(),
   data = unslider.data('unslider');
-  window.onload = function () { data.move(0); };
+  window.onload = function () {  data.move(0); };
 
 });
-
-
-
-
