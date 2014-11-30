@@ -88,7 +88,6 @@ a.pure-button-primary {
     background: white;
     color: #1f8dd6;
     border-radius: 5px;
-    font-size: 120%;
 }
 
 
@@ -109,7 +108,6 @@ a.pure-button-primary {
     border-bottom: none;
     color: white;
     font-weight: 400;
-    font-size: 120%;
     /* I need a higher z-index here because of the scroll-over effect. */
     z-index: 4;
 }
@@ -117,7 +115,6 @@ a.pure-button-primary {
 .home-menu .pure-menu-heading {
     color: white;
     font-weight: 400;
-    font-size: 120%;
 }
 
 .home-menu .pure-menu-selected a {
@@ -213,6 +210,7 @@ a.pure-button-primary {
 .ribbon {
     background: #2d3e50;
     color: #aaa;
+    opacity: 0.5;
 }
 
 /* This is the class used for the footer */
