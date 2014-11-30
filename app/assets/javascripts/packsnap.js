@@ -14,6 +14,11 @@ $(function(){
 
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
 
+      $(".banner").remove();
+      $(".search_area").remove();
+      $('nav').css('background-color', 'black')
+      $('nav').css('display', 'fixed')
+
       var coordinate = {};
       coordinate.latitude = result.geometry.location.lat().toFixed(2);
       coordinate.longitude = result.geometry.location.lng().toFixed(2);
