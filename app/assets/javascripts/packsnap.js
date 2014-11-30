@@ -35,8 +35,7 @@ $(function(){
   });
 
   $('.banner').unslider({
-    speed: 400,
-    complete: function() {},
+    speed: 1200,
     keys: true,
     fluid: true
   });

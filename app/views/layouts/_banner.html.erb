@@ -1,19 +1,16 @@
 <div class="banner">
   <ul class="banner-ul">
     <li>
-      <img src="/assets/road.png" >
+      <%= image_tag("road.png") %>
     </li>
     <li>
-      <img src="/assets/laundry.png">
+    <%= image_tag("laundry.png") %>
     </li>
     <li>
-      <img src="/assets/river.png">
+    <%= image_tag("river.png") %>
     </li>
     <li>
-      <img src="/assets/bokeh.png">
-    </li>
-    <li>
-      <img src="/assets/fishing.png">
+    <%= image_tag("fishing.png") %>
     </li>
   </ul>
 </div>
@@ -23,7 +20,7 @@
     Discover what items you may need on your next trip.
   </p>
   <p>
-    <%= link_to "How it works", '#modal-fade', class: "splash-button splash-button-primary" %>
+    <%= link_to "How it works", '#get-started', class: "splash-button splash-button-primary" %>
   </p>
 </div>
 
