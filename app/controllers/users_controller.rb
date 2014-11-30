@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     @user = User.new
     @user.assign_attributes(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       set_alert(@user)

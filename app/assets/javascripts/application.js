@@ -15,3 +15,4 @@
 //= require jquery.geocomplete
 //= require unslider
 //= require packsnap
+//= require modal

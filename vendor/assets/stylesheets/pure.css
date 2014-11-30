@@ -34,7 +34,7 @@ label {
  * These are some useful classes which I will need
  */
 .l-box {
-    padding: 1em;
+    /*padding: 1em;*/
 }
 
 .l-box-lrg {
@@ -68,7 +68,7 @@ label {
 }
 
 .pure-form input[type=date] {
-    width: 31.9%;
+    width: 33%;
     height: 2.25em;    
 }
 

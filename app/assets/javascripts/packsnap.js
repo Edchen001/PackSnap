@@ -1,7 +1,8 @@
 $(function(){
-
+  var manhattan = [40.706496,-74.009113];
   $("#geocomplete").geocomplete({
     map: ".map_canvas",
+    location: manhattan,
     details: "#map_info",
     detailsAttribute: "data-geo"
   });
@@ -12,23 +13,26 @@ $(function(){
     e.preventDefault();
 
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
-        var geoInfo = {};
-        console.log(result.address_components);
-        geoInfo.latitude = result.geometry.location.lat();
-        geoInfo.longitude = result.geometry.location.lng();
-        geoInfo.address = $("#geocomplete").val();
+      var coordinate = {};
+      coordinate.latitude = result.geometry.location.lat().toFixed(2);
+      coordinate.longitude = result.geometry.location.lng().toFixed(2);
+      coordinate.formatted_address = result.formatted_address
+      coordinate.address = $("#geocomplete").val();
 
-        $.ajax({
-           url: $form.attr('action'),
-           type: $form.attr('method'),
-           dateType: 'html',
-           data: {geoInfo: geoInfo}
-        })
-      .done(function(response){
-        console.log(response);
-        $('body').append(response);
-      });
+      $.ajax({
+         url: $form.attr('action'),
+         type: $form.attr('method'),
+         dateType: 'html',
+         data: {coordinate: coordinate}
+       })
+        .done(function(response){
+          $("#append").empty();
+          $('#append').append(response);
+          $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + coordinate.latitude + "&lon=" + coordinate.longitude + "&name=" + coordinate.formatted_address+ "&color=#00aaff&font=Georgia&units=us"));
+
+        });
     });
+  });
 
   $('.banner').unslider({
     speed: 400,
@@ -42,4 +46,3 @@ $(function(){
   window.onload = function () {  data.move(0); };
 
 });
-

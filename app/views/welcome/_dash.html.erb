@@ -1,7 +1,11 @@
 <div class="dash">
-  <h1>HELLO!!!!!!!!!</h1>
-  <% users.each do |user| %>
-    <%= user %>
-  <% end %>
-  <%= link_to "New Trip!", new_trip_path, class: "new-trip-link" %>
+	<div class="weather_widget">
+		<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="70%" src="http://forecast.io/embed/#lat=&lon=&"> </iframe>
+	</div>
+
+
+	<% users.each do |user| %>
+	<%= user %>
+	<% end %>
+	<%= link_to "New Trip!", new_trip_path, class: "new-trip-link" %>
 </div>
