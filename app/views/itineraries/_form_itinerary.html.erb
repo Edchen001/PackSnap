@@ -1,9 +1,9 @@
 <div class="pure-form itinerary-form">
   <%= form_for([itinerary.trip, itinerary]) do |f| %>
   <%= f.label :start_date %>
-  <%= f.date_select :start_date %>
+  <%= f.date_field :start_date %>
   <%= f.label :end_date %>
-  <%= f.date_select :end_date %>
+  <%= f.date_field :end_date %>
   <%= f.submit "Submit", class: 'pure-button pure-button-trip' %>
   <% end %>
 </div>
