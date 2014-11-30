@@ -19,12 +19,15 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(trip_id: params[:trip_id])
     @itinerary.assign_attributes(itinerary_params)
-    if @itinerary.save
-      flash[:itinerary_id] = @itinerary.id
-      redirect_to new_location_path
-    else
-      set_alert(@itinerary)
-      render :new, locals:{itinerary: @itinerary}
+    @location = Location.new
+    respond_to do |format|
+      if @itinerary.save
+        flash[:itinerary_id] = @itinerary.id
+        format.html { render template: "locations/new", layout: false, locals:{location: @location} }
+      else
+        set_alert(@itinerary)
+        format.html { render :new, locals:{itinerary: @itinerary} }
+      end
     end
   end
 

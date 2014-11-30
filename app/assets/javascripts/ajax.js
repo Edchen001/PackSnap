@@ -1,5 +1,5 @@
 $(function() {
-  $('body').on('submit', '#new-trip', function(e) {
+  $('body').on('submit', '#trip-form', function(e) {
     e.preventDefault();
     $form = $(this);
     console.log($form);
@@ -22,6 +22,20 @@ $(function() {
       url: $link.attr('href'),
       type: 'get',
       dataType: 'html',
+    })
+    .done(function(partial) {
+      appendToFront(partial);
+    });
+  });
+
+  $('body').on('submit', '#itinerary-form', function(e) {
+    e.preventDefault();
+    $form = $(this);
+    $.ajax({
+      url: $form.attr('action'),
+      type: $form.attr('method'),
+      dataType: 'html',
+      data: $form.serialize(),
     })
     .done(function(partial) {
       appendToFront(partial);
