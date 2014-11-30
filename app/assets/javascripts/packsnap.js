@@ -28,7 +28,7 @@ $(function(){
         .done(function(response){
           $("#append").empty();
           $('#append').append(response);
-          $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + coordinate.latitude + "&lon=" + coordinate.longitude + "&name=" + coordinate.formatted_address+ "&color=#00aaff&font=Georgia&units=us"));
+          $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + coordinate.latitude + "&lon=" + coordinate.longitude + "&name=" + coordinate.address+ "&color=#00aaff&font=Georgia&units=us"));
 
         });
     });
