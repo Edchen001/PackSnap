@@ -12,7 +12,9 @@
  *
 
  *= require_self
+ *= require pure-min
  *= require pure
  *= require packsnap
  *= require modal
+ *= require grids-responsive-min
  */
