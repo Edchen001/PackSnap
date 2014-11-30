@@ -1,11 +1,11 @@
 class AddAvatarColumnsToItems < ActiveRecord::Migration
   
   def up
-    add_attachment :items, :avatar
+    add_attachment :items, :photo
   end
 
   def down
-    remove_attachment :items, :avatar
+    remove_attachment :items, :photo
   end
 
 end
