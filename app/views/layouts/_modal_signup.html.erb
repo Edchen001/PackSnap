@@ -1,0 +1,30 @@
+<section class="modal--fade" id="sign-in"
+tabindex="-1" role="dialog" aria-labelledby="label-fade" aria-hidden="true">
+
+<div class="modal-inner">
+	<header><h2 id="label-fade">Sign Up</h2></header>
+	<div class="modal-content">
+
+  <%= form_for(user) do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <br>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <br>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    <br>
+    <%= f.submit "SignUp!" %>
+  <% end %>
+
+
+	</div>
+</div>
+
+<a href="#!" class="modal-close" title="Close this modal"
+data-dismiss="modal" data-close="Close">&times;</a>
+</section>
