@@ -10,6 +10,7 @@ class ItinerariesController < ApplicationController
   end
 
   def new
+    @user = User.new
     @itinerary = Itinerary.new(trip_id: params[:trip_id])
     render :new, locals:{itinerary: @itinerary}
   end
