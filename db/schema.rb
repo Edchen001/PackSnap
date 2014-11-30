@@ -70,13 +70,9 @@ ActiveRecord::Schema.define(version: 20141129222948) do
   end
 
   create_table "trips", force: true do |t|
-    t.string   "title",            null: false
-    t.string   "description"
-    t.integer  "user_id"
-    t.string   "bag_file_name"
-    t.string   "bag_content_type"
-    t.integer  "bag_file_size"
-    t.datetime "bag_updated_at"
+    t.string  "title",       null: false
+    t.string  "description"
+    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|
