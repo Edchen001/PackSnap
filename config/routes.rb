@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   get "session/new" => "session#new"
   post "session/login" => "session#login"
-  delete "session/logout" => "session#logout"
+  get "session/logout" => "session#logout"
   resources :users, except: :index
   resources :locations, except: [:index, :show, :edit, :patch, :destroy, :put]
 

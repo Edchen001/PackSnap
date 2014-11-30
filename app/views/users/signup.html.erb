@@ -1,17 +1,13 @@
-<div class="signup">
+<div class="pure-form signup">
   <%= form_for(user) do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, placeholder: "Username" %>
     <br>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, placeholder: "Email" %>
     <br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, placeholder: "Password" %>
     <br>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
     <br>
-    <%= f.submit "SignUp!" %>
+    <%= f.submit "Sign Up", class: 'pure-button pure-button-trip' %>
   <% end %>
 </div>

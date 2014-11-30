@@ -1,9 +1,7 @@
-<div class="trip-form">
+<div class="pure-form trip-form">
   <%= form_for(trip) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.submit %>
+  <%= f.text_field :title, placeholder: "Title" %>
+  <%= f.text_field :description, placeholder: "Description" %>
+  <%= f.submit "Submit", class: 'pure-button pure-button-trip' %>
   <% end %>
 </div>

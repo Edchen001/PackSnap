@@ -8,13 +8,16 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-
-<img src="">
-<img src=<%=Item.last.photo.url(:medium)%>>
-<img src=<%=Item.last.photo.url(:thumb)%>>
-<!-- <img src="//jean_image.jpg"> -->
-<img src="//home/viktor/Dropbox/DBC/PackSnap/app/assets/images/originals/jean_image.jpg">
-
-
+	<%= render "layouts/navbar" %>
+	<%= render "layouts/modal_getstarted" %>
+<%= render "layouts/modal_login" %>
+	<%= render "layouts/banner"%>
+	<div class="content-wrapper">
+		<%= render "layouts/geocomplete_content" %>
+		<div id="append">
+			<%= yield %>
+		</div>
+		<div class="map_canvas"></div>
+	</div>
 </body>
 </html>

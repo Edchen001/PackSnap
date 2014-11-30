@@ -15,9 +15,6 @@ body {
   position: relative;
   width: 100%;
   overflow: auto;
-  top: 50px;
- 
-
   font-size: 18px;
   line-height: 24px;
   text-align: center;
@@ -28,8 +25,8 @@ body {
 }
 
 .banner ul {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
   list-style: none;
   width: 300%;
 }
@@ -43,12 +40,10 @@ body {
   -moz-background-size: 100% 100%;
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
-  -webkit-filter: grayscale(.4);
-  filter: grayscale(.4);
 }
 
 .banner img {
-  height: 100%;
+  height: 36.15em;
   width: 100%;
 }
 
@@ -62,12 +57,18 @@ body {
     padding: 0.5em 2em;
     border-radius: 5px;
     opacity: .9;
-    
 }
 a.splash-button-primary{
-    background: #c4c4c4;
-     text-decoration: none !important;
-    color: white;
-    border-radius: 5px;
-    font-size: 120%;
+  background: #c4c4c4;
+  text-decoration: none !important;
+  color: white;
+}
+
+.search_area{
+  background: rgba(0,0,0,0.6);
+  position: absolute;
+  bottom: 0;
+  
+  width: 100%;
+  padding: 30px;
 }

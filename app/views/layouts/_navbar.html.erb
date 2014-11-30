@@ -1,11 +1,13 @@
-<div class="header">
-    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="/">PS</a>
-
-        <ul>
-            <li class="pure-menu-selected"><a href="/">Home</a></li>
-            <li><%= link_to "Log In!", session_new_path %></a></li>
-            <li><%= link_to "Sign Up!", new_user_path %></li>
-        </ul>
-    </div>
+<div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+	<a class="pure-menu-heading" href="/">PS</a>
+	<ul>
+		<% if current_user %>
+		<li><%= link_to "Log out", session_logout_path %></li>
+		<% else %>
+		<li><%= link_to "Log In", "#login" %></a></li>
+		<li><%= link_to "Sign Up", new_user_path %></li>
+		<% end %>
+		<button onclick="/" class="pure-button pure-button-primary">List your Pack</button>
+	</ul>
 </div>
+
