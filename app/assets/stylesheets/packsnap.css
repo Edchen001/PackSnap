@@ -40,12 +40,10 @@ body {
   -moz-background-size: 100% 100%;
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
-  -webkit-filter: grayscale(.4);
-  filter: grayscale(.4);
 }
 
 .banner img {
-  height: 651px;
+  height: 36.15em;
   width: 100%;
 }
 
