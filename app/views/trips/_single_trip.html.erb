@@ -6,7 +6,9 @@
     <% trip.itineraries.each do |itinerary| %>
       <div class="location-display">
         <%= itinerary.location.address %>
-        <%= suggest_item.name %>
+        <% suggest_items.each do |item| %>
+          <%= item.name %>
+        <% end %>
       </div>
     <% end %>
   <% end %>
