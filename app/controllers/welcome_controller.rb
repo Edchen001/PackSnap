@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @item = Item.first
+
   end
   def dash
     @users = get_users(params[:coordinate])

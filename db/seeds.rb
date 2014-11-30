@@ -13,8 +13,6 @@ cool.scope = Scope.create(minimum:50, maximum:69)
 cold.scope = Scope.create(minimum: 33, maximum:49)
 freezing.scope = Scope.create(minimum: -30, maximum:32)
 
-
-# jean = Item.create(name:"jean", url:"jean.com")
 jean = Item.create(name: "jean", url:"www.jean.com", photo: File.open('/home/viktor/Dropbox/DBC/PackSnap/app/assets/images/jean_image.jpg', 'rb'))
 
 snowjacket = Item.create(name:"snowjacket", url:"snowjacket.com", photo: File.open('/home/viktor/Dropbox/DBC/PackSnap/app/assets/images/snow_jacket.jpg', 'rb'))
