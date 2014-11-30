@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-
+    @user = User.new
   end
   def dash
     @users = get_users(params[:coordinate])
