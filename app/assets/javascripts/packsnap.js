@@ -16,8 +16,6 @@ $(function(){
 
       $(".banner").remove();
       $(".search_area").remove();
-      $('nav').css('background-color', 'black')
-      $('nav').css('display', 'fixed')
 
       var coordinate = {};
       coordinate.latitude = result.geometry.location.lat().toFixed(2);
