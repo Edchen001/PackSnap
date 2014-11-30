@@ -1,7 +1,8 @@
 $(function(){
-
+  var manhattan = [40.706496,-74.009113];
   $("#geocomplete").geocomplete({
     map: ".map_canvas",
+    location: manhattan,
     details: "#map_info",
     detailsAttribute: "data-geo"
   });
@@ -29,12 +30,9 @@ $(function(){
           $('#append').append(response);
           $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + coordinate.latitude + "&lon=" + coordinate.longitude + "&name=" + coordinate.formatted_address));
 
-
         });
     });
   });
-
-
 
   $('.banner').unslider({
     speed: 400,
@@ -48,3 +46,7 @@ $(function(){
   window.onload = function () { data.move(0); };
 
 });
+
+
+
+
