@@ -10,7 +10,7 @@ $(function() {
       data: $form.serialize(),
     })
     .done(function(partial) {
-      appendToFront(partial);
+      appendToPage(partial);
     });
   });
 
@@ -24,7 +24,7 @@ $(function() {
       dataType: 'html',
     })
     .done(function(partial) {
-      appendToFront(partial);
+      appendToPage(partial);
     });
   });
 
@@ -38,7 +38,8 @@ $(function() {
       data: $form.serialize(),
     })
     .done(function(partial) {
-      appendToFront(partial);
+      console.log(partial);
+      appendToPage(partial);
     });
 
   });
@@ -46,7 +47,7 @@ $(function() {
 });
 
 
-function appendToFront (partial) {
+function appendToPage (partial) {
   $('#append').empty();
   $('#append').append(partial);
 }
