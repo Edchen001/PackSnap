@@ -14,6 +14,21 @@ $(function() {
     });
   });
 
+  $('body').on('click', '#new-itinerary-link', function(e) {
+    e.preventDefault();
+    $link = $(this);
+    console.log($link);
+    $.ajax({
+      url: $link.attr('href'),
+      type: 'get',
+      dataType: 'html',
+    })
+    .done(function(partial) {
+      appendToFront(partial);
+    });
+
+  });
+
 });
 
 

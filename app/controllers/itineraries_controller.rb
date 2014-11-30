@@ -11,7 +11,9 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new(trip_id: params[:trip_id])
-    render :new, locals:{itinerary: @itinerary}
+    respond_to do |format|
+      format.html { render partial: "itineraries/form_itinerary", locals:{itinerary: @itinerary} }
+    end
   end
 
   def create
