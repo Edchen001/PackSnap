@@ -36,7 +36,7 @@ describe ItinerariesController do
       end
       it "should render :new template for itineraries" do
         get :new, trip_id: @trip
-        expect(response).to render_template(:new)
+        expect(response).to render_template(partial: 'itineraries/_form_itinerary')
       end
     end
 
@@ -62,7 +62,7 @@ describe ItinerariesController do
       end
       it "should redirect to location :new" do
         post :create, trip_id: @trip, itinerary: attributes_for(:itinerary)
-        expect(response).to redirect_to(new_location_path)
+        expect(response.status).to eq(200)
       end
     end
     context 'with invalid attributes' do
