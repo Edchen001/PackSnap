@@ -48,7 +48,7 @@ a.splash-button-primary{
 }
 video#bgvid {
   min-width: 100%; min-height: 100%;
-  margin-top: -120px;
+  margin-top: -220px;
   width: auto; height: auto; z-index: -100;
   background-size: cover;
 }
