@@ -1,7 +1,7 @@
 <div class="user_dash">
-  <p><%= user.username %></p>
+  <h2>Hey <%= user.username %>!</h2>
   <p><%= user.email %></p>
-  <h3>Your Trips:</h3>
+  <h3>Here are your recent trips:</h3>
   <% user.trips.each do |trip| %>
   <p><%= link_to trip.title, trip_path(trip) %></p>
   <% end %>
