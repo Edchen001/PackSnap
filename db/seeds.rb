@@ -7,6 +7,10 @@ warm = Category.create(name:"warm")
 cool = Category.create(name:"cool")
 cold = Category.create(name:"cold")
 freezing = Category.create(name:"freezing")
+rain = Category.create(name:"rain")
+snow = Category.create(name:"snow")
+sleet = Category.create(name:"sleet")
+hail = Category.create(name:"hail")
 
 blazing.scope = Scope.create(minimum: 100, maximum: 130)
 hot.scope = Scope.create(minimum:85, maximum:99)
@@ -31,6 +35,7 @@ Suggestion.create(item: jean, category: cold)
 
 Suggestion.create(item: snowjacket, category: cold)
 Suggestion.create(item: snowjacket, category: freezing)
+Suggestion.create(item: snowjacket, category: snow)
 
 Suggestion.create(item: sunglasses, category: hot)
 Suggestion.create(item: sunglasses, category: warm)
