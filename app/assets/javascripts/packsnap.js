@@ -12,20 +12,18 @@ $(function(){
     var $form = $(e.target);
     e.preventDefault();
     var geoDate = $("#geocomplete_date").val();
-      // console.log(geoDate);
 
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
 
       $(".banner").remove();
       $(".search_area").remove();
-      
 
       var coordinate = {};
       coordinate.latitude = result.geometry.location.lat().toFixed(2);
       coordinate.longitude = result.geometry.location.lng().toFixed(2);
       coordinate.address = result.formatted_address;
       coordinate.date = geoDate;
-      console.log(coordinate.geoDate);
+
       $.ajax({
          url: $form.attr('action'),
          type: $form.attr('method'),
