@@ -55,3 +55,10 @@ video#bgvid {
 logo {
   margin-left: -12px;
 }
+
+#suggested_items{
+  text-align: left;
+  margin-top: 40px;
+  margin-left: -200px
+}
+
