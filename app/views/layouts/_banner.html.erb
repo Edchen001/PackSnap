@@ -1,17 +1,13 @@
 <%= video_tag "broll.mp4", :id => "bgvid", :autoplay => true, :loop => true %>
-
 <div class="splash">
-<h1 class="splash-head">PackSnap!</h1>
-<p class="splash-subhead">
-  Discover what items you may need on your next trip.
-</p>
-<p>
-  <%= link_to "How it works", '#get-started', class: "splash-button splash-button-primary" %>
-</p>
-
-
+  <h1 class="splash-head">PackSnap!</h1>
+  <p class="splash-subhead">
+    Discover what items you may need on your next trip.
+  </p>
+  <p>
+  <%= link_to "Learn More", '#get-started', class: "splash-button splash-button-primary" %>
+  </p>
 </div>
-
 <div class="search_area">
   <form action="/dash" class="pure-form new-location" method="get">
     <input id="geocomplete" class="pure-u-1 pure-u-md-1-3" type="text" placeholder="Where are you going?">
