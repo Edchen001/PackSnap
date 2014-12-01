@@ -70,12 +70,6 @@ $(function() {
       });
       ////
     });
-
-  });
-
-  $('body').on('submit', '#location-form', function(e) {
-    e.preventDefault();
-    console.log(this);
   });
 
 });
