@@ -47,7 +47,7 @@ describe UsersController do
       end
       it "should redirect to user profile" do
         post :create, user: attributes_for(:user)
-        expect(response).to redirect_to(user_path(assigns[:user]))
+        expect(response).to redirect_to(root_path)
       end
       it "should set session for that user" do
         post :create, user: attributes_for(:user)
@@ -82,7 +82,7 @@ describe UsersController do
       end
       it "should redirect to user profile" do
         put :update, id: @user, user: attributes_for(:user, username: "updated")
-        expect(response).to redirect_to(user_path(@user))
+        expect(response).to redirect_to(root_path)
       end
     end
     context 'invalid attributes' do
