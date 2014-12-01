@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20141201173237) do
     t.string  "name"
     t.string  "url"
     t.integer "photo_id"
-    t.float   "tagX"
-    t.float   "tagY"
+    t.float   "tag_x"
+    t.float   "tag_y"
   end
 
   create_table "itineraries", force: true do |t|
