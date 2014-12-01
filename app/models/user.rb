@@ -7,5 +7,8 @@ class User < ActiveRecord::Base
   has_many :itineraries, through: :trips
   has_many :destinations, through: :itineraries, source: :location
 
+  has_many :photos
+  has_many :locations, through: :photos
+
   has_many :visiting_coordinates, through: :destinations
 end
