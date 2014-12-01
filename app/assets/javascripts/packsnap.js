@@ -11,11 +11,15 @@ $(function(){
 
     var $form = $(e.target);
     e.preventDefault();
+    var geoDate = $("#geocomplete_date").val();
+      // console.log(geoDate);
 
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
 
       $(".banner").remove();
       $(".search_area").remove();
+      
+      // console.log(geoDate);
 
       var coordinate = {};
       coordinate.latitude = result.geometry.location.lat().toFixed(2);
@@ -26,7 +30,7 @@ $(function(){
          url: $form.attr('action'),
          type: $form.attr('method'),
          dateType: 'html',
-         data: {coordinate: coordinate}
+         data: {coordinate: coordinate, date: geoDate}
        })
         .done(function(response){
           $("#append").empty();
