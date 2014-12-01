@@ -1,6 +1,8 @@
 $(function(){
   var manhattan = [40.706496,-74.009113];
   $("#geocomplete").geocomplete({
+    map: ".map_canvas",
+    location: manhattan,
     details: "#map_info",
     detailsAttribute: "data-geo"
   });
