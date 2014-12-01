@@ -21,7 +21,7 @@ freezing.scope = Scope.create(minimum: -30, maximum:32)
 
 jean_image = Photo.create!(image: File.open('app/assets/images/jean_image.jpg'))
 snowjacket_image = Photo.create!(image: File.open('app/assets/images/snow_jacket.jpg'))
-sunglasses_image = Photo.create!(image: File.open('app/assets/images/sun_glasses.jpg'))
+sunglasses_image = Photo.create!(image: File.open('app/assets/images/sunglasses.jpg'))
 sunhat_image = Photo.create!(image: File.open('app/assets/images/sun_hat.jpg'))
 
 jean = Item.create!(name: "jean", url:"www.jean.com", photo: jean_image)
