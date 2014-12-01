@@ -1,5 +1,5 @@
 class AddAvatarColumnsToItems < ActiveRecord::Migration
-  
+
   def up
     add_attachment :items, :photo
   end
