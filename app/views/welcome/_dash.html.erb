@@ -11,6 +11,6 @@
     <%= image_tag item.photo.image(:thumb) %>
   <% end %>
   <% if current_user %>
-	 <%= link_to "New Trip!", new_trip_path, id: "new-trip-link", class: "pure-button new-trip-link" %>
+	 <%= link_to "Upload Your Pack!", new_photo_path, id: "new-photo-link", class: "pure-button new-trip-link" %>
   <% end %>
 </div>
