@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'paperclip', '~> 4.2'
+gem 'paperclip', '~> 3.5'
 
 gem 'rack-handlers'
 gem 'unicorn'
