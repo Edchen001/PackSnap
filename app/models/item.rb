@@ -5,5 +5,4 @@ class Item < ActiveRecord::Base
 
   has_attached_file :photo, styles: { :medium => "300x300!", :thumb => "100x100>" }, whiny: false
   do_not_validate_attachment_file_type :photo
-  # validates_attachment_content_type :photo, :content_type => "jpg"
 end

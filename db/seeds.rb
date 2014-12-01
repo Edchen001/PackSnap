@@ -20,12 +20,6 @@ snowjacket = Item.create!(name:"snowjacket", url:"snowjacket.com", photo: File.o
 sunglasses = Item.create!(name:"sunglasses", url:"sun_glasses.com", photo: File.open('/Users/xiranou/Desktop/PackSnap/app/assets/images/sun_glasses.jpg'))
 sunhat = Item.create!(name:"sunhat", url:"sunhat.com", photo: File.open('/Users/xiranou/Desktop/PackSnap/app/assets/images/sun_hat.jpg'))
 
-# jean = Item.create(name: "jean", url:"www.jean.com")
-# snowjacket = Item.create(name:"snowjacket", url:"snowjacket.com")
-# sunglasses = Item.create(name:"sunglasses", url:"sun_glasses.com")
-# sunhat = Item.create(name:"sunhat", url:"sunhat.com")
-
-
 Suggestion.create(item: jean, category: cool)
 Suggestion.create(item: jean, category: warm)
 Suggestion.create(item: jean, category: cold)
