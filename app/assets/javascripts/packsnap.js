@@ -19,18 +19,18 @@ $(function(){
       $(".banner").remove();
       $(".search_area").remove();
       
-      // console.log(geoDate);
 
       var coordinate = {};
       coordinate.latitude = result.geometry.location.lat().toFixed(2);
       coordinate.longitude = result.geometry.location.lng().toFixed(2);
       coordinate.address = result.formatted_address;
-
+      coordinate.date = geoDate;
+      console.log(coordinate.geoDate);
       $.ajax({
          url: $form.attr('action'),
          type: $form.attr('method'),
          dateType: 'html',
-         data: {coordinate: coordinate, date: geoDate}
+         data: {coordinate: coordinate}
        })
         .done(function(response){
           $("#append").empty();
