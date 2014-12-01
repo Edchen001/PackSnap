@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "welcome#index"
   get "dash" => "welcome#dash"
+  get "dashboard" => "welcome#dashboard"
   resources :trips do
     resources :itineraries
   end

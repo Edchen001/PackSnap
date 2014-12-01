@@ -14,6 +14,9 @@ class WelcomeController < ApplicationController
     end
   end
 
+  def dashboard
+  end
+
   private
 
   def inputted_destinations(coordinate)

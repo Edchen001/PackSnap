@@ -153,6 +153,7 @@ a.pure-button-primary {
     width: 100%;
     height: 100%;
     margin: auto;
+    margin-top: 160px;
     position: absolute;
     top: 100px; left: 0; bottom: 0; right: 0;
     text-align: center;
