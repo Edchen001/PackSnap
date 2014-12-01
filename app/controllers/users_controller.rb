@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     render :signup, locals:{user: @user}
   end
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
     render :show, locals:{user: @user}
   end
   def edit
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @user.assign_attributes(user_params)
     if @user.save
-      redirect_to user_path(@user)
+      redirect_to root_path
     else
       set_alert(@user)
       render :edit
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @user.assign_attributes(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to root_path
     else
       set_alert(@user)
       render :signup

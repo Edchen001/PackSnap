@@ -10,10 +10,11 @@
 <body>
 	<%= render "layouts/navbar" %>
 	<%= render "layouts/modal_getstarted" %>
-<%= render "layouts/modal_login" %>
-	<%= render "layouts/banner"%>
+	<% if !current_user %>
+		<%= render "layouts/modal_login" %>
+		<%= render "layouts/modal_signup" %>
+	<% end %>
 	<div class="content-wrapper">
-		<%= render "layouts/geocomplete_content" %>
 		<div id="append">
 			<%= yield %>
 		</div>

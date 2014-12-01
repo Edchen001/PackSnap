@@ -12,7 +12,7 @@
       </div>
     <% end %>
   <% end %>
-  <li> <%= link_to "Edit trip", edit_trip_path(trip.id)  %></li>
-	<li> <%= link_to "delete trip", trip_path(trip.id), method: :delete  %></li>
-  <li><%= link_to "New Itinerary", new_trip_itinerary_path(trip) %></li>
+  <p><%= link_to "New Itinerary", new_trip_itinerary_path(trip), class: "pure-button" %></p>
+  <p> <%= link_to "Edit", edit_trip_path(trip.id),  class: "pure-button" %></p>
+  <p> <%= link_to "Delete", trip_path(trip.id), method: :delete, class: "button-error pure-button"  %></p>
 </div>

@@ -2,5 +2,7 @@
   <p><%= user.username %></p>
   <p><%= user.email %></p>
   <h3>Your Trips:</h3>
-  <p><%= user.trips %></p>
+  <% user.trips.each do |trip| %>
+  <p><%= link_to trip.title, trip_path(trip) %></p>
+  <% end %>
 </div>
