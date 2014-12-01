@@ -4,7 +4,9 @@
 	</div>
 
 	<% users.each do |user| %>
-	<%= user %>
+	 <%= user %>
 	<% end %>
-	<%= link_to "New Trip!", new_trip_path, , id: "new-trip-link" class: "pure-button new-trip-link" %>
+  <% if current_user %>
+	 <%= link_to "New Trip!", new_trip_path, id: "new-trip-link", class: "pure-button new-trip-link" %>
+  <% end %>
 </div>

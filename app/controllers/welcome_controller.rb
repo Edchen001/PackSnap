@@ -17,6 +17,8 @@ class WelcomeController < ApplicationController
   end
 
   def get_users(coordinate)
-    inputted_destinations(coordinate).map { |destination| destination.user }
+    itineraries = inputted_destinations(coordinate).map { |destination| destination.itinerary }
+    trips = itineraries.map { |itinerary| itinerary.trip }
+    trips.map { |trip| trip.user }
   end
 end
