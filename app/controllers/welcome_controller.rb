@@ -5,11 +5,6 @@ class WelcomeController < ApplicationController
   def dash
     @users = get_users(params[:coordinate])
 
-    puts "*" * 50
-    p params[:coordinate]
-    puts "*" * 50
-    
-
     weather = get_weather(params[:coordinate])
     scope = get_weather_scope(weather)
     suggest_items = get_suggest_item(scope)
