@@ -1,3 +1,6 @@
+# Is there ever a case where you talk about a trip without its itineraries?  If
+# so, then why have this controller at all?
+#
 class TripsController < ApplicationController
 
 	def index
@@ -23,6 +26,7 @@ class TripsController < ApplicationController
 				format.html { render partial: "trips/single_trip", locals:{trip: @trip} }
 			else
 				set_alert(@trip)
+        # Not needed...
 				format.html { render :new, locals:{trip: @trip} }
 			end
 		end
