@@ -9,14 +9,8 @@ class LocationsController < ApplicationController
     attributes = location_params
 
     weather = get_weather(attributes)
-
     scope = get_weather_scope(weather)
     suggest_items = get_suggest_item(scope)
-    puts "*" * 50
-    p weather
-    p scope
-    p suggest_items
-    puts "*" * 50
 
     @coordinate = Coordinate.find_or_create_by(latitude: attributes[:latitude], longitude: attributes[:longitude])
     @location = Location.new(itinerary_id: itinerary_id, address: attributes[:address], coordinate_id: @coordinate.id)

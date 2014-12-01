@@ -12,6 +12,9 @@ $(function(){
 
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
 
+      $(".banner").remove();
+      $(".search_area").remove();
+
       var coordinate = {};
       coordinate.latitude = result.geometry.location.lat().toFixed(2);
       coordinate.longitude = result.geometry.location.lng().toFixed(2);
@@ -26,7 +29,7 @@ $(function(){
         .done(function(response){
           $("#append").empty();
           $('#append').append(response);
-          $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + coordinate.latitude + "&lon=" + coordinate.longitude + "&name=" + coordinate.formatted_address+ "&color=#00aaff&font=Georgia&units=us"));
+          $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + coordinate.latitude + "&lon=" + coordinate.longitude + "&name=" + coordinate.address+ "&color=#00aaff&font=Georgia&units=us"));
 
         });
     });
