@@ -51,3 +51,7 @@ video#bgvid {
   width: auto; height: auto; z-index: -100;
   background-size: cover;
 }
+
+logo {
+  margin-left: -12px;
+}
