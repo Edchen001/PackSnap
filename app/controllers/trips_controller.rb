@@ -18,11 +18,13 @@ class TripsController < ApplicationController
 	def create
 		@trip = Trip.new(user_id: session[:user_id])
 		@trip.assign_attributes(trip_params)
-		if @trip.save
-			redirect_to trip_path(@trip)
-		else
-			set_alert(@trip)
-			render :new, locals:{trip: @trip}
+		respond_to do |format|
+			if @trip.save
+				format.html { render partial: "trips/single_trip", locals:{trip: @trip} }
+			else
+				set_alert(@trip)
+				format.html { render :new, locals:{trip: @trip} }
+			end
 		end
 	end
 

@@ -1,3 +1,5 @@
+User.create(username: "xiran", email: "xiran@dbc.com", password: 123, password_confirmation: 123)
+
 
 blazing = Category.create(name:"blazing")
 hot = Category.create(name:"hot")
@@ -13,11 +15,16 @@ cool.scope = Scope.create(minimum:50, maximum:69)
 cold.scope = Scope.create(minimum: 33, maximum:49)
 freezing.scope = Scope.create(minimum: -30, maximum:32)
 
-jean = Item.create(name: "jean", url:"www.jean.com", photo: File.open('/home/viktor/Dropbox/DBC/PackSnap/app/assets/images/jean_image.jpg', 'rb'))
+# jean = Item.create(name: "jean", url:"www.jean.com", photo: File.open('/Users/xiranou/Desktop/PackSnap/app/assets/images/jean_image.jpg', 'rb'))
+# snowjacket = Item.create(name:"snowjacket", url:"snowjacket.com", photo: File.open('/Users/xiranou/Desktop/PackSnap/app/assets/images/snow_jacket.jpg', 'rb'))
+# sunglasses = Item.create(name:"sunglasses", url:"sun_glasses.com", photo: File.open('/Users/xiranou/Desktop/PackSnap/app/assets/images/sun_glasses.jpg', 'rb'))
+# sunhat = Item.create(name:"sunhat", url:"sunhat.com", photo: File.open('/Users/xiranou/Desktop/PackSnap/app/assets/images/sun_hat.jpg', 'rb'))
+#
 
-snowjacket = Item.create(name:"snowjacket", url:"snowjacket.com", photo: File.open('/home/viktor/Dropbox/DBC/PackSnap/app/assets/images/snow_jacket.jpg', 'rb'))
-sunglasses = Item.create(name:"sunglasses", url:"sun_glasses.com", photo: File.open('/home/viktor/Dropbox/DBC/PackSnap/app/assets/images/sun_glasses.jpg', 'rb'))
-sunhat = Item.create(name:"sunhat", url:"sunhat.com", photo: File.open('/home/viktor/Dropbox/DBC/PackSnap/app/assets/images/sun_hat.jpg', 'rb'))
+jean = Item.create(name: "jean", url:"www.jean.com")
+snowjacket = Item.create(name:"snowjacket", url:"snowjacket.com")
+sunglasses = Item.create(name:"sunglasses", url:"sun_glasses.com")
+sunhat = Item.create(name:"sunhat", url:"sunhat.com")
 
 
 Suggestion.create(item: jean, category: cool)

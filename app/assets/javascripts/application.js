@@ -16,3 +16,4 @@
 //= require unslider
 //= require packsnap
 //= require modal
+//= require ajax

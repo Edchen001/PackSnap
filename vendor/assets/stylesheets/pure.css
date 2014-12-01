@@ -68,9 +68,10 @@ label {
 }
 
 .pure-form input[type=date] {
-    width: 33%;
-    height: 2.25em;    
+    width: 20%;
+    height: 2.25em;
 }
+
 
 /*
  * -- PURE BUTTON STYLES --
@@ -81,7 +82,11 @@ label {
     color: white;
     padding: 0.5em 2em;
     border-radius: 5px;
-    
+
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
 }
 
 a.pure-button-primary {
@@ -101,7 +106,8 @@ a.pure-button-primary {
     text-align: center;
 }
 .home-menu.pure-menu-open {
-    background: transparent;
+    /*background: transparent;*/
+    background-color: rgba(0,0,0,0.6);
 }
 .pure-menu.pure-menu-open.pure-menu-fixed {
     /* Fixed menus normally have a border at the bottom. */

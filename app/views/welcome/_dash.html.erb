@@ -1,11 +1,15 @@
 <div class="dash">
 	<div class="weather_widget">
-		<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="70%" src="http://forecast.io/embed/#lat=&lon=&"> </iframe>
+		<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="60%" src="http://forecast.io/embed/#lat=&lon=&"> </iframe>
 	</div>
 
-
 	<% users.each do |user| %>
-	<%= user %>
+	 <%= user %>
 	<% end %>
-	<%= link_to "New Trip!", new_trip_path, class: "new-trip-link" %>
+  <% items.each do |item| %>
+    <%= item.name %>
+  <% end %>
+  <% if current_user %>
+	 <%= link_to "New Trip!", new_trip_path, id: "new-trip-link", class: "pure-button new-trip-link" %>
+  <% end %>
 </div>

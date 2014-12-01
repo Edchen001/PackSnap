@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129222948) do
+ActiveRecord::Schema.define(version: 20141130162209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +32,12 @@ ActiveRecord::Schema.define(version: 20141129222948) do
   end
 
   create_table "items", force: true do |t|
-    t.string "name"
-    t.string "url"
+    t.string   "name"
+    t.string   "url"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "itineraries", force: true do |t|
@@ -70,25 +74,17 @@ ActiveRecord::Schema.define(version: 20141129222948) do
   end
 
   create_table "trips", force: true do |t|
-    t.string   "title",            null: false
-    t.string   "description"
-    t.integer  "user_id"
-    t.string   "bag_file_name"
-    t.string   "bag_content_type"
-    t.integer  "bag_file_size"
-    t.datetime "bag_updated_at"
+    t.string  "title",       null: false
+    t.string  "description"
+    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|
     t.string   "username"
-    t.string   "email",            null: false
-    t.string   "password_digest",  null: false
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "bag_file_name"
-    t.string   "bag_content_type"
-    t.integer  "bag_file_size"
-    t.datetime "bag_updated_at"
   end
 
   create_table "weathers", force: true do |t|
