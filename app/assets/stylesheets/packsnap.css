@@ -1,4 +1,5 @@
-#geocomplete { width: 20%;
+#geocomplete { 
+  width: 20%;
 }
 
 .map_canvas {
@@ -21,11 +22,9 @@ body {
     color: white;
     padding: 0.5em 2em;
     border-radius: 5px;
-    opacity: .9;
 }
 a.splash-button-primary{
-  background: #c4c4c4;
-  text-decoration: none !important;
+  background: #828282;
   color: white;
 }
 
