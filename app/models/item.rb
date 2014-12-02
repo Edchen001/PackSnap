@@ -3,6 +3,7 @@ class Item < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :location
+  has_many :comments
   has_many :suggestions
   has_many :categories, through: :suggestions
 
