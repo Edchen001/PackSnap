@@ -1,11 +1,11 @@
 class Forecast
 	attr_reader :latitude, :longitude, :time, :forecast, :seven_day_forecast
 
-	def initialize(coordinate)
+	def initialize(location)
 		ForecastIO.api_key = "3fac0b4fad926d110405e9ff06c240c9"
-		@latitude = coordinate[:latitude]
-		@longitude = coordinate[:longitude]
-		@time = Time.new(coordinate[:date]).to_i
+		@latitude = location[:latitude]
+		@longitude = location[:longitude]
+		@time = Time.new(location[:date]).to_i
 		@forecast = find_forecast
 	end
 
