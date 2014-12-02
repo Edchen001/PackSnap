@@ -10,7 +10,9 @@
       <% user.comments.each do |comment| %>
       <li>
         <figure>
+          <a href="#">
           <%= image_tag comment.item.image.url(:medium) %>
+          </a>
           <figcaption><h3><%= comment.location.address %></h3>
             <p><%= comment.content %></p>
           </figcaption>

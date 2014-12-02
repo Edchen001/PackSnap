@@ -4,12 +4,13 @@ class DashController < ApplicationController
     @user = User.new
 
     client = init_forecast_client(params[:location])
+    @location = Location.find_or_create_by(location_params)
 
     weather = get_weather
     scope = get_weather_scope(weather)
     suggest_items = unique_item(scope)
 
-    render :dashboard, locals:{users: @users, items: suggest_items, latitude: params[:location][:latitude], longitude: params[:location][:longitude], address: params[:location][:address]}, layout: false
+    render :dashboard, locals:{users: @users, items: suggest_items, latitude: params[:location][:latitude], longitude: params[:location][:longitude], address: params[:location][:address], location: @location}, layout: false
   end
 
   def new

@@ -1,0 +1,24 @@
+<section class="slideshow">
+  <ul>
+    <% location.comments.each do |comment| %>
+    <li>
+      <figure>
+        <figcaption>
+          <h3><%= location.address %></h3>
+          <p><%= comment.content %></p>
+          <p><%= comment.user.username %></p>
+        </figcaption>
+        <a href="#">
+          <%= image_tag comment.item.image.url(:medium) %>
+        </a>
+      </figure>
+    </li>
+    <% end %>
+  </ul>
+  <nav>
+    <span class="icon nav-prev"></span>
+    <span class="icon nav-next"></span>
+    <span class="icon nav-close"></span>
+  </nav>
+  <div class="info-keys icon">Navigate with arrow keys</div>
+</section>
