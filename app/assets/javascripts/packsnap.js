@@ -5,20 +5,27 @@ function Coordinate (result, inputDate) {
   this.date = inputDate;
 }
 
+function updateWidget (coordinate) {
+  $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + coordinate.latitude + "&lon=" + coordinate.longitude + "&name=" + coordinate.address+ "&color=#00aaff&font=Georgia&units=us"));
+}
+
+function appendToFront (selector, partial) {
+  $(selector).empty();
+  $(selector).append(partial);
+}
+
 $(function(){
+
   $("#geocomplete").geocomplete({
     detailsAttribute: "data-geo"
   });
 
-  $('.new-location').submit(function(e){
+  $('body').on("submit", ".new-location", function(e){
     e.preventDefault();
-    var $form = $(e.target);
+    var $form = $(this);
     var inputDate = $("#geocomplete_date").val();
 
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
-
-      $(".banner").remove();
-      $(".search_area").remove();
 
       var coordinate = new Coordinate(result, inputDate);
 
@@ -29,10 +36,8 @@ $(function(){
          data: {coordinate: coordinate}
        })
         .done(function(response){
-          $("#append").empty();
-          $('#append').append(response);
-          $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + coordinate.latitude + "&lon=" + coordinate.longitude + "&name=" + coordinate.address+ "&color=#00aaff&font=Georgia&units=us"));
-
+          appendToFront("#append", response);
+          updateWidget(coordinate);
         });
     });
   });
