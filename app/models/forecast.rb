@@ -7,9 +7,6 @@ class Forecast
 		@longitude = coordinate[:longitude]
 		@time = Time.new(coordinate[:date]).to_i
 		@forecast = find_forecast
-		
-		@precipitation_type = 
-		@seven_day_forecast = getSevenDayForecast
 	end
 
 	def find_forecast
@@ -23,11 +20,11 @@ class Forecast
 	def apparentTemperature
 		self.forecast.currently.apparentTemperature
 	end
-	
+
 	def precipationType
 		self.forecast.currently.precipType
 	end
-	
+
 	def summary
 		self.forecast.currently.summary
 	end
