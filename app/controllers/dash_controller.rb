@@ -1,5 +1,5 @@
 class DashController < ApplicationController
-  
+
   def index
     @user = User.new
 
@@ -10,7 +10,7 @@ class DashController < ApplicationController
     suggest_items = unique_item(scope)
 
     respond_to do |format|
-      format.html { render :index, locals:{users: @users, items: suggest_items} }
+      format.html { render :dashboard, locals:{users: @users, items: suggest_items} }
     end
   end
 
