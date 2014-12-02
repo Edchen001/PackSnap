@@ -28,3 +28,9 @@ module PackSnap
     # config.i18n.default_locale = :de
   end
 end
+
+Amazon::Ecs.configure do |options|
+  options[:associate_tag] = ENV['AmazonAssociateTag']
+  options[:AWS_access_key_id] = ENV['AmazonAccessKeyID']
+  options[:AWS_secret_key] = ENV['AmazonSecretAccessKey']
+end
