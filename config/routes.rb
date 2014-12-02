@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "session/logout" => "session#logout"
   resources :users, except: :index
   resources :locations, only: [:create, :new]
-  resources :items, only: [:new, :create]
+  resources :photos, only: [:create, :new]
   get "dashboard" => "welcome#dashboard"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
