@@ -78,7 +78,7 @@ label {
  * I want my pure-button elements to look a little different
  */
  .pure-button {
-    background-color: #1f8dd6;
+    background-color: #0076df;
     color: white;
     padding: 0.5em 2em;
     border-radius: 5px;
@@ -91,7 +91,7 @@ label {
 
 a.pure-button-primary {
     background: white;
-    color: #1f8dd6;
+    color: #0076df;
     border-radius: 5px;
 }
 
@@ -107,19 +107,19 @@ a.pure-button-primary {
 }
 .home-menu.pure-menu-open {
     /*background: transparent;*/
-    background-color: #304650;
+    background-color: white;
 }
 .pure-menu.pure-menu-open.pure-menu-fixed {
     /* Fixed menus normally have a border at the bottom. */
     border-bottom: none;
-    color: white;
+    color: #0076df;
     font-weight: 400;
     /* I need a higher z-index here because of the scroll-over effect. */
     z-index: 4;
 }
 
 .home-menu .pure-menu-heading {
-    color: white;
+    color: #0076df;
     font-weight: 400;
 }
 
@@ -128,7 +128,7 @@ a.pure-button-primary {
 }
 
 .home-menu a {
-    color: white;
+    color: #0076df;
 }
 .home-menu li a:hover,
 .home-menu li a:focus {
@@ -206,7 +206,7 @@ a.pure-button-primary {
 
 /* This is the class used for the content sub-headers (<h3>) */
 .content-subhead {
-    color: #1f8dd6;
+    color: #0076df;
 }
 .content-subhead i {
     margin-right: 7px;
