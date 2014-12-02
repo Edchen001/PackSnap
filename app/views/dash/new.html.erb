@@ -1,4 +1,4 @@
-<%= form_tag("/dash", method: :post, html: {multipart:true}) do %>
+<%= form_tag("/dash", method: :post, multipart: true) do %>
   <%= hidden_field_tag "location[latitude]", params[:location][:latitude] %>
   <%= hidden_field_tag "location[longitude]", params[:location][:longitude] %>
   <%= hidden_field_tag "location[address]", params[:location][:address] %>
