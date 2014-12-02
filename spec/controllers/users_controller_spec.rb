@@ -50,7 +50,7 @@ describe UsersController do
         expect { post :create, user: attributes_for(:user) }.to change(User, :count).by(1)
       end
 
-      it "should redirect to user profile" do
+      it "should redirect to root" do
         post :create, user: attributes_for(:user)
         expect(response).to redirect_to(root_path)
       end
