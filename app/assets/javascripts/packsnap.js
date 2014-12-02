@@ -16,6 +16,7 @@ function appendToFront (selector, partial) {
 
 function findPos(tag) {
     var curtop = 0;
+    console.log(curtop);
     if (tag.offsetParent) {
         do {
             curtop += tag.offsetTop;
@@ -46,11 +47,14 @@ $(function(){
        })
         .done(function(response){
           appendToFront("#append", response);
-          window.scroll(0,findPos(document.getElementById("append")));
+          window.scroll(0,findPos(document.getElementById("geocomplete")));
+          // $('#.scrollIntoView(alignWithTop);
           updateWidget(location);
           new CBPGridGallery(document.getElementById('grid-gallery'));
 
         });
+         $("#geocomplete").unbind('geocode:result');
+
     });
   });
 
