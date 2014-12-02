@@ -1,11 +1,11 @@
 class DashController < ApplicationController
-  
+
   def index
     @user = User.new
 
-    client = init_forecast_client(params[:coordinate])
+    @client = Forecast.new(params[:coordinate])
 
-    weather = get_weather
+    weather = @client.weather
     scope = get_weather_scope(weather)
     suggest_items = unique_item(scope)
 
@@ -14,19 +14,6 @@ class DashController < ApplicationController
     end
   end
 
-  attr_reader :forecast_client
-
-  def init_forecast_client(coordinate)
-    @forecast_client = Forecast.new(coordinate)
-  end
-
-  def get_weather
-    self.forecast_client.weather
-  end
-
-  def get_precipitation_type
-    self.forecast_client.precipationType
-  end
 
   def get_weather_scope(weather)
     Scope.find_by("minimum <= #{weather} and maximum >= #{weather}")
@@ -37,7 +24,7 @@ class DashController < ApplicationController
   end
 
   def get_suggested_precipation_type_item
-    precipation_type = Category.where(name: self.get_precipitation_type)
+    precipation_type = Category.where(name: @client.precipation_type)
     unless precipation_type
       return precipation_type.items
     else
