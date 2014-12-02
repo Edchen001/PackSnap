@@ -1,16 +1,12 @@
 Rails.application.routes.draw do
   root "welcome#index"
-  get "dash" => "welcome#dash"
-  get "dashboard" => "welcome#dashboard"
-  resources :trips do
-    resources :itineraries
-  end
+  get "dash" => "dash#index"
   get "session/new" => "session#new"
   post "session/login" => "session#login"
   get "session/logout" => "session#logout"
   resources :users, except: :index
-  resources :locations, except: [:index, :show, :edit, :patch, :destroy, :put]
-
+  resources :locations, only: [:create, :new]
+  resources :photos, only: [:create, :new]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
