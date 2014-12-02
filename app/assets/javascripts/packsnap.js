@@ -1,12 +1,12 @@
-function Coordinate (result, inputDate) {
+function Location (result, inputDate) {
   this.latitude = result.geometry.location.lat().toFixed(2);
   this.longitude = result.geometry.location.lng().toFixed(2);
   this.address = result.formatted_address;
   this.date = inputDate;
 }
 
-function updateWidget (coordinate) {
-  $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + coordinate.latitude + "&lon=" + coordinate.longitude + "&name=" + coordinate.address+ "&color=#00aaff&font=Georgia&units=us"));
+function updateWidget (location) {
+  $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + location.latitude + "&lon=" + location.longitude + "&name=" + location.address+ "&color=#00aaff&font=Georgia&units=us"));
 }
 
 function appendToFront (selector, partial) {
@@ -28,17 +28,17 @@ $(function(){
 
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
 
-      var coordinate = new Coordinate(result, inputDate);
+      var location = new Location(result, inputDate);
 
       $.ajax({
          url: $form.attr('action'),
          type: $form.attr('method'),
          dateType: 'html',
-         data: {coordinate: coordinate}
+         data: {location: location}
        })
         .done(function(response){
           appendToFront("#append", response);
-          updateWidget(coordinate);
+          updateWidget(location);
           new CBPGridGallery(document.getElementById('grid-gallery'));
         });
     });
