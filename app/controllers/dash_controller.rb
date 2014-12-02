@@ -9,9 +9,7 @@ class DashController < ApplicationController
     scope = get_weather_scope(weather)
     suggest_items = unique_item(scope)
 
-    respond_to do |format|
-      format.html { render :dashboard, locals:{users: @users, items: suggest_items} }
-    end
+    render :dashboard, locals:{users: @users, items: suggest_items}, layout: false
   end
 
   attr_reader :forecast_client
