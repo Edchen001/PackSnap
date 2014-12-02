@@ -14,6 +14,7 @@ function appendToFront (selector, partial) {
   $(selector).append(partial);
 }
 
+
 $(function(){
 
   $("#geocomplete").geocomplete({
@@ -38,10 +39,9 @@ $(function(){
         .done(function(response){
           appendToFront("#append", response);
           updateWidget(coordinate);
+          new CBPGridGallery(document.getElementById('grid-gallery'));
         });
     });
   });
-
-new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 
 });
