@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "welcome#index"
-  get "dash" => "welcome#dash"
+  get "dash" => "dash#index"
   get "session/new" => "session#new"
   post "session/login" => "session#login"
   get "session/logout" => "session#logout"
