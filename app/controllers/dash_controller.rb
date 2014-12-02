@@ -3,19 +3,31 @@ class DashController < ApplicationController
   def index
     @user = User.new
 
-    client = init_forecast_client(params[:coordinate])
+    client = init_forecast_client(params[:location])
 
     weather = get_weather
     scope = get_weather_scope(weather)
     suggest_items = unique_item(scope)
 
-    render :dashboard, locals:{users: @users, items: suggest_items}, layout: false
+    render :dashboard, locals:{users: @users, items: suggest_items, latitude: params[:location][:latitude], longitude: params[:location][:longitude], address: params[:location][:address]}, layout: false
+  end
+
+  def new
+    @item = Item.new
+    render :new
+  end
+
+  def create
+    @user = User.find(session[:user_id])
+    @location = Location.new(location_params)
+    @item = Item.create!(item_params)
+    render :index
   end
 
   attr_reader :forecast_client
 
-  def init_forecast_client(coordinate)
-    @forecast_client = Forecast.new(coordinate)
+  def init_forecast_client(location)
+    @forecast_client = Forecast.new(location)
   end
 
   def get_weather
@@ -51,7 +63,10 @@ class DashController < ApplicationController
   private
 
   def location_params
-    params.require(:coordinate).permit(:address, :latitude, :longitude, :date)
+    params.require(:location).permit(:address, :latitude, :longitude)
   end
 
+  def item_params
+    params.require(:item).permit(:name, :description, :image, :user_id)
+  end
 end
