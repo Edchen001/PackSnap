@@ -1,49 +1,23 @@
-xiran = User.create(username: "xiran", email: "xiran@dbc.com", password: 123, password_confirmation: 123)
+require 'csv'    
 
+CSV.foreach(Rails.root.join('db', 'users.csv'), {headers: true, header_converters: :symbol}) do |row|
+	User.create(row.to_hash)
+end
 
-blazing = Category.create(name:"blazing")
-hot = Category.create(name:"hot")
-warm = Category.create(name:"warm")
-cool = Category.create(name:"cool")
-cold = Category.create(name:"cold")
-freezing = Category.create(name:"freezing")
-rain = Category.create(name:"rain")
-snow = Category.create(name:"snow")
-sleet = Category.create(name:"sleet")
-hail = Category.create(name:"hail")
+CSV.foreach(Rails.root.join('db', 'items.csv'), {headers: true, header_converters: :symbol}) do |row|
+	Item.create({name: row[:name], image: File.open(row[:image_path])})
+end
 
-blazing.scope = Scope.create(minimum: 100, maximum: 130)
-hot.scope = Scope.create(minimum:85, maximum:99)
-warm.scope = Scope.create(minimum:70, maximum:84)
-cool.scope = Scope.create(minimum:50, maximum:69)
-cold.scope = Scope.create(minimum: 33, maximum:49)
-freezing.scope = Scope.create(minimum: -30, maximum:32)
+CSV.foreach(Rails.root.join('db', 'temp_category.csv'), {headers: true, header_converters: :symbol}) do |row|
+	Category.create(row.to_hash)
+end
 
-jean_image = Photo.create!(image: File.open('app/assets/images/jean_image.jpg'))
-snowjacket_image = Photo.create!(image: File.open('app/assets/images/snow_jacket.jpg'))
-sunglasses_image = Photo.create!(image: File.open('app/assets/images/sun_glasses.jpg'))
-sunhat_image = Photo.create!(image: File.open('app/assets/images/sun_hat.jpg'))
+CSV.foreach(Rails.root.join('db', 'temp_scope.csv'), {headers: true, header_converters: :symbol}) do |row|
+	# puts row[:category]
+	# p Category.find_by(name: row[:category])
+	Category.find_by(name: row[:category]).scope = Scope.create({minimum: row[:minimum].to_i, maximum: row[:maximum].to_i})
+end
 
-jean = Item.create!(name: "jean", url:"www.jean.com", photo: jean_image)
-snowjacket = Item.create!(name:"snowjacket", url:"snowjacket.com", photo: snowjacket_image)
-sunglasses = Item.create!(name:"sunglasses", url:"sun_glasses.com", photo: sunglasses_image)
-sunhat = Item.create!(name:"sunhat", url:"sunhat.com", photo: sunhat_image)
-
-Suggestion.create(item: jean, category: cool)
-Suggestion.create(item: jean, category: warm)
-Suggestion.create(item: jean, category: cold)
-
-Suggestion.create(item: snowjacket, category: cold)
-Suggestion.create(item: snowjacket, category: freezing)
-Suggestion.create(item: snowjacket, category: snow)
-
-Suggestion.create(item: sunglasses, category: hot)
-Suggestion.create(item: sunglasses, category: warm)
-Suggestion.create(item: sunglasses, category: cool)
-Suggestion.create(item: sunglasses, category: cold)
-Suggestion.create(item: sunglasses, category: freezing)
-Suggestion.create(item: sunglasses, category: blazing)
-
-Suggestion.create(item: sunhat, category: blazing)
-Suggestion.create(item: sunhat, category: hot)
-
+CSV.foreach(Rails.root.join('db', 'suggestions.csv'), {headers: true, header_converters: :symbol}) do |row|
+	Suggestion.create(item_id: Item.find_by(name: row[:item]).id, category_id: Category.find_by(name: row[:category]).id)
+end

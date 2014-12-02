@@ -1,4 +1,6 @@
 class Suggestion < ActiveRecord::Base
-	belongs_to :item
+	validates :category_id, :item_id, presence: true
+
 	belongs_to :category
-end	
+	belongs_to :item
+end

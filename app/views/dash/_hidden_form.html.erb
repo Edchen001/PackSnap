@@ -1,0 +1,6 @@
+<%= form_tag(new_dash_path, method: :get) do %>
+  <%= hidden_field_tag "location[latitude]", latitude %>
+  <%= hidden_field_tag "location[longitude]", longitude %>
+  <%= hidden_field_tag "location[address]", address %>
+  <%= submit_tag "Upload Your Pack!" %>
+<% end %>

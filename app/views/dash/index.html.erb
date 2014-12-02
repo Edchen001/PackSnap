@@ -1,0 +1,18 @@
+<div class="dash">
+  <% if flash[:error] %>
+    <%= flash[:error] %>
+  <% else %>
+    <%= flash[:success] %>
+  <% end %>
+
+  <%= @location.address %>
+  <% @location.visitors.uniq.each do |visitor| %>
+    <%= visitor.username %>
+  <% end %>
+
+  <%= @item.name %>
+  <%= image_tag @item.image.url(:thumb) %>
+
+  <%= @comment.content %>
+  <%= @comment.user.username %>
+</div>

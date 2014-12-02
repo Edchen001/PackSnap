@@ -1,0 +1,7 @@
+category, minimum, maximum
+blazing,37.78,54.44
+hot,29.44,37.77
+warm,21.11,29.44
+cool,10,10
+cold,0.01,9.99
+freezing,-34.44:0.00
