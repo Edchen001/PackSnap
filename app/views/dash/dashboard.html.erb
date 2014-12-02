@@ -7,9 +7,6 @@
     	<%= item.name %>
     <%= image_tag item.image.url(:thumb) %>
   	<% end %>
-  	<% if current_user %>
-		 <%= link_to "Upload Your Pack!", new_photo_path, id: "new-photo-link", class: "pure-button new-trip-link" %>
-  	<% end %>
 	</header>
 	<div id="grid-gallery" class="grid-gallery">
 		<section class="grid-wrap">
