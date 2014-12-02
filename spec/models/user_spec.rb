@@ -10,11 +10,7 @@ describe User do
   end
 
   describe "association" do
-    it { should have_many(:trips) }
-    it { should have_many(:itineraries) }
-    it { should have_many(:itineraries).through(:trips) }
-    it { should have_many(:destinations) }
-    it { should have_many(:destinations).through(:itineraries) }
-    it { should have_many(:destinations).through(:itineraries).source(:location) }
+    it { should have_many(:items) }
+    it { should have_many(:locations) }
   end
 end
