@@ -21,7 +21,7 @@ class DashController < ApplicationController
     @user = User.find(session[:user_id])
     @location = Location.find_or_create_by(location_params)
     @item = Item.new(location: @location)
-    @comment = Comment.new(user: @user, location: @location)
+    @comment = Comment.new(user: @user, location: @location, item: @item)
     @comment.assign_attributes(comment_params)
     @item.assign_attributes(item_params)
 
