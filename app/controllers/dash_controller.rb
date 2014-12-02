@@ -80,7 +80,7 @@ class DashController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :image, :user_id)
+    params.require(:item).permit(:name, :image, :user_id)
   end
 
   def comment_params
