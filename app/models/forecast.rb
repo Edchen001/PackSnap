@@ -21,7 +21,7 @@ class Forecast
 		self.forecast.currently.apparentTemperature
 	end
 
-	def precipationType
+	def precipation_type
 		self.forecast.currently.precipType
 	end
 
