@@ -1,7 +1,7 @@
 class DashController < ApplicationController
   
   def index
-    
+    @user = User.new
 
     client = init_forecast_client(params[:coordinate])
 
