@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration
       t.text :description
       t.attachment :image
       t.belongs_to :user
-      t.belongs_to :suggestable, polymorphic: true, null: false
+      t.belongs_to :location
 
       t.timestamps
     end
