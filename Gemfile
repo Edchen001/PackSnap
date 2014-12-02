@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'paperclip', '~> 4.2'
-
+gem 'dotenv-rails'
 gem 'rack-handlers'
 gem 'unicorn'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
