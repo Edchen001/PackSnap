@@ -29,6 +29,10 @@ lw_scarf_image = Photo.create!(image: File.open('app/assets/images/lw_scarf.jpg'
 warm_scarf_image = Photo.create!(image: File.open('app/assets/images/warm_scarf.jpg'))
 warm_hat_image = Photo.create!(image: File.open('app/assets/images/warm_hat.jpg'))
 thick_socks_image = Photo.create!(image: File.open('app/assets/images/thick_socks.jpg'))
+thermal_underwear_image = Photo.create!(image: File.open('app/assets/images/thermal_underwear.jpg'))
+umbrella_image = Photo.create!(image: File.open('app/assets/images/umbrella.jpg'))
+raincoat_image = Photo.create!(image: File.open('app/assets/images/raincoat.jpg'))
+windbreaker_image = Photo.create!(image: File.open('app/assets/images/windbreaker.jpg'))
 
 
 jeans = Item.create!(name: "jeans", url:"www.jeans.com", photo: jean_image)
@@ -41,6 +45,12 @@ lw_scarf = Item.create!(name:"lightweight scarf", url:"lwscarf.com", photo: lw_s
 warm_scarf = Item.create!(name:"warm scarf", url:"warmscarf.com", photo: warm_scarf_image)
 warm_hat = Item.create!(name:"warm hat", url:"warmhat.com", photo: warm_hat_image)
 thick_socks = Item.create!(name:"thick socks", url:"thicksocks.com", photo: thick_socks_image)
+thermal_underwear = Item.create!(name:"thermal underwear", url:"thermalu.com", photo: thermal_underwear_image)
+windbreaker = Item.create!(name:"windbreaker", url:"windbreaker.com", photo: windbreaker_image)
+umbrella = Item.create!(name:"umbrella", url:"umbrella.com", photo: umbrella_image)
+raincoat = Item.create!(name:"raincoat", url:"raincoat.com", photo: raincoat_image)
+
+
 
 Suggestion.create(item: jeans, category: cool)
 Suggestion.create(item: jeans, category: warm)
@@ -79,3 +89,13 @@ Suggestion.create(item: warm_hat, category: freezing)
 
 Suggestion.create(item: thick_socks, category: cold)
 Suggestion.create(item: thick_socks, category: freezing)
+
+Suggestion.create(item: thermal_underwear, category: freezing)
+
+Suggestion.create(item: windbreaker, category: warm)
+Suggestion.create(item: windbreaker, category: cool)
+
+Suggestion.create(item: raincoat, category: rain)
+
+Suggestion.create(item: umbrella, category: rain)
+
