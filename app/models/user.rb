@@ -5,5 +5,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   has_many :items
-  has_many :destinations, through: :items, source: :location
+
+  has_many :comments
+  has_many :destinations, through: :comments, source: :location
 end
