@@ -26,12 +26,13 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      render :signup
+      render :new
     end
   end
 
   def destroy
     @user.destroy
+    redirect_to root_path
   end
 
   private
