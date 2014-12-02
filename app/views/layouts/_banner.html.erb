@@ -8,6 +8,11 @@
   <%= link_to "Learn More", '#get-started', class: "splash-button splash-button-primary" %>
   </p>
 </div>
-
-<%= render partial: "layouts/search_area" %>
+<div class="search_area">
+  <%= form_tag("/dash", method: "get", class: "pure-form new-location") do %>
+    <%= text_field_tag "geocomplete", nil, placeholder: "Where are you going?", class: "pure-u-1 pure-u-md-1-3" %>
+    <%= date_field_tag "date", Date.today, id: "geocomplete_date", class: "pure-u-1 pure-u-md-1-3" %>
+    <%= submit_tag "Search", id:"find", class:"pure-button pure-button-primary", remote: true %>
+  <% end %>
+</div>
 
