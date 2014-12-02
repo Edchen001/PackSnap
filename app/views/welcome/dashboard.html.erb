@@ -2,7 +2,7 @@
 	<header class="clearfix">
 		<h1 class="destination-title">User's Destination</h1>
 		<iframe id="forecast_embed" style ="float: right;"type="text/html" frameborder="0" height="224" width="60%" src="http://forecast.io/embed/#lat=&lon=&"> </iframe>
-	<h3 id="suggested-items">Suggested Items</h3>
+		<h3 id="suggested-items">Suggested Items</h3>
 	</header>
 	<div id="grid-gallery" class="grid-gallery">
 		<section class="grid-wrap">
@@ -10,7 +10,7 @@
 				<li class="grid-sizer"></li><!-- for Masonry column width -->
 				<li>
 					<figure>
-					<%= image_tag("img/thumb/1.png") %>
+						<%= image_tag("img/thumb/1.png") %>
 						<figcaption><h3>Letterpress asymmetrical</h3><p>Chillwave hoodie ea gentrify aute sriracha consequat.</p></figcaption>
 					</figure>
 				</li>
@@ -29,7 +29,7 @@
 				<li>
 					<figure>
 						<%= image_tag("img/thumb/4.png") %>
-						<figcaption><h3>Chillwave nihil occupy</h3><p>In post-ironic gluten-free deserunt, PBR&amp;B non pork belly cupidatat polaroid. </p></figcaption>
+						<figcaption><h3>Chillwave nihil occupy</h3><p>In post-ironic gluten-free deserunt, PBR&B non pork belly cupidatat polaroid. </p></figcaption>
 					</figure>
 				</li>
 				<li>
@@ -44,18 +44,70 @@
 						<figcaption><h3>Exercitation occaecat</h3><p>Street chillwave hoodie ea gentrify.</p></figcaption>
 					</figure>
 				</li>
+			</ul>
+		</section><!-- // grid-wrap -->
+		<section class="slideshow">
+			<ul>
 				<li>
 					<figure>
+						<figcaption>
+							<h3>Letterpress asymmetrical</h3>
+							<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+						</figcaption>
 						<%= image_tag("img/thumb/1.png") %>
-						<figcaption><h3>Selfies viral four</h3><p>Raw denim duis Tonx Shoreditch labore swag artisan High Life cred, stumptown Schlitz quinoa flexitarian mollit fanny pack.</p></figcaption>
 					</figure>
 				</li>
 				<li>
 					<figure>
+						<figcaption>
+							<h3>Vice velit chia</h3>
+							<p>Chillwave Echo Park Etsy organic Cosby sweater seitan authentic pour-over. Occupy wolf selvage bespoke tattooed, cred sustainable Odd Future hashtag butcher.</p>
+						</figcaption>
 						<%= image_tag("img/thumb/2.png") %>
-						<figcaption><h3>Photo booth skateboard</h3><p>Vinyl squid ex High Life. Paleo Neutra nulla master cleanse, Helvetica et enim nesciunt esse.</p></figcaption>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>
+							<h3>Brunch semiotics</h3>
+							<p>IPhone PBR polaroid before they sold out meh you probably haven't heard of them leggings tattooed tote bag, butcher paleo next level single-origin coffee photo booth.</p>
+						</figcaption>
+						<%= image_tag("img/thumb/3.png") %>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>
+							<h3>Chillwave nihil occupy</h3>
+							<p>Vice cliche locavore mumblecore vegan wayfarers asymmetrical letterpress hoodie mustache. Shabby chic lomo polaroid, scenester 8-bit Portland Pitchfork VHS tote bag.</p>
+						</figcaption>
+						<%= image_tag("img/thumb/4.png") %>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>
+							<h3>Kale chips lomo biodiesel</h3>
+							<p>Chambray Schlitz pug YOLO, PBR Tumblr semiotics. Flexitarian YOLO ennui Blue Bottle, forage dreamcatcher chillwave put a bird on it craft beer Etsy.</p>
+						</figcaption>
+						<%= image_tag("img/thumb/5.png") %>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<figcaption>
+							<h3>Exercitation occaecat</h3>
+							<p>Cosby sweater hella lomo Thundercats VHS occupy High Life. Synth pop-up readymade single-origin coffee, fanny pack tousled retro. Fingerstache mlkshk ugh hashtag, church-key ethnic street art pug yr.</p>
+						</figcaption>
+						<%= image_tag("img/thumb/6.png") %>
 					</figure>
 				</li>
 			</ul>
+			<nav>
+				<span class="icon nav-prev"></span>
+				<span class="icon nav-next"></span>
+				<span class="icon nav-close"></span>
+			</nav>
+			<div class="info-keys icon">Navigate with arrow keys</div>
 		</section><!-- // slideshow -->
 	</div><!-- // grid-gallery -->

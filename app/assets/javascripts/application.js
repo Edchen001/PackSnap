@@ -17,8 +17,8 @@
 //= require packsnap
 //= require modal
 //= require ajax
+//= require masonry.pkgd.min.js
+//= require modernizr.custom.js
 //= require cbpGridGallery.js
 //= require classie.js
 //= require imagesloaded.pkgd.min.js
-//= require masonry.pkgd.min.js
-//= require modernizr.custom.js
