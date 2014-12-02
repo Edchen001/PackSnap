@@ -14,6 +14,15 @@ function appendToFront (selector, partial) {
   $(selector).append(partial);
 }
 
+function findPos(tag) {
+    var curtop = 0;
+    if (tag.offsetParent) {
+        do {
+            curtop += tag.offsetTop;
+        } while (tag = tag.offsetParent);
+    return [curtop];
+    }
+}
 
 $(function(){
 
@@ -25,7 +34,6 @@ $(function(){
     e.preventDefault();
     var $form = $(this);
     var inputDate = $("#geocomplete_date").val();
-
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
 
       var location = new Location(result, inputDate);
@@ -38,8 +46,10 @@ $(function(){
        })
         .done(function(response){
           appendToFront("#append", response);
+          window.scroll(0,findPos(document.getElementById("append")));
           updateWidget(location);
           new CBPGridGallery(document.getElementById('grid-gallery'));
+
         });
     });
   });
