@@ -55,10 +55,16 @@ video#bgvid {
 logo {
   margin-left: -12px;
 }
+.destination-title{
+  position: absolute;
+}
+#forecast_embed{
+  margin-top: -5.6em;
+}
 
-#suggested_items{
+#suggested-items{
   text-align: left;
-  margin-top: 40px;
-  margin-left: -200px
+  margin-top: 2.4em;
+  margin-left: 1em;
 }
 
