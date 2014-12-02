@@ -37,9 +37,9 @@ describe UsersController do
         expect(assigns[:user]).to be_a_new(User)
       end
 
-      it "should render :signup template" do
+      it "should render :new template" do
         get :new
-        expect(response).to render_template(:signup)
+        expect(response).to render_template(:new)
       end
     end
   end
@@ -70,9 +70,9 @@ describe UsersController do
       #   expect(response.request.flash[:alert]).to_not be_nil
       # end
 
-      it "should re-render :signup template" do
+      it "should re-render :new template" do
         post :create, user: attributes_for(:invalid_user)
-        expect(response).to render_template(:signup)
+        expect(response).to render_template(:new)
       end
     end
   end
