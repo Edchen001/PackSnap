@@ -18,18 +18,17 @@ body {
 }
 
 .splash-button {
-    background-color: #1f8dd6;
+    background-color: #0076df;
     color: white;
     padding: 0.5em 2em;
     border-radius: 5px;
 }
 a.splash-button-primary{
-  background: #828282;
+  background: #0076df;
   color: white;
 }
 
 .search_area{
-  background: rgba(0,0,0,0.6);
   margin-top: -75px;
   position: relative;
   text-align: center;
@@ -53,6 +52,7 @@ video#bgvid {
 }
 
 logo {
+  color: #0076df;
   margin-left: -12px;
 }
 .destination-title{
