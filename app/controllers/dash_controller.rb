@@ -21,14 +21,20 @@ class DashController < ApplicationController
     @user = User.find(session[:user_id])
     @location = Location.find_or_create_by(location_params)
     @item = Item.new(location: @location)
+    @comment = Comment.new(user: @user, location: @location)
+    @comment.assign_attributes(comment_params)
     @item.assign_attributes(item_params)
-    if @item.save!
-      flash[:success] = "sucess!"
-      render :index
-    else
+
+    if !@item.save!
       flash[:error] = @item.errors.full_messages
-      render :index
+    elsif !@comment.save!
+      flash[:error] = @comment.errors.full_messages
+    else
+      flash[:success] = "success!"
     end
+
+    render :index
+
   end
 
   attr_reader :forecast_client
@@ -75,5 +81,9 @@ class DashController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :description, :image, :user_id)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:content, :user_id)
   end
 end

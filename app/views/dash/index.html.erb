@@ -4,10 +4,15 @@
   <% else %>
     <%= flash[:success] %>
   <% end %>
+
   <%= @location.address %>
   <% @location.visitors.uniq.each do |visitor| %>
     <%= visitor.username %>
-  <% end %> %>
+  <% end %>
+
   <%= @item.name %>
   <%= image_tag @item.image.url(:thumb) %>
+
+  <%= @comment.content %>
+  <%= @comment.user.username %>
 </div>
