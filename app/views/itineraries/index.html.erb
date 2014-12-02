@@ -1,9 +1,0 @@
-<div class="itineraries">
-  <h1>Trip Title: </h1>
-  <h1><%= trip.title %></h1>
-  <% itineraries.each do |itinerary| %>
-  <br>
-    <%= render partial: "itineraries/single_itinerary", locals:{itinerary: itinerary} %>
-  <br>
-  <% end %>
-</div>
