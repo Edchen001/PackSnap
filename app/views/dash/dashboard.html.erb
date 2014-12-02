@@ -1,11 +1,11 @@
 <div class="container">
 	<header class="clearfix">
-		<h1 class="destination-title">User's Destination</h1>
-		<iframe id="forecast_embed" style ="float: right;"type="text/html" frameborder="0" height="224" width="60%" src="http://forecast.io/embed/#lat=&lon=&"> </iframe>
+		<h1 class="destination-title"><%= location.address %></h1>
 		<h3 id="suggested-items">Suggested Items</h3>
+	<%= render partial: "dash/hidden_form", locals:{latitude: latitude, longitude: longitude, address: address} %>
 		<% items.each do |item| %>
-			<%= item.name %>
 			<%= image_tag item.image.url(:thumb) %>
+			<%= item.name %>
 		<% end %>
 	</header>
 	<div id="grid-gallery" class="grid-gallery">
@@ -13,4 +13,4 @@
 		<%= render partial: "dash/slideshow", locals:{location: location} %>
 	</div>
 
-	<%= render partial: "dash/hidden_form", locals:{latitude: latitude, longitude: longitude, address: address} %>
+		<iframe id="forecast_embed" style ="float: right;"type="text/html" frameborder="0" height="224" width="60%" src="http://forecast.io/embed/#lat=&lon=&"> </iframe>
