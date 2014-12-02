@@ -21,4 +21,3 @@
 //= require classie.js
 //= require imagesloaded.pkgd.min.js
 //= require packsnap
-//= require ajax
