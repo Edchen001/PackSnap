@@ -13,8 +13,6 @@ CSV.foreach(Rails.root.join('db', 'temp_category.csv'), {headers: true, header_c
 end
 
 CSV.foreach(Rails.root.join('db', 'temp_scope.csv'), {headers: true, header_converters: :symbol}) do |row|
-	# puts row[:category]
-	# p Category.find_by(name: row[:category])
 	Category.find_by(name: row[:category]).scope = Scope.create({minimum: row[:minimum].to_i, maximum: row[:maximum].to_i})
 end
 
