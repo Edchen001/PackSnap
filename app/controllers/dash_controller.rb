@@ -19,9 +19,16 @@ class DashController < ApplicationController
 
   def create
     @user = User.find(session[:user_id])
-    @location = Location.new(location_params)
-    @item = Item.create!(item_params)
-    render :index
+    @location = Location.find_or_create_by(location_params)
+    @item = Item.new(location: @location)
+    @item.assign_attributes(item_params)
+    if @item.save!
+      flash[:success] = "sucess!"
+      render :index
+    else
+      flash[:error] = @item.errors.full_messages
+      render :index
+    end
   end
 
   attr_reader :forecast_client
