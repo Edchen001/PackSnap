@@ -1,13 +1,13 @@
 <div class="container">
 	<div class="dash-header">
-		<h1 class="destination-title"><%= location.address %></h1>
-		<h1 class="temp"><%= weather %>°F</h1>
+		<h1 class="destination-title"><%= @location.address %></h1>
+		<h1 class="temp"><%= @weather %>°F</h1>
 		<br>
-		<h3 class="summary"><%= summary %></h3>
+		<h3 class="summary"><%= @summary %></h3>
 	</div>
 <div id="mi-slider" class="mi-slider">
 	<ul>
-	<% items.each do |item| %>
+	<% @suggested_items.each do |item| %>
 		<li><%= image_tag item.image.url(:thumb) %><h4><%= item.name %></li>
 		<% end %>
 	</ul>
@@ -16,8 +16,8 @@
 	</nav>
 </div>
 	<div id="grid-gallery" class="grid-gallery">
-		<%= render partial: "dash/grip_wrap", locals:{location: location} %>
-		<%= render partial: "dash/slideshow", locals:{location: location} %>
+		<%= render partial: "dash/grip_wrap" %>
+		<%= render partial: "dash/slideshow" %>
 	</div>
 </div>
-	<%= render partial: "dash/hidden_form", locals:{latitude: latitude, longitude: longitude, address: address} %>
+	<%= render partial: "dash/hidden_form" %>
