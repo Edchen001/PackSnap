@@ -6,8 +6,8 @@ class DashController < ApplicationController
     @location = Location.find_or_create_by(location_params)
     session[:location] = @location.id
     weather_info = Forecast.new(params[:forecast])
+
     @weather = weather_info.current_weather
-    puts @weather
     scope = Scope.get_weather_scope(@weather)
     @suggested_items = Category.unique_items(scope, weather_info.precipation_type)
     @summary = weather_info.summary
