@@ -6,6 +6,6 @@ describe Scope do
     it { should validate_presence_of :maximum }
   end
   describe "associations" do
-    it { should belongs_to :category }
+    it { should belong_to :category }
   end
 end
