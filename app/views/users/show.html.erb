@@ -10,7 +10,7 @@
       <% user.comments.each do |comment| %>
       <li>
         <figure>
-          <a href="#">
+          <a href="http://ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fpacksnap-20%2F8005%2F0870c92d-cb68-4348-88ac-c9d3ab54c683&Operation=NoScript" search="<%= comment.item.name %>" type="amzn">
           <%= image_tag comment.item.image.url(:medium) %>
           </a>
           <figcaption><h3><%= comment.location.address %></h3>
