@@ -58,8 +58,25 @@ $(function(){
           $( '#mi-slider' ).catslider();
         });
          $("#geocomplete").unbind('geocode:result');
-
     });
   });
 
+   $("body").on("submit","#recommend-btn", function(event) {
+      event.preventDefault();
+      $form = $(this);
+      $.ajax({
+        url: $form.attr('action'),
+        type: $form.attr('method'),
+        dataType: 'html',
+        data: $form.serialize()
+      })
+      .done(function(response) {
+
+        $('#recommend-btn').append(response);
+        window.scrollTo(0,document.body.scrollHeight);
+
+      }).fail(function() {
+        console.log("error");
+      })
+    })
 });
