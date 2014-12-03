@@ -1,5 +1,5 @@
 class Forecast
-	attr_reader :latitude, :longitude, :time, :forecast, :seven_day_forecast
+	attr_reader :latitude, :longitude, :time, :forecast
 
 	def initialize(location)
 		ForecastIO.api_key = ENV["forecastio"]
@@ -13,20 +13,20 @@ class Forecast
 		ForecastIO.forecast(self.latitude, self.longitude)
 	end
 
-	def weather
-		self.forecast.currently.temperature
+	def current_weather
+		forecast.currently.temperature
 	end
 
 	def apparent_temperature
-		self.forecast.currently.apparentTemperature
+		forecast.currently.apparentTemperature
 	end
 
 	def precipation_type
-		self.forecast.currently.precipType
+		forecast.currently.precipType
 	end
 
 	def summary
-		self.forecast.currently.summary
+		forecast.currently.summary
 	end
 
 end
