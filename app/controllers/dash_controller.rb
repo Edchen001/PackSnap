@@ -21,7 +21,7 @@ class DashController < ApplicationController
 
   def create
     @item = Item.new(location_id: location_params[:id])
-    @comment = Comment.new(user: session[:user_id], location_id: location_params[:id], item: @item)
+    @comment = Comment.new(user_id: session[:user_id], location_id: location_params[:id], item: @item)
 
     @comment.assign_attributes(comment_params)
     @item.assign_attributes(item_params)
@@ -34,7 +34,7 @@ class DashController < ApplicationController
       flash[:success] = "success!"
     end
 
-    redirect_to user_path(@user)
+    redirect_to user_path(session[:user_id])
 
   end
 
