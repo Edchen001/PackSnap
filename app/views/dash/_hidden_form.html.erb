@@ -1,6 +1,6 @@
 <%= form_tag(new_dash_path, method: :get) do %>
-  <%= hidden_field_tag "location[latitude]", latitude %>
-  <%= hidden_field_tag "location[longitude]", longitude %>
-  <%= hidden_field_tag "location[address]", address %>
+  <%= hidden_field_tag "location[latitude]", @location.latitude %>
+  <%= hidden_field_tag "location[longitude]", @location.longitude %>
+  <%= hidden_field_tag "location[address]", @location.address %>
   <%= submit_tag "Recommend an Item!", class: "pure-button pure-button-primary", id: "recommend-btn" %>
 <% end %>

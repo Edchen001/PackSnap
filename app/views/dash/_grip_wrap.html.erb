@@ -1,11 +1,11 @@
 <section class="grid-wrap">
   <ul class="grid">
     <li class="grid-sizer"></li>
-    <% location.comments.each do |comment| %>
+    <% @location.comments.each do |comment| %>
     <li>
       <figure>
         <%= image_tag comment.item.image.url(:medium) %>
-        <figcaption><h3><%= location.address %></h3>
+        <figcaption><h3><%= @location.address %></h3>
           <p><%= comment.content %></p>
           <p><%= comment.user.username %></p>
         </figcaption>
