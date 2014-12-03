@@ -6,7 +6,10 @@
 	<div id="mi-slider" class="mi-slider">
 		<ul>
 			<% @suggested_items.each do |item| %>
-			<li><%= image_tag item.image.url(:original) %><h4><%= item.name %></li>
+			<li>
+				<%= image_tag item.image.url(:original) %>
+				<h4><%= item.name %></h4>
+			</li>
 			<% end %>
 		</ul>
 		<nav>
@@ -17,5 +20,5 @@
 		<%= render partial: "dash/grip_wrap" %>
 		<%= render partial: "dash/slideshow" %>
 	</div>
-<%= render partial: "dash/hidden_form" %>
+	<%= render partial: "dash/hidden_form" %>
 </div>

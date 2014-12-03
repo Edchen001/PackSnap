@@ -5,7 +5,7 @@ class DashController < ApplicationController
     @user = User.new
 
     @location = Location.find_or_create_by(location_params)
-
+    session[:location] = @location.id
     weather_info = Forecast.new(params[:forecast])
     @weather = weather_info.current_weather
     scope = Scope.get_weather_scope(@weather)
@@ -16,7 +16,13 @@ class DashController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    if session[:user_id]
+      @item = Item.new
+
+      render partial: 'new_item_form'
+    else
+     render partial: 'error'
+    end
   end
 
   def create
