@@ -1,4 +1,4 @@
-require 'csv'    
+require 'csv'
 
 CSV.foreach(Rails.root.join('db', 'users.csv'), {headers: true, header_converters: :symbol}) do |row|
 	User.create(row.to_hash)

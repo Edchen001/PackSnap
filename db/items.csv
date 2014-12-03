@@ -1,15 +1,21 @@
 name,image_path
-jean,app/assets/images/jean_image.jpg
-snow jacket,app/assets/images/snow_jacket.jpg
-sun glasses,app/assets/images/sunglasses.jpg
-sun hat,app/assets/images/sun_hat.jpg
-sandals,app/assets/images/sandals.jpg
-lw sweater,app/assets/images/lw_sweater.jpg
-lw scarf,app/assets/images/lw_scarf.jpg
-warm scarf,app/assets/images/warm_scarf.jpg
-warm hat,app/assets/images/warm_hat.jpg
-thick socks,app/assets/images/thick_socks.jpg
-umbrella,app/assets/images/umbrella.jpg
-rain coat,app/assets/images/raincoat.jpg
-wind breaker,app/assets/images/windbreaker.jpg
-first aid,app/assets/images/first_aid.jpg
+baseballcap,app/assets/icons/baseballcap.svg
+bikini flower,app/assets/icons/bikini_flower.svg
+brouse,app/assets/icons/brouse.svg
+cargoshorts,app/assets/icons/cargoshorts.svg
+hoodie,app/assets/icons/hoodie.svg
+jeans,app/assets/icons/jeans.svg
+jeanshorts,app/assets/icons/jeanshorts.svg
+longsleeve thermal,app/assets/icons/longsleeve_thermal.svg
+mittens,app/assets/icons/mittens.svg
+red dress,app/assets/icons/red_dress.svg
+red socks,app/assets/icons/red_socks.svg
+scarf,app/assets/icons/scarf.svg
+sunhat,app/assets/icons/sunhat.svg
+swimtrunks,app/assets/icons/swimtrunks.svg
+uggs,app/assets/icons/uggs.svg
+white flipflops,app/assets/icons/white_flipflops.svg
+yellow skirt,app/assets/icons/yellow_skirt.svg
+bottlewater,app/assets/icons/bottlewater.svg
+sunscreen,app/assets/icons/sunscreen.svg
+sunglasses,app/assets/icons/sunglasses.svg
