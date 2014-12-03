@@ -1,4 +1,4 @@
-#geocomplete { 
+#geocomplete {
   width: 20%;
 }
 
@@ -72,16 +72,16 @@ logo{
 }
 
 .dash-header{
-  padding: 2em;
+  padding: 2em 4em 2em 4em;
   height: 10em;
   background: #6396fc;
 }
 
 .dash-header h1{
-  color: white; 
+  color: white;
 }
 
-.temp{
+.weather{
   float: right;
 }
 .user_dash{
