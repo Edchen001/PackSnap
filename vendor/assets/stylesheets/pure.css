@@ -194,7 +194,7 @@ a.pure-button-primary {
 /* This is the class used for the main content headers (<h2>) */
 .content-head {
     font-weight: 400;
-    text-transform: uppercase;
+    padding:1em 1em 0em;
     letter-spacing: 0.1em;
     margin: 2em 0 1em;
 }

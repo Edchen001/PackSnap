@@ -55,6 +55,7 @@ $(function(){
           window.scroll(0,(findPos(document.getElementById("append")))-100);
           updateWidget(location);
           new CBPGridGallery(document.getElementById('grid-gallery'));
+          $( '#mi-slider' ).catslider();
         });
          $("#geocomplete").unbind('geocode:result');
 
