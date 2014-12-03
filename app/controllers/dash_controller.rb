@@ -3,14 +3,16 @@ class DashController < ApplicationController
   def index
     @user = User.new
 
-    client = init_forecast_client(params[:location])
     @location = Location.find_or_create_by(location_params)
 
-    weather = get_weather
+    client = Forecast.new(params[:forecast])
+    weather = client.weather
+    precipation_type = client.precipation_type
     scope = get_weather_scope(weather)
-    suggest_items = unique_item(scope)
-    get_summary = summary
-    render :dashboard, locals:{users: @users, items: suggest_items, latitude: params[:location][:latitude], longitude: params[:location][:longitude], address: params[:location][:address], location: @location, weather: weather, summary: get_summary}, layout: false
+    suggest_items = unique_item(scope, precipation_type)
+    summary = client.summary
+
+    render :dashboard, locals:{users: @users, items: suggest_items, latitude: params[:location][:latitude], longitude: params[:location][:longitude], address: params[:location][:address], location: @location, weather: weather, summary: summary}, layout: false
   end
 
   def new
@@ -38,24 +40,6 @@ class DashController < ApplicationController
 
   end
 
-  attr_reader :forecast_client
-
-  def init_forecast_client(location)
-    @forecast_client = Forecast.new(location)
-  end
-
-  def get_weather
-    self.forecast_client.weather
-  end
-
-  def summary
-    self.forecast_client.summary
-  end
-
-  def get_precipitation_type
-    self.forecast_client.precipationType
-  end
-
   def get_weather_scope(weather)
     Scope.find_by("minimum <= #{weather} and maximum >= #{weather}")
   end
@@ -64,8 +48,8 @@ class DashController < ApplicationController
     scope.category.items
   end
 
-  def get_suggested_precipation_type_item
-    precipation_type = Category.where(name: self.get_precipitation_type)
+  def get_suggested_precipation_type_item(precipitation_type)
+    precipation_type = Category.where(name: precipation_type)
     unless precipation_type
       return precipation_type.items
     else
@@ -73,8 +57,8 @@ class DashController < ApplicationController
     end
   end
 
-  def unique_item(scope)
-    items = get_suggested_weather_items(scope) + get_suggested_precipation_type_item
+  def unique_item(scope, precipation_type)
+    items = get_suggested_weather_items(scope) + get_suggested_precipation_type_item(precipation_type)
     items.uniq
   end
 

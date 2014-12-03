@@ -1,7 +1,12 @@
-function Location (result, inputDate) {
+function Location (result) {
   this.latitude = result.geometry.location.lat().toFixed(2);
   this.longitude = result.geometry.location.lng().toFixed(2);
   this.address = result.formatted_address;
+}
+
+function Forecast (result, inputDate) {
+  this.latitude = result.geometry.location.lat().toFixed(2);
+  this.longitude = result.geometry.location.lng().toFixed(2);
   this.date = inputDate;
 }
 
@@ -37,13 +42,14 @@ $(function(){
     var inputDate = $("#geocomplete_date").val();
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
 
-      var location = new Location(result, inputDate);
+      var location = new Location(result);
+      var forecast = new Forecast(result, inputDate);
 
       $.ajax({
          url: $form.attr('action'),
          type: $form.attr('method'),
          dateType: 'html',
-         data: {location: location}
+         data: {location: location, forecast: forecast}
        })
         .done(function(response){
           appendToFront("#append", response);

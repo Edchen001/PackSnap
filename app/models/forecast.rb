@@ -10,27 +10,23 @@ class Forecast
 	end
 
 	def find_forecast
-		ForecastIO.forecast(self.latitude, self.longitude, time: self.time)
+		ForecastIO.forecast(self.latitude, self.longitude)
 	end
 
 	def weather
 		self.forecast.currently.temperature
 	end
 
-	def apparentTemperature
+	def apparent_temperature
 		self.forecast.currently.apparentTemperature
 	end
 
-	def precipationType
+	def precipation_type
 		self.forecast.currently.precipType
 	end
 
 	def summary
 		self.forecast.currently.summary
-	end
-
-	def getSevenDayForecast
-		self.forecast.daily.data
 	end
 
 end
