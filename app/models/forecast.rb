@@ -10,7 +10,7 @@ class Forecast
 	end
 
 	def find_forecast
-		ForecastIO.forecast(self.latitude, self.longitude)
+		ForecastIO.forecast(latitude, longitude)
 	end
 
 	def current_weather
