@@ -17,7 +17,8 @@
  *= require packsnap
  *= require modal
  *= require grids-responsive-min
- *= require dash.css
- *= require component.css
- *= require itemslider.css
+ *= require dash
+ *= require component
+ *= require itemslider
+ *= require modal-packsnap
  */

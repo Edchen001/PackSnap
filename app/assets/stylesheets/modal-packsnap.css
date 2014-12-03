@@ -1,0 +1,7 @@
+.modal-inner{
+  text-align: center;
+}
+
+.pure-form input[type]{
+  box-shadow: 0.1em 0.2em 0.4em #0076df
+}
