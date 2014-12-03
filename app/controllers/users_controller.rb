@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path
     else
-      set_alert(@user)
+      flash[:error] = @user.errors.full_messages
       render :edit
     end
   end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      set_alert(@user)
+      flash[:error] = @user.errors.full_messages
       render :signup
     end
   end

@@ -1,52 +1,64 @@
+function Location (result) {
+  this.latitude = result.geometry.location.lat().toFixed(2);
+  this.longitude = result.geometry.location.lng().toFixed(2);
+  this.address = result.formatted_address;
+}
+
+function Forecast (result, inputDate) {
+  this.latitude = result.geometry.location.lat().toFixed(2);
+  this.longitude = result.geometry.location.lng().toFixed(2);
+  this.date = inputDate;
+}
+
+function updateWidget (location) {
+  $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + location.latitude + "&lon=" + location.longitude + "&name=" + location.address+ "&color=#00aaff&font=Georgia&units=us"));
+}
+
+function appendToFront (selector, partial) {
+  $(selector).empty();
+  $(selector).append(partial);
+}
+
+function findPos(tag) {
+    var curtop = 0;
+    if (tag.offsetParent) {
+      do {
+        curtop += tag.offsetTop;
+      } while (tag = tag.offsetParent);
+        return [curtop];
+    }
+}
+
 $(function(){
-  var manhattan = [40.706496,-74.009113];
+
   $("#geocomplete").geocomplete({
-    map: ".map_canvas",
-    location: manhattan,
-    details: "#map_info",
     detailsAttribute: "data-geo"
   });
 
-  $('.new-location').submit(function(e){
-
-    var $form = $(e.target);
+  $('body').on("submit", ".new-location", function(e){
     e.preventDefault();
-    var geoDate = $("#geocomplete_date").val();
-
+    var $form = $(this);
+    var inputDate = $("#geocomplete_date").val();
     $("#geocomplete").trigger("geocode").bind('geocode:result', function(e, result){
 
-      $(".banner").remove();
-      $(".search_area").remove();
-
-      var coordinate = {};
-      coordinate.latitude = result.geometry.location.lat().toFixed(2);
-      coordinate.longitude = result.geometry.location.lng().toFixed(2);
-      coordinate.address = result.formatted_address;
-      coordinate.date = geoDate;
+      var location = new Location(result);
+      var forecast = new Forecast(result, inputDate);
 
       $.ajax({
          url: $form.attr('action'),
          type: $form.attr('method'),
          dateType: 'html',
-         data: {coordinate: coordinate}
+         data: {location: location, forecast: forecast}
        })
         .done(function(response){
-          $("#append").empty();
-          $('#append').append(response);
-          $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + coordinate.latitude + "&lon=" + coordinate.longitude + "&name=" + coordinate.address+ "&color=#00aaff&font=Georgia&units=us"));
-
+          appendToFront("#append", response);
+          window.scroll(0,(findPos(document.getElementById("append")))-100);
+          updateWidget(location);
+          new CBPGridGallery(document.getElementById('grid-gallery'));
         });
+         $("#geocomplete").unbind('geocode:result');
+
     });
   });
-
-  $('.banner').unslider({
-    speed: 1200,
-    keys: true,
-    fluid: true
-  });
-
-  var unslider = $('.banner').unslider(),
-  data = unslider.data('unslider');
-  window.onload = function () {  data.move(0); };
 
 });
