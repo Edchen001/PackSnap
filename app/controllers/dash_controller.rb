@@ -34,7 +34,7 @@ class DashController < ApplicationController
       flash[:success] = "success!"
     end
 
-    render :index
+    redirect_to user_path(@user)
 
   end
 
