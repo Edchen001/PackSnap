@@ -89,8 +89,9 @@ logo{
   text-align: right;
 }
 
-.user_dash{
-  padding: 2em;
+.user_dash h1,h2,h3,p{
+  color: #34495e;
+  text-align: center;
 }
 
 .temp{
