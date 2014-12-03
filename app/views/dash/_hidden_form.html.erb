@@ -1,4 +1,6 @@
+<div class="dash-recommend-btn">
 <%= form_tag(new_dash_path, method: :get) do %>
   <%= hidden_field_tag "location[id]", @location.id %>
   <%= submit_tag "Recommend an Item!", class: "pure-button pure-button-primary", id: "recommend-btn" %>
 <% end %>
+</div>
