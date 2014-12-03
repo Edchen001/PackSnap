@@ -4,7 +4,7 @@
     <% location.comments.each do |comment| %>
     <li>
       <figure>
-        <%= link_to (image_tag comment.item.image.url(:medium)), search: comment.item.name, type: "amzn" %>
+        <%= image_tag comment.item.image.url(:medium) %>
         <figcaption><h3><%= location.address %></h3>
           <p><%= comment.content %></p>
           <p><%= comment.user.username %></p>
