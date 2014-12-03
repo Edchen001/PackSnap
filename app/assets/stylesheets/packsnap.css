@@ -75,19 +75,24 @@ logo{
   background: #6396fc;
 }
 
-.dash-header h1, h2{
+.dash-header h1,h2,h3,p{
   color: white;
 }
 
 .destination-title{
   float: left;
+  width: 100%;
+  margin-bottom: 0;
 }
 
-.weather{
-  float: right;
-  line-height: 0.5em;
+.weather-summary{
+  text-align: right;
 }
 
 .user_dash{
   padding: 2em;
+}
+
+.temp{
+  float: right;
 }
