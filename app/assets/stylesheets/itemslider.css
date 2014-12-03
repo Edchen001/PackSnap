@@ -1,6 +1,6 @@
 .mi-slider {
     position: relative;
-    height: 540px;
+    height: 280px;
 }
 .mi-slider ul {
     list-style-type: none;
@@ -47,7 +47,6 @@
     display: inline-block;
     font-weight: 400;
     font-size: 18px;
-    padding: 20px 10px 0;
 }
 .mi-slider ul li:hover {
     opacity: 0.7;
@@ -103,78 +102,6 @@
     border-width: 27px;
     left: 50%;
     margin-left: -27px;
-}
-.mi-slider ul:first-child li,
-.no-js .mi-slider ul li {
-    animation: scaleUp 350ms ease-in-out both;
-}
- 
-.mi-slider ul:first-child li:first-child {
-    animation-delay: 90ms;
-}
- 
-.mi-slider ul:first-child li:nth-child(2) {
-    animation-delay: 180ms;
-}
- 
-.mi-slider ul:first-child li:nth-child(3) {
-    animation-delay: 270ms;
-}
- 
-.mi-slider ul:first-child li:nth-child(4) {
-    animation-delay: 360ms;
-}
-/* moveFromRight */
- 
-.mi-slider ul.mi-moveFromRight li {
-    animation: moveFromRight 350ms ease-in-out both;
-}
- 
-/* moveFromLeft */
- 
-.mi-slider ul.mi-moveFromLeft li {
-    animation: moveFromLeft 350ms ease-in-out both;
-}
- 
-/* moveToRight */
- 
-.mi-slider ul.mi-moveToRight li {
-    animation: moveToRight 350ms ease-in-out both;
-}
- 
-/* moveToLeft */
- 
-.mi-slider ul.mi-moveToLeft li {
-    animation: moveToLeft 350ms ease-in-out both;
-}
-.mi-slider ul.mi-moveToLeft li:first-child,
-.mi-slider ul.mi-moveFromRight li:first-child,
-.mi-slider ul.mi-moveToRight li:nth-child(4),
-.mi-slider ul.mi-moveFromLeft li:nth-child(4) {
-    animation-delay: 0ms;
-}
-.mi-slider ul.mi-moveToLeft li:nth-child(2),
-.mi-slider ul.mi-moveFromRight li:nth-child(2),
-.mi-slider ul.mi-moveToRight li:nth-child(3),
-.mi-slider ul.mi-moveFromLeft li:nth-child(3) {
-    -webkit-animation-delay: 90ms;
-    animation-delay: 90ms;
-}
- 
-.mi-slider ul.mi-moveToLeft li:nth-child(3),
-.mi-slider ul.mi-moveFromRight li:nth-child(3),
-.mi-slider ul.mi-moveToRight li:nth-child(2),
-.mi-slider ul.mi-moveFromLeft li:nth-child(2) {
-    -webkit-animation-delay: 180ms;
-    animation-delay: 180ms;
-}
- 
-.mi-slider ul.mi-moveToLeft li:nth-child(4),
-.mi-slider ul.mi-moveFromRight li:nth-child(4),
-.mi-slider ul.mi-moveToRight li:first-child,
-.mi-slider ul.mi-moveFromLeft li:first-child  {
-    -webkit-animation-delay: 270ms;
-    animation-delay: 270ms;
 }
 
 @media screen and (max-width: 910px){
