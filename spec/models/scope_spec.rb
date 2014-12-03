@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Suggestion do
+describe Scope do
   describe "validations" do
     it { should validate_presence_of :minimum }
     it { should validate_presence_of :maximum }
