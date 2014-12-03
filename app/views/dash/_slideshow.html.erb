@@ -8,9 +8,7 @@
           <p><%= comment.content %></p>
           <p><%= comment.user.username %></p>
         </figcaption>
-        <a href="#">
-          <%= image_tag comment.item.image.url(:medium) %>
-        </a>
+        <%= link_to (image_tag comment.item.image.url(:medium)), "#", search: comment.item.name, type: "amzn" %>
       </figure>
     </li>
     <% end %>
