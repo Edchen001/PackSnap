@@ -42,6 +42,7 @@ a.splash-button-primary{
 
 #append {
   margin-top: 3.5em;
+   margin-bottom: 3.5em;
 }
 video#bgvid {
   min-width: 100%; min-height: 100%;
@@ -96,4 +97,10 @@ logo{
 
 .temp{
   float: right;
+}
+.recommend-form{
+  
+  
+  margin-left: auto;
+  margin-right: auto;
 }
