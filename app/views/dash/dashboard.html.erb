@@ -1,23 +1,21 @@
 <div class="container">
 	<div class="dash-header">
-		<h1 class="destination-title"><%= @location.address %></h1>
-		<h1 class="temp"><%= @weather %>°F</h1>
-		<br>
-		<h3 class="summary"><%= @summary %></h3>
+		<h1 class="destination-title"><%= @location.address %><span class="temp"><%= @weather.round %>&deg;F</span></h1>
+		<p class="weather-summary"><%= @summary %></p>
 	</div>
-<div id="mi-slider" class="mi-slider">
-	<ul>
-	<% @suggested_items.each do |item| %>
-		<li><%= image_tag item.image.url(:original) %><h4><%= item.name %></li>
-		<% end %>
-	</ul>
-	<nav>
-		<a href="#">PackSnap Suggestions</a>
-	</nav>
-</div>
+	<div id="mi-slider" class="mi-slider">
+		<ul>
+			<% @suggested_items.each do |item| %>
+			<li><%= image_tag item.image.url(:original) %><h4><%= item.name %></li>
+			<% end %>
+		</ul>
+		<nav>
+			<a href="#">PackSnap Suggestions</a>
+		</nav>
+	</div>
 	<div id="grid-gallery" class="grid-gallery">
 		<%= render partial: "dash/grip_wrap" %>
 		<%= render partial: "dash/slideshow" %>
 	</div>
+<%= render partial: "dash/hidden_form" %>
 </div>
-	<%= render partial: "dash/hidden_form" %>
