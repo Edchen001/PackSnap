@@ -9,8 +9,8 @@ class DashController < ApplicationController
     weather = get_weather
     scope = get_weather_scope(weather)
     suggest_items = unique_item(scope)
-
-    render :dashboard, locals:{users: @users, items: suggest_items, latitude: params[:location][:latitude], longitude: params[:location][:longitude], address: params[:location][:address], location: @location}, layout: false
+    get_summary = summary
+    render :dashboard, locals:{users: @users, items: suggest_items, latitude: params[:location][:latitude], longitude: params[:location][:longitude], address: params[:location][:address], location: @location, weather: weather, summary: get_summary}, layout: false
   end
 
   def new
@@ -34,7 +34,7 @@ class DashController < ApplicationController
       flash[:success] = "success!"
     end
 
-    render :index
+    redirect_to user_path(@user)
 
   end
 
@@ -46,6 +46,10 @@ class DashController < ApplicationController
 
   def get_weather
     self.forecast_client.weather
+  end
+
+  def summary
+    self.forecast_client.summary
   end
 
   def get_precipitation_type

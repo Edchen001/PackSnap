@@ -1,16 +1,19 @@
 <div class="container">
-	<header class="clearfix">
-		<h1 class="destination-title">User's Destination</h1>
-		<iframe id="forecast_embed" style ="float: right;"type="text/html" frameborder="0" height="224" width="60%" src="http://forecast.io/embed/#lat=&lon=&"> </iframe>
+<div class="dash-header">
+		<h1 class="destination-title"><%= location.address %>
+		<h1 class="temp"><%= weather %>°C</h1>
+		<br>
+		<h3 class="summary"><%= summary %></h3>
+</div>
 		<h3 id="suggested-items">Suggested Items</h3>
 		<% items.each do |item| %>
-			<%= item.name %>
 			<%= image_tag item.image.url(:thumb) %>
+			<%= item.name %>
 		<% end %>
-	</header>
+	<%= render partial: "dash/hidden_form", locals:{latitude: latitude, longitude: longitude, address: address} %>
 	<div id="grid-gallery" class="grid-gallery">
 		<%= render partial: "dash/grip_wrap", locals:{location: location} %>
 		<%= render partial: "dash/slideshow", locals:{location: location} %>
 	</div>
 
-	<%= render partial: "dash/hidden_form", locals:{latitude: latitude, longitude: longitude, address: address} %>
+		
