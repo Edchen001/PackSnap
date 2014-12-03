@@ -6,7 +6,7 @@ describe Suggestion do
     it { should validate_presence_of :item_id }
   end
   describe "associations" do
-    it { should belongs_to :comments }
-    it { should belongs_to :items }
+    it { should belongs_to :comment }
+    it { should belongs_to :item }
   end
 end
