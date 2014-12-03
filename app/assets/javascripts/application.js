@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.geocomplete
-//= require unslider
 //= require modal
 //= require masonry.pkgd.min.js
 //= require modernizr.custom.js
@@ -21,4 +20,5 @@
 //= require classie.js
 //= require imagesloaded.pkgd.min.js
 //= require packsnap
+//= require jquery.catslider.js
 //= require amazon-widgets.js

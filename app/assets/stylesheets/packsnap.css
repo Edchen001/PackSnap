@@ -69,7 +69,7 @@ logo {
 
 .dash-header{
   padding: 2em;
-  height: 15em;
+  height: 10em;
   background: #6396fc;
 }
 
@@ -79,4 +79,7 @@ logo {
 
 .temp{
   float: right;
+}
+.user_dash{
+  padding: 2em;
 }
