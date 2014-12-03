@@ -6,6 +6,7 @@
       <figure>
         <%= image_tag comment.item.image.url(:medium) %>
         <figcaption>
+          <p><%= comment.item.name %></p>
           <p><%= comment.user.username %>,<%= @location.address %></p>
           <p><%= comment.content %></p>
         </figcaption>
