@@ -1,8 +1,6 @@
 <h2 class="content-head">Recommend an Item to Pack</h2>
 <%= form_tag("/dash", method: :post, multipart: true, class: "pure-form pure-form-aligned") do %>
-<%= hidden_field_tag "location[latitude]", params[:location][:latitude] %>
-<%= hidden_field_tag "location[longitude]", params[:location][:longitude] %>
-<%= hidden_field_tag "location[address]", params[:location][:address] %>
+<%= hidden_field_tag "location[id]", params[:location][:id] %>
 <%= hidden_field_tag "item[user_id]", session[:user_id] %>
 <fieldset>
   <div class="pure-control-group">

@@ -21,7 +21,7 @@ class DashController < ApplicationController
 
   def create
     @user = User.find(session[:user_id])
-    @location = Location.find_or_create_by(location_params)
+    @location = Location.find(location_params[:id])
     @item = Item.new(location: @location)
     @comment = Comment.new(user: @user, location: @location, item: @item)
     @comment.assign_attributes(comment_params)
@@ -43,7 +43,7 @@ class DashController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:address, :latitude, :longitude)
+    params.require(:location).permit(:address, :latitude, :longitude, :id)
   end
 
   def item_params
