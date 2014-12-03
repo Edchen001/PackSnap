@@ -52,7 +52,7 @@ $(function(){
        })
         .done(function(response){
           appendToFront("#append", response);
-          window.scroll(0,(findPos(document.getElementById("append")))-100);
+          window.scroll(0,(findPos(document.getElementById("db-container"))));
           updateWidget(location);
           new CBPGridGallery(document.getElementById('grid-gallery'));
           $( '#mi-slider' ).catslider();
