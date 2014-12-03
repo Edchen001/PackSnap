@@ -1,7 +1,9 @@
 <div class="container">
 <div class="dash-header">
 		<h1 class="destination-title"><%= location.address %>
-		<h1 id="temp"><%= weather %></h1>
+		<h1 class="temp"><%= weather %>°C</h1>
+		<br>
+		<h3 class="summary"><%= summary %></h3>
 </div>
 		<h3 id="suggested-items">Suggested Items</h3>
 		<% items.each do |item| %>
@@ -14,4 +16,4 @@
 		<%= render partial: "dash/slideshow", locals:{location: location} %>
 	</div>
 
-		<iframe id="forecast_embed" style ="float: right;"type="text/html" frameborder="0" height="224" width="60%" src="http://forecast.io/embed/#lat=&lon=&"> </iframe>
+		
