@@ -1,28 +1,27 @@
 class DashController < ApplicationController
 
   def index
+    puts params
     @user = User.new
 
     @location = Location.find_or_create_by(location_params)
 
-    client = Forecast.new(params[:forecast])
-    weather = client.weather
-    precipation_type = client.precipation_type
-    scope = get_weather_scope(weather)
-    suggest_items = unique_item(scope, precipation_type)
-    summary = client.summary
+    weather_info = Forecast.new(params[:forecast])
+    @weather = weather_info.current_weather
+    scope = Scope.get_weather_scope(@weather)
+    @suggested_items = Category.unique_items(scope, weather_info.precipation_type)
+    @summary = weather_info.summary
 
-    render :dashboard, locals:{users: @users, items: suggest_items, latitude: params[:location][:latitude], longitude: params[:location][:longitude], address: params[:location][:address], location: @location, weather: weather, summary: summary}, layout: false
+    render :dashboard, layout: false
   end
 
   def new
     @item = Item.new
-    render :new
   end
 
   def create
     @user = User.find(session[:user_id])
-    @location = Location.find_or_create_by(location_params)
+    @location = Location.find(location_params[:id])
     @item = Item.new(location: @location)
     @comment = Comment.new(user: @user, location: @location, item: @item)
     @comment.assign_attributes(comment_params)
@@ -40,32 +39,11 @@ class DashController < ApplicationController
 
   end
 
-  def get_weather_scope(weather)
-    Scope.find_by("minimum <= #{weather} and maximum >= #{weather}")
-  end
-
-  def get_suggested_weather_items(scope)
-    scope.category.items
-  end
-
-  def get_suggested_precipation_type_item(precipitation_type)
-    precipation_type = Category.where(name: precipation_type)
-    unless precipation_type
-      return precipation_type.items
-    else
-      return []
-    end
-  end
-
-  def unique_item(scope, precipation_type)
-    items = get_suggested_weather_items(scope) + get_suggested_precipation_type_item(precipation_type)
-    items.uniq
-  end
 
   private
 
   def location_params
-    params.require(:location).permit(:address, :latitude, :longitude)
+    params.require(:location).permit(:address, :latitude, :longitude, :id)
   end
 
   def item_params
