@@ -21,12 +21,11 @@ function appendToFront (selector, partial) {
 
 function findPos(tag) {
     var curtop = 0;
-    console.log(curtop);
     if (tag.offsetParent) {
-        do {
-            curtop += tag.offsetTop;
-        } while (tag = tag.offsetParent);
-    return [curtop];
+      do {
+        curtop += tag.offsetTop;
+      } while (tag = tag.offsetParent);
+        return [curtop];
     }
 }
 
@@ -53,11 +52,9 @@ $(function(){
        })
         .done(function(response){
           appendToFront("#append", response);
-          console.log(findPos(document.getElementById("append")))
           window.scroll(0,(findPos(document.getElementById("append")))-100);
           updateWidget(location);
           new CBPGridGallery(document.getElementById('grid-gallery'));
-
         });
          $("#geocomplete").unbind('geocode:result');
 
