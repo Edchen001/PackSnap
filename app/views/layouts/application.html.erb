@@ -8,6 +8,7 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
+
 	<%= render "layouts/navbar" %>
 	<%= render "layouts/modal_getstarted" %>
 	<% if !current_user %>
@@ -17,6 +18,9 @@
 	<div class="content-wrapper">
 		<%= render "layouts/banner" %>
 		<div id="append">
+				<% if flash[:error] %>
+			<%= flash[:error] %>
+	<% end %>
 			<%= yield %>
 		</div>
 	</div>
