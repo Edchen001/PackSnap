@@ -54,9 +54,7 @@ logo{
   color: #0076df;
   margin-left: -12px;
 }
-.destination-title{
-  position: absolute;
-}
+
 #forecast_embed{
   margin-top: -3.5em;
 }
@@ -72,18 +70,24 @@ logo{
 }
 
 .dash-header{
-  padding: 2em 4em 2em 4em;
+  padding: 0.1em 2em 2em 1em;
   height: 10em;
   background: #6396fc;
 }
 
-.dash-header h1{
+.dash-header h1, h2{
   color: white;
+}
+
+.destination-title{
+  float: left;
 }
 
 .weather{
   float: right;
+  line-height: 0.5em;
 }
+
 .user_dash{
   padding: 2em;
 }
