@@ -2,6 +2,33 @@ class Forecast
 	attr_reader :latitude, :longitude, :time, :forecast, :seven_day_forecast
 
 	def initialize(coordinate)
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    #
+    #
+    # DO NOT COMMIT YOUR API KEYS.  THEY ARE IN GITHUB FOREVER.
+    #
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+    # NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE NOPE
+
 		ForecastIO.api_key = "3fac0b4fad926d110405e9ff06c240c9"
 		@latitude = coordinate[:latitude]
 		@longitude = coordinate[:longitude]
@@ -17,6 +44,9 @@ class Forecast
 	end
 
 	def weather
+    # why is the self.forecast needed?  I don't see any class methods on this
+    # class that you must be accessing it by and you have an attr_reader on
+    # @forecast -- so...?
 		self.forecast.currently.temperature
 	end
 

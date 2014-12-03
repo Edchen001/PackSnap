@@ -10,8 +10,18 @@ class WelcomeController < ApplicationController
 
     weather = get_weather
     scope = get_weather_scope(weather)
+    #
+    # The OO is not quite right here.
+    #
+    #
+    # This should be bubbled out to a UniqueItemRecommender class or something
+    # like it.  There is way to much business domain logic about unique
+    # recommendation being done in a controller which, as you'll recall, is all
+    # about params, sessions, redirect, and render.  this controller is too
+    # smart.
     suggest_items = unique_item(scope)
 
+    # Not needed....
     respond_to do |format|
       format.html { render partial: "welcome/dash", locals:{users: @users, items: suggest_items}  }
     end
@@ -19,6 +29,13 @@ class WelcomeController < ApplicationController
 
   attr_reader :forecast_client
 
+  # These should probably be under a 'private' statement as we want other Rails
+  # programmers to know that these endpoints are not meant to be hit
+  #
+  #
+
+  # I don't see the benefit of this method, you only call it once, why not just
+  # put this line in the controller action?
   def init_forecast_client(coordinate)
     @forecast_client = Forecast.new(coordinate)
   end

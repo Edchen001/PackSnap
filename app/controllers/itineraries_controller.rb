@@ -1,5 +1,11 @@
 class ItinerariesController < ApplicationController
   def index
+    # OK, just on the basic gut feel of it  if i give you a pizza_id, you're
+    # expecting to find a pizza.  If I give you car_id, you expect to find a
+    # car, right?  So here you take a trip_id to find an Itinerary?
+    #
+    # something smells here and I'm not sure what, but this hints at something
+    # wrong
     @itineraries = Itinerary.where(trip_id: params[:trip_id])
     render :index, locals:{trip: @trip, itineraries: @itineraries}
   end
@@ -12,6 +18,7 @@ class ItinerariesController < ApplicationController
   def new
     @user = User.new
     @itinerary = Itinerary.new(trip_id: params[:trip_id])
+    # You shouldn't need this, html is the defaul responder
     respond_to do |format|
       format.html { render partial: "itineraries/form_itinerary", locals:{itinerary: @itinerary} }
     end
