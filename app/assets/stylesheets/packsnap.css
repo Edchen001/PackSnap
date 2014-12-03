@@ -67,3 +67,16 @@ logo {
   margin-left: 1em;
 }
 
+.dash-header{
+  padding: 2em;
+  height: 15em;
+  background: #6396fc;
+}
+
+.dash-header h1{
+  color: white; 
+}
+
+#temp{
+  float: right;
+}

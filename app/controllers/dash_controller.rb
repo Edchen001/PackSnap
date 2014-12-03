@@ -10,7 +10,7 @@ class DashController < ApplicationController
     scope = get_weather_scope(weather)
     suggest_items = unique_item(scope)
 
-    render :dashboard, locals:{users: @users, items: suggest_items, latitude: params[:location][:latitude], longitude: params[:location][:longitude], address: params[:location][:address], location: @location}, layout: false
+    render :dashboard, locals:{users: @users, items: suggest_items, latitude: params[:location][:latitude], longitude: params[:location][:longitude], address: params[:location][:address], location: @location, weather: weather}, layout: false
   end
 
   def new

@@ -1,13 +1,14 @@
 <div class="container">
-	<header class="clearfix">
-		<h1 class="destination-title"><%= location.address %></h1>
+<div class="dash-header">
+		<h1 class="destination-title"><%= location.address %>
+		<h1 id="temp"><%= weather %></h1>
+</div>
 		<h3 id="suggested-items">Suggested Items</h3>
-	<%= render partial: "dash/hidden_form", locals:{latitude: latitude, longitude: longitude, address: address} %>
 		<% items.each do |item| %>
 			<%= image_tag item.image.url(:thumb) %>
 			<%= item.name %>
 		<% end %>
-	</header>
+	<%= render partial: "dash/hidden_form", locals:{latitude: latitude, longitude: longitude, address: address} %>
 	<div id="grid-gallery" class="grid-gallery">
 		<%= render partial: "dash/grip_wrap", locals:{location: location} %>
 		<%= render partial: "dash/slideshow", locals:{location: location} %>
