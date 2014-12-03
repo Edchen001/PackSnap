@@ -47,8 +47,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'simplecov', :require => false, :group => :test
 
-gem 'amazon-ecs'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
