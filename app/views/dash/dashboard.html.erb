@@ -1,9 +1,8 @@
 <div class="container">
 	<div class="dash-header">
-		<h1 class="destination-title"><%= @location.address %></h1>
-		<h1 class="temp"><%= @weather %>°F</h1>
-		<br>
-		<h3 class="summary"><%= @summary %></h3>
+		<h1 class="destination-title"><%= @location.address %><span class="temp"><%= @weather %>&deg;F</span></h1>
+			<p class="weather-summary"><%= @summary %></p>
+
 	</div>
 <div id="mi-slider" class="mi-slider">
 	<ul>
