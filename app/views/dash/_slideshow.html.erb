@@ -1,12 +1,12 @@
 <section class="slideshow">
   <ul>
-    <% location.comments.each do |comment| %>
+    <% @location.comments.each do |comment| %>
     <li>
       <figure>
         <figcaption>
-          <h3><%= location.address %></h3>
+          <h3><%= @location.address %></h3>
           <p><%= comment.content %></p>
-          <p><%= comment.user.username %></p>
+          <p><%= link_to comment.user.username, user_path(comment.user) %></p>
         </figcaption>
         <%= image_tag comment.item.image.url(:medium) %>
       </figure>
