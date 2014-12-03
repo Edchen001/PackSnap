@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'paperclip', '~> 4.2'
-
+gem 'dotenv-rails'
 gem 'rack-handlers'
 gem 'unicorn'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -46,9 +46,6 @@ gem 'rails_12factor', group: :production
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'simplecov', :require => false, :group => :test
-
-# Use unicorn as the app server
-# gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,8 +1,8 @@
 class Location < ActiveRecord::Base
   validates_presence_of :address
-  belongs_to :itinerary
-  belongs_to :coordinate
 
-  has_many :photos
-  has_many :users, through: :photos
+  has_many :items
+
+  has_many :comments
+  has_many :visitors, through: :comments, source: :user
 end

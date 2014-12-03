@@ -58,10 +58,6 @@ describe UsersController do
       it "should not save into the database" do
         expect { post :create, user: attributes_for(:invalid_user) }.to_not change(User, :count)
       end
-      it "should set up flash alert" do
-        post :create, user: attributes_for(:invalid_user)
-        expect(response.request.flash[:alert]).to_not be_nil
-      end
       it "should re-render :signup template" do
         post :create, user: attributes_for(:invalid_user)
         expect(response).to render_template(:signup)
@@ -90,10 +86,6 @@ describe UsersController do
         put :update, id: @user, user: attributes_for(:invalid_user)
         @user.reload
         expect(@user.email).to_not be_nil
-      end
-      it "should set up flash alert" do
-        put :update, id: @user, user: attributes_for(:invalid_user)
-        expect(response.request.flash[:alert]).to_not be_nil
       end
       it "should re-render :edit template" do
         put :update, id: @user, user: attributes_for(:invalid_user)
