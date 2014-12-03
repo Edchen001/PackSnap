@@ -1,18 +1,18 @@
 <section class="modal--fade" id="login"
 tabindex="-1" role="dialog" aria-labelledby="label-fade" aria-hidden="true">
 <div class="modal-inner">
-    <div class="pure-form login">
-      <%= form_tag(session_login_path) do %>
-      <label><h2 id="label-fade">Login</h2></label>
+  <div class="pure-form login">
+    <%= form_tag(session_login_path) do %>
+    <label><h2 id="label-fade">Login</h2></label>
+    <div id="loginemail">
       <%= text_field_tag 'user[email]', nil, placeholder: 'email' %>
-      <br>
-      <%= password_field_tag "user[password]", nil, placeholder: 'password' %>
-      <br>
-      <%= submit_tag "Login", class: 'pure-button pure-button-trip' %>
-      <% end %>
     </div>
-	</div>
+    <div id="loginpassword">
+      <%= password_field_tag "user[password]", nil, placeholder: 'password' %>
+    </div>
+    <%= submit_tag "Login", class: 'pure-button pure-button-trip' %>
+    <% end %>
+  </div>
 </div>
-<a href="#!" class="modal-close" title="Close this modal"
-data-dismiss="modal" data-close="Close">&times;</a>
+<a href="#!" class="modal-close" title="Close this modal" data-dismiss="modal" data-close="Close">&times;</a>
 </section>
