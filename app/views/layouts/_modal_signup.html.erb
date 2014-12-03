@@ -1,9 +1,9 @@
 <section class="modal--fade" id="sign-up"
 tabindex="-1" role="dialog" aria-labelledby="label-fade" aria-hidden="true">
 <div class="modal-inner">
-	<header><h2 id="label-fade">Sign Up</h2></header>
     <div class="pure-form signup">
       <%= form_for(@user) do |f| %>
+        <label><h2 id="label-fade">Sign Up</h2></label>
         <%= f.text_field :username, placeholder: "Username" %>
         <br>
         <%= f.text_field :email, placeholder: "Email" %>
