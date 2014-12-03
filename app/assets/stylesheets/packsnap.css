@@ -1,4 +1,4 @@
-#geocomplete { 
+#geocomplete {
   width: 20%;
 }
 
@@ -42,6 +42,7 @@ a.splash-button-primary{
 
 #append {
   margin-top: 3.5em;
+   margin-bottom: 3.5em;
 }
 video#bgvid {
   min-width: 100%; min-height: 100%;
@@ -54,9 +55,7 @@ logo{
   color: #0076df;
   margin-left: -12px;
 }
-.destination-title{
-  position: absolute;
-}
+
 #forecast_embed{
   margin-top: -3.5em;
 }
@@ -72,18 +71,42 @@ logo{
 }
 
 .dash-header{
-  padding: 2em;
-  height: 10em;
+  padding: 0.1em 2em 2em 1em;
+  height: 6.5em;
   background: #6396fc;
 }
 
-.dash-header h1{
-  color: white; 
+.dash-header h1,h2,h3,p{
+  color: white;
+}
+
+.destination-title{
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.weather-summary{
+  text-align: right;
+}
+
+.user_dash h1,h2,h3,p{
+  color: #34495e;
+  text-align: center;
 }
 
 .temp{
   float: right;
 }
-.user_dash{
+.recommend-form{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dash-recommend-btn{
   padding: 2em;
+}
+
+#grid-gallery{
+  margin-top: 6em;
 }

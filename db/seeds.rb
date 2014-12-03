@@ -1,4 +1,4 @@
-require 'csv'    
+require 'csv'
 
 CSV.foreach(Rails.root.join('db', 'users.csv'), {headers: true, header_converters: :symbol}) do |row|
 	User.create(row.to_hash)
@@ -17,5 +17,8 @@ CSV.foreach(Rails.root.join('db', 'temp_scope.csv'), {headers: true, header_conv
 end
 
 CSV.foreach(Rails.root.join('db', 'suggestions.csv'), {headers: true, header_converters: :symbol}) do |row|
+  puts row[:item]
+  puts Item.find_by(name: row[:item]).id
+
 	Suggestion.create(item_id: Item.find_by(name: row[:item]).id, category_id: Category.find_by(name: row[:category]).id)
 end

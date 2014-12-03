@@ -4,9 +4,9 @@
     <li>
       <figure>
         <figcaption>
-          <h3><%= @location.address %></h3>
+          <p><%= comment.item.name %></p>
+          <p><%= link_to comment.user.username, user_path(comment.user) %>, <%= @location.address %></p>
           <p><%= comment.content %></p>
-          <p><%= link_to comment.user.username, user_path(comment.user) %></p>
         </figcaption>
         <%= image_tag comment.item.image.url(:medium) %>
       </figure>

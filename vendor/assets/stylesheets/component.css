@@ -27,7 +27,6 @@
 
 .grid-gallery figcaption h3 {
 	margin: 0;
-	padding: 0 0 0.5em;
 }
 
 .grid-gallery figcaption p {
@@ -36,7 +35,7 @@
 
 /* Grid style */
 .grid-wrap {
-	max-width: 69em;
+	max-width: 75em;
 	margin: 0 auto;
 	padding: 0 1em 1.875em;
 }
@@ -63,7 +62,7 @@
 
 .grid figcaption {
 	background: #e4e4e4;
-	padding: 25px;
+	padding: 10px;
 }
 
 /* Slideshow style */

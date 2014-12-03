@@ -52,14 +52,31 @@ $(function(){
        })
         .done(function(response){
           appendToFront("#append", response);
-          window.scroll(0,(findPos(document.getElementById("append")))-100);
+          window.scroll(0,(findPos(document.getElementById("db-container"))));
           updateWidget(location);
           new CBPGridGallery(document.getElementById('grid-gallery'));
           $( '#mi-slider' ).catslider();
         });
          $("#geocomplete").unbind('geocode:result');
-
     });
   });
 
+   $("body").on("submit","#recommend-btn", function(event) {
+      event.preventDefault();
+      $form = $(this);
+      $.ajax({
+        url: $form.attr('action'),
+        type: $form.attr('method'),
+        dataType: 'html',
+        data: $form.serialize()
+      })
+      .done(function(response) {
+
+        $('#recommend-btn').append(response);
+        window.scrollTo(0,document.body.scrollHeight);
+
+      }).fail(function() {
+        console.log("error");
+      })
+    })
 });
