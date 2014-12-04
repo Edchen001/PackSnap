@@ -1,6 +1,5 @@
 <div class="user_dash">
-  <h2>Hey <%= (@user.username).upcase %>!</h2>
-  <h3>Your recent recommendations:</h3>
+  <h2><%= (@user.username).capitalize %>'s recommendations:</h2>
   <div id="grid-gallery" class="grid-gallery">
     <section class="grid-wrap">
       <ul class="grid">
