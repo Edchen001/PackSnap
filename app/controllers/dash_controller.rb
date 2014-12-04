@@ -20,7 +20,7 @@ class DashController < ApplicationController
       @item = Item.new
       render partial: 'new_item_form'
     else
-     render partial: 'error'
+      render partial: 'error'
     end
   end
 

@@ -13,12 +13,12 @@
 
  *= require_self
  *= require pure-min
- *= require pure
- *= require packsnap
  *= require modal
- *= require grids-responsive-min
- *= require dash
- *= require component
- *= require itemslider
  *= require modal-packsnap
+ *= require component
+ *= require grids-responsive-min
+ *= require pure
+ *= require dash
+ *= require packsnap
+ *= require itemslider
  */

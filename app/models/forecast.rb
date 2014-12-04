@@ -1,3 +1,5 @@
+require 'Date'
+
 class Forecast
 	attr_reader :latitude, :longitude, :time, :forecast
 

@@ -2,14 +2,14 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 @font-face {
 	font-family: 'bpicons';
-	src:url('app/assets/fonts/bpicons/bpicons.eot');
-	src:url('app/assets/fonts/bpicons/bpicons.eot?#iefix') format('embedded-opentype'),
-		url('app/assets/fonts/bpicons/bpicons.woff') format('woff'),
-		url('app/assets/fonts/bpicons/bpicons.ttf') format('truetype'),
-		url('app/assets/fonts/bpicons/bpicons.svg#bpicons') format('svg');
+	src:url('bpicons/bpicons.eot');
+	src:url('bpicons/bpicons.eot?#iefix') format('embedded-opentype'),
+		url('bpicons/bpicons.woff') format('woff'),
+		url('bpicons/bpicons.ttf') format('truetype'),
+		url('bpicons/bpicons.svg#bpicons') format('svg');
 	font-weight: normal;
 	font-style: normal;
-} /* Made with http://icomoon.io/ */
+} *//* Made with http://icomoon.io/ 
 
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 body, html { font-size: 100%; padding: 0; margin: 0;}
