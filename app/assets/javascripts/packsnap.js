@@ -66,8 +66,7 @@ $(function(){
         data: $form.serialize()
       })
       .done(function(response) {
-
-        $('#recommend-btn').append(response);
+        appendToFront(".dash-recommend-btn", response);
         window.scrollTo(0,document.body.scrollHeight);
 
       }).fail(function() {
