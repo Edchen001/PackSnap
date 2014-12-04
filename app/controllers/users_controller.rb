@@ -1,44 +1,49 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   def new
     @user = User.new
-    render :signup, locals:{user: @user}
   end
+
   def show
-    @user = User.find(params[:id])
-    render :show, locals:{user: @user}
+
   end
+
   def edit
-    @user = User.find(session[:user_id])
-    render :edit, locals:{user: @user}
+
   end
+
   def update
-    @user = User.find(session[:user_id])
-    @user.assign_attributes(user_params)
-    if @user.save
-      redirect_to root_path
+    if @user.update(user_params)
+      redirect_to user_path(@user)
     else
       flash[:error] = @user.errors.full_messages
       render :edit
     end
   end
+
   def create
-    @user = User.new
-    @user.assign_attributes(user_params)
+    @user = User.new(user_params)
+
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path
     else
       flash[:error] = @user.errors.full_messages
-      render :signup
+      render :new
     end
   end
+
   def destroy
-    @user = User.find(session[:user_id])
     @user.destroy
     redirect_to root_path
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
