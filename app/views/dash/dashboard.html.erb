@@ -6,7 +6,10 @@
 	<div id="mi-slider" class="mi-slider">
 		<ul>
 			<% @suggested_items.each do |item| %>
-			<li><%= image_tag item.image.url(:original) %><h4><%= item.name %></li>
+			<li>
+				<%= image_tag item.image.url(:original) %>
+				<h4><%= item.name %></h4>
+			</li>
 			<% end %>
 		</ul>
 		<nav>

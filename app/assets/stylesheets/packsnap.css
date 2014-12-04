@@ -17,6 +17,10 @@ body {
   height: 2.25em;
 }
 
+ul{
+     list-style:none;
+}
+
 .splash-button {
     background-color: #0076df;
     color: white;
@@ -87,6 +91,7 @@ logo{
 }
 
 .weather-summary{
+  color: white;
   text-align: right;
 }
 

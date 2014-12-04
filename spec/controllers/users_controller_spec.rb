@@ -5,51 +5,57 @@ describe UsersController do
     @user = create(:user)
     session[:user_id] = @user.id
   end
+
   describe "Get routes" do
     describe "Get #show" do
-      it "should locate the requested user" do
+      it "locates the requested user" do
         get :show, id: @user
         expect(assigns[:user]).to eq(@user)
       end
-      it "should render :show template" do
+
+      it "renders :show template" do
         get :show, id: @user
         expect(response).to render_template(:show)
       end
     end
 
     describe "Get #edit" do
-      it "should locate requested user" do
+      it "locates requested user" do
         get :edit, id: @user
         expect(assigns[:user]).to eq(@user)
       end
-      it "should render :edit" do
+
+      it "renders :edit" do
         get :edit, id: @user
         expect(response).to render_template(:edit)
       end
     end
 
     describe "Get #new" do
-      it "should assigns a new User" do
+      it "assigns a new User" do
         get :new
         expect(assigns[:user]).to be_a_new(User)
       end
-      it "should render :signup template" do
+
+      it "renders :new template" do
         get :new
-        expect(response).to render_template(:signup)
+        expect(response).to render_template(:new)
       end
     end
   end
 
   describe "Post #create" do
     context 'valid attributes' do
-      it "should save user into database" do
+      it "saves user into database" do
         expect { post :create, user: attributes_for(:user) }.to change(User, :count).by(1)
       end
-      it "should redirect to user profile" do
+
+      it "redirects to root" do
         post :create, user: attributes_for(:user)
         expect(response).to redirect_to(root_path)
       end
-      it "should set session for that user" do
+
+      it "sets session for that user" do
         post :create, user: attributes_for(:user)
         expect(session[:user_id]).to_not be_nil
       end
@@ -58,9 +64,9 @@ describe UsersController do
       it "should not save into the database" do
         expect { post :create, user: attributes_for(:invalid_user) }.to_not change(User, :count)
       end
-      it "should re-render :signup template" do
+      it "should re-render :new template" do
         post :create, user: attributes_for(:invalid_user)
-        expect(response).to render_template(:signup)
+        expect(response).to render_template(:new)
       end
     end
   end
@@ -78,7 +84,7 @@ describe UsersController do
       end
       it "should redirect to user profile" do
         put :update, id: @user, user: attributes_for(:user, username: "updated")
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(user_path(@user))
       end
     end
     context 'invalid attributes' do
