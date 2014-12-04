@@ -1,13 +1,6 @@
 require 'rails_helper'
 
 describe DashController do
-  describe 'Get #index' do
-    xit "renders the :dashboard template" do
-      get :index, location: {address: "New York, NY, USA", latitude: 40.71, longitude: -71.52}, forecast: {latitude: 40.71, longitude: -74.01, date: '2014-12-03'}
-      expect(response).to render_template :dashboard
-    end
-  end
-
   describe 'Get #new' do
     context 'with user signed in' do
       before do
