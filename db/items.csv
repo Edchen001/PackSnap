@@ -1,23 +1,23 @@
 name,image_path
-baseballcap,app/assets/icons/baseballcap.svg
+baseball cap,app/assets/icons/baseballcap.svg
 bikini flower,app/assets/icons/bikini_flower.svg
-brouse,app/assets/icons/brouse.svg
-cargoshorts,app/assets/icons/cargoshorts.svg
+blouse,app/assets/icons/brouse.svg
+cargo shorts,app/assets/icons/cargoshorts.svg
 hoodie,app/assets/icons/hoodie.svg
 jeans,app/assets/icons/jeans.svg
-jeanshorts,app/assets/icons/jeanshorts.svg
-longsleeve thermal,app/assets/icons/longsleeve_thermal.svg
+jean shorts,app/assets/icons/jeanshorts.svg
+long sleeve thermal,app/assets/icons/longsleeve_thermal.svg
 mittens,app/assets/icons/mittens.svg
 red dress,app/assets/icons/red_dress.svg
 red socks,app/assets/icons/red_socks.svg
 scarf,app/assets/icons/scarf.svg
 sunhat,app/assets/icons/sunhat.svg
-swimtrunks,app/assets/icons/swimtrunks.svg
+swim trunks,app/assets/icons/swimtrunks.svg
 uggs,app/assets/icons/uggs.svg
 white flipflops,app/assets/icons/white_flipflops.svg
 yellow skirt,app/assets/icons/yellow_skirt.svg
-bottlewater,app/assets/icons/bottlewater.svg
+water bottle,app/assets/icons/bottlewater.svg
 sunscreen,app/assets/icons/sunscreen.svg
 sunglasses,app/assets/icons/sunglasses.svg
 sneakers,app/assets/icons/sneakers.svg
-wintercoat,app/assets/icons/wintercoat.png
+winter coat,app/assets/icons/wintercoat.png
