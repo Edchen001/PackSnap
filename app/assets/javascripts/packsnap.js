@@ -10,10 +10,6 @@ function Forecast (result, inputDate) {
   this.date = inputDate;
 }
 
-function updateWidget (location) {
-  $("#forecast_embed").attr('src', ("http://forecast.io/embed/#lat=" + location.latitude + "&lon=" + location.longitude + "&name=" + location.address+ "&color=#00aaff&font=Georgia&units=us"));
-}
-
 function appendToFront (selector, partial) {
   $(selector).empty();
   $(selector).append(partial);
@@ -53,7 +49,6 @@ $(function(){
         .done(function(response){
           appendToFront("#append", response);
           window.scroll(0,(findPos(document.getElementById("db-container"))));
-          updateWidget(location);
           new CBPGridGallery(document.getElementById('grid-gallery'));
           $( '#mi-slider' ).catslider();
         });
