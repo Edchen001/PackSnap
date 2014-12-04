@@ -76,7 +76,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.assets.enabled = true
-  config.assets.paths << "#{Rails.root}/app/assets/fonts" 
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   config.assets.precompile += %w(.svg .eot .woff .ttf)
   # Paperclip.options[:command_path] = "/usr/local/bin/"
   Paperclip::Attachment.default_options[:command_path] = "/usr/local/bin"
