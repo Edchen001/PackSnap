@@ -25,5 +25,4 @@ class Forecast
 	def summary
 		forecast.currently.summary
 	end
-
 end

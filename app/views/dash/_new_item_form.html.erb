@@ -1,24 +1,24 @@
 <h2 class="content-head">Recommend an Item to Pack</h2>
 <div class="recommend-form">
-<%= form_tag("/dash", method: :post, multipart: true, class: "pure-form pure-form-aligned") do %>
-<%= hidden_field_tag "location[id]", params[:location][:id] %>
-<%= hidden_field_tag "item[user_id]", session[:user_id] %>
-<fieldset>
-  <div class="pure-control-group">
-    <%= label_tag "Item Name" %>
-    <%= text_field_tag "item[name]" %>
-  </div>
-  <div class="pure-control-group">
-    <%= label_tag "Upload an image" %>
-    <%= file_field_tag "item[image]" %>
-  </div>
-  <div class="pure-control-group">
-    <%= label_tag "Comment" %>
-    <%= text_area_tag "comment[content]" %>
-  </div>
-  <div class="pure-controls">
-    <%= submit_tag "Share!", class: "pure-button pure-button-primary" %>
-  </div>
-  <% end %>
-</fieldset>
+  <%= form_tag("/dash", method: :post, multipart: true, class: "pure-form pure-form-aligned") do %>
+  <%= hidden_field_tag "location[id]", params[:location][:id] %>
+  <%= hidden_field_tag "item[user_id]", session[:user_id] %>
+  <fieldset>
+    <div class="pure-control-group">
+      <%= label_tag "Item Name" %>
+      <%= text_field_tag "item[name]" %>
+    </div>
+    <div class="pure-control-group">
+      <%= label_tag "Upload an image" %>
+      <%= file_field_tag "item[image]" %>
+    </div>
+    <div class="pure-control-group">
+      <%= label_tag "Comment" %>
+      <%= text_area_tag "comment[content]" %>
+    </div>
+    <div class="pure-controls">
+      <%= submit_tag "Share!", class: "pure-button pure-button-primary" %>
+    </div>
+    <% end %>
+  </fieldset>
 </div>

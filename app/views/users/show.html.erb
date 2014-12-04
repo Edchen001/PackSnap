@@ -1,21 +1,21 @@
 <div class="user_dash">
   <h2>Hey <%= (@user.username).upcase %>!</h2>
   <h3>Your recent recommendations:</h3>
-<div id="grid-gallery" class="grid-gallery">
-  <section class="grid-wrap">
-    <ul class="grid">
-      <li class="grid-sizer"></li>
-      <% @user.comments.each do |comment| %>
-      <li>
-        <figure>
-          <%= link_to (image_tag comment.item.image.url(:medium)), "", search: comment.item.name, type: "amzn" %>
-          <figcaption><h3><%= comment.location.address %></h3>
-            <p><%= comment.content %></p>
-          </figcaption>
-        </figure>
-      </li>
-      <% end %>
-    </ul>
-  </section>
-</div>
+  <div id="grid-gallery" class="grid-gallery">
+    <section class="grid-wrap">
+      <ul class="grid">
+        <li class="grid-sizer"></li>
+        <% @user.comments.each do |comment| %>
+        <li>
+          <figure>
+            <%= link_to (image_tag comment.item.image.url(:medium)), "", search: comment.item.name, type: "amzn" %>
+            <figcaption><h3><%= comment.location.address %></h3>
+              <p><%= comment.content %></p>
+            </figcaption>
+          </figure>
+        </li>
+        <% end %>
+      </ul>
+    </section>
+  </div>
 </div>

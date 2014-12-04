@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   validates_presence_of :password, on: :create
   validates_uniqueness_of :email
 
-
   has_many :comments
   has_many :items, through: :comments
   has_many :destinations, through: :comments, source: :location

@@ -40,5 +40,4 @@ describe DashController do
       expect { post :create, item: attributes_for(:item), comment: attributes_for(:comment), location: {id: 1}, comment: {content: "test", user_id: 1, id: 1}}.to change(Item, :count).by(1)
     end
   end
-
 end

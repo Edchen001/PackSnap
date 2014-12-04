@@ -18,7 +18,6 @@ class DashController < ApplicationController
   def new
     if session[:user_id]
       @item = Item.new
-
       render partial: 'new_item_form'
     else
      render partial: 'error'
@@ -41,7 +40,6 @@ class DashController < ApplicationController
     end
 
     redirect_to user_path(session[:user_id])
-
   end
 
 

@@ -3,19 +3,19 @@ tabindex="-1" role="dialog" aria-labelledby="label-fade" aria-hidden="true">
 <div class="modal-inner">
     <div class="pure-form signup">
       <%= form_for(@user) do |f| %>
-        <label><h2 id="label-fade">Sign Up</h2></label>
-        <%= f.text_field :username, placeholder: "Username" %>
-        <br>
-        <%= f.text_field :email, placeholder: "Email" %>
-        <br>
-        <%= f.password_field :password, placeholder: "Password" %>
-        <br>
-        <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-        <br>
-        <%= f.submit "Sign Up", class: 'pure-button pure-button-trip' %>
+      <label><h2 id="label-fade">Sign Up</h2></label>
+      <%= f.text_field :username, placeholder: "Username" %>
+      <br>
+      <%= f.text_field :email, placeholder: "Email" %>
+      <br>
+      <%= f.password_field :password, placeholder: "Password" %>
+      <br>
+      <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+      <br>
+      <%= f.submit "Sign Up", class: 'pure-button pure-button-trip' %>
       <% end %>
-    </div>
-	</div>
+  </div>
+</div>
 <a href="#!" class="modal-close" title="Close this modal"
 data-dismiss="modal" data-close="Close">&times;</a>
 </div>

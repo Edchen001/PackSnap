@@ -12,15 +12,15 @@
 	<%= render "layouts/navbar" %>
 	<%= render "layouts/modal_getstarted" %>
 	<% if !current_user %>
-		<%= render "layouts/modal_login" %>
-		<%= render "layouts/modal_signup" %>
+	<%= render "layouts/modal_login" %>
+	<%= render "layouts/modal_signup" %>
 	<% end %>
 	<div class="content-wrapper">
 		<%= render "layouts/banner" %>
 		<div id="append">
-				<% if flash[:error] %>
+			<% if flash[:error] %>
 			<%= flash[:error] %>
-	<% end %>
+			<% end %>
 			<%= yield %>
 		</div>
 	</div>
