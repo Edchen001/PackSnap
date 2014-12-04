@@ -1,12 +1,12 @@
 class DashController < ApplicationController
 
   def index
-    puts params
     @user = User.new
 
     @location = Location.find_or_create_by(location_params)
     session[:location] = @location.id
     weather_info = Forecast.new(params[:forecast])
+
     @weather = weather_info.current_weather
     scope = Scope.get_weather_scope(@weather)
     @suggested_items = Category.unique_items(scope, weather_info.precipation_type)
@@ -26,10 +26,9 @@ class DashController < ApplicationController
   end
 
   def create
-    @user = User.find(session[:user_id])
-    @location = Location.find(location_params[:id])
-    @item = Item.new(location: @location)
-    @comment = Comment.new(user: @user, location: @location, item: @item)
+    @item = Item.new(location_id: location_params[:id])
+    @comment = Comment.new(user_id: session[:user_id], location_id: location_params[:id], item: @item)
+
     @comment.assign_attributes(comment_params)
     @item.assign_attributes(item_params)
 
@@ -41,7 +40,7 @@ class DashController < ApplicationController
       flash[:success] = "success!"
     end
 
-    redirect_to user_path(@user)
+    redirect_to user_path(session[:user_id])
 
   end
 
