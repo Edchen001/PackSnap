@@ -33,8 +33,6 @@ Rails.application.configure do
   config.assets.digest = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
-  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-  config.assets.precompile += %w(.svg .eot .woff .ttf)
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
@@ -77,6 +75,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.assets.enabled = true
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+  config.assets.precompile += %w(.svg .eot .woff .ttf)
   # Paperclip.options[:command_path] = "/usr/local/bin/"
   Paperclip::Attachment.default_options[:command_path] = "/usr/local/bin"
 end

@@ -4,7 +4,6 @@ class DashController < ApplicationController
     @user = User.new
 
     @location = Location.find_or_create_by(location_params)
-    session[:location] = @location.id
     weather_info = Forecast.new(params[:forecast])
 
     @weather = weather_info.current_weather

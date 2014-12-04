@@ -5,7 +5,8 @@
       <figure>
         <figcaption>
           <p><%= comment.item.name %></p>
-          <p><%= link_to comment.user.username, user_path(comment.user) %>, <%= @location.address %></p>
+          <p><%= link_to comment.user.username, user_path(comment.user), class: "profile-link" %></p>
+          <p><%= @location.address %></p>
           <p><%= comment.content %></p>
         </figcaption>
         <%= image_tag comment.item.image.url(:medium) %>

@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
 gem 'paperclip', '~> 4.2'
 gem 'dotenv-rails'
 gem 'rack-handlers'

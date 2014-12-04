@@ -43,10 +43,13 @@ a.splash-button-primary{
 .dash {
   margin-top: 3em;
 }
+.upload-file{
+  margin-left: 2em;
+}
 
 #append {
   margin-top: 3.5em;
-   margin-bottom: 3.5em;
+  margin-bottom: 3.5em;
 }
 video#bgvid {
   min-width: 100%; min-height: 100%;
@@ -68,10 +71,6 @@ logo{
   text-align: left;
   margin-top: 2.4em;
   margin-left: 1em;
-}
-
-#recommend-btn{
-    margin-left: 36em;
 }
 
 .dash-header{
@@ -103,9 +102,18 @@ logo{
 .temp{
   float: right;
 }
+#share-btn{
+  margin-left: -2em;
+}
 .recommend-form{
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 30%;
+  margin-right: 30%;
+  display:block;
+  margin:.25em 0;
+}
+
+#recommend-btn{
+  text-align: center;
 }
 
 .dash-recommend-btn{
@@ -114,4 +122,8 @@ logo{
 
 #grid-gallery{
   margin-top: 6em;
+}
+
+.profile-link{
+  color: aqua;
 }
