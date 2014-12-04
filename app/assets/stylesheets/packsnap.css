@@ -18,14 +18,14 @@ body {
 }
 
 ul{
-     list-style:none;
+  list-style:none;
 }
 
 .splash-button {
-    background-color: #0076df;
-    color: white;
-    padding: 0.5em 2em;
-    border-radius: 5px;
+  background-color: #0076df;
+  color: white;
+  padding: 0.5em 2em;
+  border-radius: 5px;
 }
 a.splash-button-primary{
   background: #0076df;
@@ -110,6 +110,7 @@ logo{
   margin-right: 30%;
   display:block;
   margin:.25em 0;
+  text-align: center;
 }
 
 #recommend-btn{
@@ -126,4 +127,8 @@ logo{
 
 .profile-link{
   color: aqua;
+}
+
+.error-link{
+  color: black;
 }
