@@ -9,14 +9,28 @@ describe DashController do
   end
 
   describe 'Get #new' do
-    it 'assigns a new Item' do
-      get :new
-      expect(assigns[:item]).to be_a_new(Item)
-    end
+    context 'with user signed in' do
+      before do
+        session[:user_id] = 1
+      end
+      after do
+        session[:user_id] = nil
+      end
+      it 'assigns a new Item' do
+        get :new
+        expect(assigns[:item]).to be_a_new(Item)
+      end
 
-    it 'renders :new template' do
-      get :new
-      expect(response).to render_template(:new)
+      it 'renders :new template' do
+        get :new
+        expect(response).to render_template(partial: "dash/_new_item_form")
+      end
+    end
+    context 'without user signed in' do
+      it "should render error" do
+        get :new
+        expect(response).to render_template(partial: "dash/_error")
+      end
     end
   end
 
