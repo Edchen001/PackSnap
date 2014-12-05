@@ -9,7 +9,7 @@ PackSnap is a visual travel app that makes packing for a new trip easier. We use
 ###Team Members
 ####Ed Chen
 * GitHub: https://github.com/Edchen001
-* LinkedIn:
+* LinkedIn: http://www.linkedin.com/in/edchen001
 * Email: edchen001@gmail.com
 
 ####Xiran Ou
@@ -19,10 +19,12 @@ PackSnap is a visual travel app that makes packing for a new trip easier. We use
 
 ####Viktor Nikitenko
 * GitHub: https://github.com/vnikiten01
+* LinkedIn: https://www.linkedin.com/pub/viktor-nikitenko/14/4/a76
 * Email: vnikiten01@gmail.com
 
 ####Baron Willeford
 * GitHub: https://github.com/baron816
+* LinkedIn: https://www.linkedin.com/pub/baron-willeford/34/504/4b4
 * Email: baron.willeford@gmail.com
 
 ####AJ Stuhrenberg
