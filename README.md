@@ -2,7 +2,7 @@
 
 #PackSnap
 
-PackSnap is a visual travel app that makes packing for a new trip easier. We use a combination of the ForecastIO API, Google Maps API, and a network of recommendations from fellow travelers  to help provide the user with the right tools to prepare for any destination. You worry less about figuring out what to bring and more time discovering essential items needed on your next adventure. 
+PackSnap is a visual travel app that makes packing for a new trip easier. We leverage a combination of API's (ForecastIO, Google Maps, Amazon), and a network of shared recommendations from fellow travelers to help provide the user with the right tools to prepare for any destination. You worry less about figuring out what to bring and more time discovering essential items needed on your next adventure. 
 
 ==========
 
