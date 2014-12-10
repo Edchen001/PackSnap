@@ -24,7 +24,7 @@ class DashController < ApplicationController
   end
 
   def create
-    @item = Item.new(location_id: location_params[:id])
+    @item = Item.new(user_id: session[:user_id], location_id: location_params[:id])
     @comment = Comment.new(user_id: session[:user_id], location_id: location_params[:id], item: @item)
 
     @comment.assign_attributes(comment_params)
