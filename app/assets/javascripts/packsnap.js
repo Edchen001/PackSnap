@@ -16,13 +16,13 @@ function appendToFront (selector, partial) {
 }
 
 function findPos(tag) {
-    var curtop = 0;
-    if (tag.offsetParent) {
-      do {
-        curtop += tag.offsetTop;
-      } while (tag = tag.offsetParent);
-        return [curtop];
-    }
+  var curtop = 0;
+  if (tag.offsetParent) {
+    do {
+      curtop += tag.offsetTop;
+    } while (tag = tag.offsetParent);
+      return [curtop];
+  }
 }
 
 $(function(){
@@ -50,7 +50,7 @@ $(function(){
           appendToFront("#append", response);
           window.scroll(0,(findPos(document.getElementById("db-container"))));
           new CBPGridGallery(document.getElementById('grid-gallery'));
-          $( '#mi-slider' ).catslider();
+          $('#mi-slider').catslider();
         });
          $("#geocomplete").unbind('geocode:result');
     });
@@ -68,9 +68,6 @@ $(function(){
       .done(function(response) {
         appendToFront(".dash-recommend-btn", response);
         window.scrollTo(0,document.body.scrollHeight);
-
-      }).fail(function() {
-        console.log("error");
-      })
-    })
+      });
+    });
 });
