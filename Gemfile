@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'aws-sdk'
 gem 'paperclip', '~> 4.2'
 gem 'dotenv-rails'
 gem 'rack-handlers'
