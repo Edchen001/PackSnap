@@ -15,4 +15,5 @@
 /log/*.log
 /tmp
 .env
+.ruby-version
 coverage
